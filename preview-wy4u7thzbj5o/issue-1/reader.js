@@ -74,7 +74,7 @@ const end = e => {
 vp.addEventListener('pointerup', end); vp.addEventListener('pointercancel', e => { down = false; if (drag) { track.style.transition = ''; go(cur); } });
 
 /* share badges */
-const url = 'https://hatlem72-creator.github.io/ace/issue-1/', text = 'Shock Me! The night Ace Frehley was electrocuted on stage (1976). A true tale in comic form';
+const url = 'https://hatlem72-creator.github.io/ace/preview-wy4u7thzbj5o/issue-1/', text = 'Shock Me! The night Ace Frehley was electrocuted on stage (1976). A true tale in comic form';
 const u = encodeURIComponent(url), t = encodeURIComponent(text);
 const sh = $('#share');
 sh.insertAdjacentHTML('beforeend', [
