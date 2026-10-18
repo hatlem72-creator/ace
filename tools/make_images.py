@@ -1,0 +1,26 @@
+#!/usr/bin/env python3
+"""Raw art in img-src/raw/ -> optimised web images in issue-1/img/ and img/ (run from repo root)."""
+import os
+from PIL import Image, ImageDraw, ImageFont, ImageOps
+R = "img-src/raw"; OUT = "issue-1/img"; os.makedirs(OUT, exist_ok=True); os.makedirs("img", exist_ok=True)
+F = "/workspace/ace-fonts/Bangers.ttf"
+def save(im, path, w):
+    im = im.convert("RGB")
+    if im.width > w: im = im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
+    im.save(path + ".webp", "WEBP", quality=70, method=6)
+    im.save(path + ".jpg", "JPEG", quality=82, optimize=True, progressive=True)
+for n in ["p1-arena", "p2-stage", "p3-boot", "p4-hand", "p5-zap", "p6-guitar", "p7-crew", "p8-show", "cover"]:
+    save(Image.open(f"{R}/{n}.jpg"), f"{OUT}/{n}", 1280)
+c = Image.open(f"{R}/cover.jpg").convert("RGB")
+# portrait crop for the shop rack (3:4)
+save(ImageOps.fit(c, (540, 720), centering=(0.5, 0.5)), "img/issue1-rack", 540)
+# 1200x630 share image with banner
+s = ImageOps.fit(c, (1200, 630), centering=(0.5, 0.5)); d = ImageDraw.Draw(s)
+def T(xy, t, size, fill, sw=4):
+    f = ImageFont.truetype(F, size); x, y = xy
+    d.text((x + 6, y + 6), t, font=f, fill=(0, 0, 0), stroke_width=sw, stroke_fill=(0, 0, 0)); d.text((x, y), t, font=f, fill=fill, stroke_width=sw, stroke_fill=(0, 0, 0))
+d.rectangle([0, 0, 1200, 84], fill=(10, 10, 14)); T((28, 12), "ACE IS BACK!  TRUE TALES  •  No. 1", 58, (255, 214, 10), 2)
+f = ImageFont.truetype(F, 120); w = d.textlength("SHOCK ME!", font=f); T(((1200 - w) / 2, 470), "SHOCK ME!", 120, (255, 214, 10), 5)
+s.save("img/issue1-share.jpg", "JPEG", quality=84, optimize=True, progressive=True)
+for root in (OUT, "img"):
+    for x in sorted(os.listdir(root)): print(root + "/" + x, os.path.getsize(root + "/" + x) // 1024, "KB")
