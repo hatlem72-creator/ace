@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stats</title>
+<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#000;color:#ddd;font:15px/1.5 system-ui,sans-serif}
+main{width:min(420px,92vw)}h1{font-size:14px;letter-spacing:.3em;text-transform:uppercase;color:#888;font-weight:400;margin:0 0 18px}
+.row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid #222}.row b{font-size:30px;color:#ffd60a;font-weight:600}
+small{color:#666;display:block}p{color:#555;font-size:12px;margin-top:18px}</style></head>
+<body><main><h1>Ace Is Back! · stats</h1>
+<div class="row"><span>Teaser page visits<small>page loads of the public “coming soon” page</small></span><b id="t">…</b></div>
+<div class="row"><span>Old site counter<small>loads of the earlier public site, now frozen</small></span><b id="o">…</b></div>
+<p>Read-only: this page does not add a visit. Updated <span id="when"></span>.</p></main>
+<script>
+const get = (k, id) => fetch("https://abacus.jasoncameron.dev/get/" + k, {cache: "no-store"}).then(r => r.ok ? r.json() : {value: 0})
+  .then(d => document.getElementById(id).textContent = (+d.value || 0).toLocaleString("en-US")).catch(() => document.getElementById(id).textContent = "n/a");
+get("aceisback/teaser", "t"); get("hatlem72-creator-ace/visits", "o");
+document.getElementById("when").textContent = new Date().toLocaleString();
+</script></body></html>
