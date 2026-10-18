@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ace Is Back! True Tales — the crazy (true) stories of the Spaceman</title>
+<meta name="description" content="A pop-art comic book fan series of Ace Frehley's wildest true stories, every one sourced.">
+<meta property="og:title" content="Ace Is Back! True Tales">
+<meta property="og:description" content="The wildest true stories of Ace Frehley, told as pop-art comic issues.">
+<link rel="canonical" href="https://hatlem72-creator.github.io/ace/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hatlem72-creator.github.io/ace/">
+<meta property="og:image" content="https://hatlem72-creator.github.io/ace/img/hero-share.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ace Is Back! True Tales">
+<meta name="twitter:description" content="The wildest true stories of Ace Frehley, told as pop-art comic issues.">
+<meta name="twitter:image" content="https://hatlem72-creator.github.io/ace/img/hero-share.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="stars" aria-hidden="true"></canvas>
+<header class="hero">
+  <picture><source srcset="img/hero.webp" type="image/webp"><img class="hero-art" src="img/hero.jpg" alt="Pop-art comic scene: a chrome flying saucer over the New York skyline and a guitar blasting rockets and smoke into a starry purple sky" width="1200" height="675" onerror="this.closest('picture').remove()"></picture>
+  <div class="hero-in">
+    <p class="presents">A fan-made comic series</p>
+    <h1 class="logo" aria-label="Ace Is Back! True Tales"><span class="l1">Ace Is Back!</span><span class="l2">True Tales</span></h1>
+    <p class="tag">The wildest <b>true</b> stories of rock’s Spaceman, one issue at a time. Every tale sourced. Every panel drawn without a single face.</p>
+    <a class="btn" href="#rack">Browse the rack ↓</a>
+  </div>
+</header>
+
+<nav class="timeline" aria-label="Timeline">
+  <span class="tl-label">Jump through time:</span>
+  <div id="timeline" class="tl-track"></div>
+</nav>
+
+<main>
+  <section id="rack" class="rack">
+    <h2 class="sec"><span>The Rack</span></h2>
+    <p class="sub">Grab an issue. New ones land as the research checks out.</p>
+    <div id="rackGrid" class="rack-grid"></div>
+  </section>
+  <section class="poll-mount" id="vote"></section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <p class="logo small"><span class="l1">Ace Is Back!</span> <span class="l2">True Tales</span></p>
+    <p>A non-commercial fan tribute to Ace Frehley (1951–2025), founding lead guitarist of KISS. Not affiliated with or endorsed by KISS, the Frehley estate or any label. All illustrations are original artwork that shows scenes and objects only, with no likenesses, makeup designs or logos.</p>
+    <p>True means sourced: every story links its sources. Anything that rests only on Ace’s own telling gets a <span class="legend-tag">Legend</span> stamp.</p>
+    <details class="allsrc"><summary>All sources</summary><ul id="allSources"></ul></details>
+    <p class="visits" id="visits" hidden>⚡ Readers since October 2026: <b id="visitCount"></b></p>
+  </div>
+</footer>
+<script src="issues.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

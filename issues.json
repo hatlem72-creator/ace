@@ -1,0 +1,95 @@
+[
+ {
+  "no": 1,
+  "status": "out",
+  "era": "70s",
+  "year": 1976,
+  "date": "December 12, 1976",
+  "title": "Shock Me!",
+  "kicker": "The night the stage tried to electrocute the Spaceman",
+  "place": "Lakeland Civic Center, Lakeland, Florida",
+  "price": "35¢",
+  "shock": 9,
+  "cover": "img/issue1-cover",
+  "strip": "img/issue1-strip",
+  "stripAlt": "Four-panel pop-art comic: a packed 1970s arena stage; a silver glove grabbing a sparking metal handrail (ZZZAP!); a sunburst guitar tumbling through smoke (KRAKOOM!); an empty mic stand in a spotlight as the crowd roars, captioned 'Ten minutes later... the show goes on!'",
+  "body": [
+   "Picture it: a sold-out Lakeland Civic Center, 10,000 fans, and KISS making their grand entrance down glittering metal staircases for “Detroit Rock City”. Ace, never famous for his balance, reaches for the handrail to steady himself.",
+   "Big mistake. The railing wasn’t grounded. His hand plus his plugged-in guitar completed the circuit, and for a few long seconds the Spaceman was locked to the stage set by pure electricity, high up on a staircase above a wall of Marshall cabinets. Then he toppled, luckily backwards rather than face-first, and the road crew dragged him off the stairs.",
+   "Did the show stop? Briefly. Did Ace go home? Absolutely not. He sat in the dressing room for about ten minutes, then marched back out to a standing ovation with the crowd chanting his name. He played the rest of the show with half his fingers still numb. (That same night, for good measure, Gene set his hair on fire.)",
+   "His bandmates suggested he write a song about it. The result, “Shock Me” on 1977’s <i>Love Gun</i>, was the first KISS song Ace ever sang lead on. He was so nervous he recorded the vocal lying on his back in a darkened studio."
+  ],
+  "quotes": [
+   {
+    "text": "I should have been dead that night. The fact that I got electrocuted and didn’t fall forward was a godsend. There must have been angels pushing me back.",
+    "who": "Ace Frehley, to Guitar Player",
+    "href": "https://www.guitarplayer.com/guitarists/ace-frehley-shock-me"
+   },
+   {
+    "text": "I didn’t lie on my back to hit high notes — I did it because I was nervous and I didn’t want anybody to see me sing.",
+    "who": "Ace Frehley, Guitar World Legends #14 (1992), via KISS Concert History",
+    "href": "https://www.kissconcerthistory.com/song_stories/song_stories_lovegun_04.php"
+   }
+  ],
+  "facts": [
+   [
+    "Date",
+    "Dec 12, 1976"
+   ],
+   [
+    "Tour",
+    "Rock and Roll Over (Winter 1976/77)"
+   ],
+   [
+    "Where he stood",
+    "On a staircase above four Marshall cabinets"
+   ],
+   [
+    "Crowd",
+    "~10,000, sold out"
+   ],
+   [
+    "Song it inspired",
+    "“Shock Me” (Love Gun, 1977)"
+   ]
+  ],
+  "note": "You may have read this happened in 1974. The concert records put it on December 12, 1976.",
+  "sources": [
+   [
+    "KISS Concert History Online: Dec 12, 1976 (incl. Rolling Stone & Tampa Bay Times quotes)",
+    "https://www.kissconcerthistory.com/1976/1976-1212.php"
+   ],
+   [
+    "Guitar Player: “I should have been dead.” Ace Frehley on the stunt that nearly killed him",
+    "https://www.guitarplayer.com/guitarists/ace-frehley-shock-me"
+   ],
+   [
+    "Wikipedia: “Shock Me”",
+    "https://en.wikipedia.org/wiki/Shock_Me"
+   ],
+   [
+    "KISS Concert History: Song Stories, “Shock Me”",
+    "https://www.kissconcerthistory.com/song_stories/song_stories_lovegun_04.php"
+   ]
+  ],
+  "seo": "The Night Ace Frehley Was Electrocuted on Stage (1976)",
+  "desc": "Lakeland, Florida, 1976: an ungrounded handrail zaps the Spaceman mid-show. He comes back ten minutes later and turns it into “Shock Me”. A true tale, told as a pop-art comic.",
+  "share": "img/issue1-share.jpg",
+  "focus": "58%"
+ },
+ {
+  "no": 2,
+  "status": "soon",
+  "era": "70s"
+ },
+ {
+  "no": 3,
+  "status": "soon",
+  "era": "70s"
+ },
+ {
+  "no": 4,
+  "status": "soon",
+  "era": "80s"
+ }
+]
