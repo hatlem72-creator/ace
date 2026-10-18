@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Raw art in img-src/raw/ -> optimised web images in issue-1/img/ and img/ (run from repo root)."""
+"""Raw art in img-src/raw/ -> optimised web images in issue-1/img/ and img/ (run from repo root; writes into the preview folder)."""
 import os
 from PIL import Image, ImageDraw, ImageFont, ImageOps
-R = "img-src/raw"; OUT = "issue-1/img"; os.makedirs(OUT, exist_ok=True); os.makedirs("img", exist_ok=True)
+P = "preview-wy4u7thzbj5o"; R = "img-src/raw"; OUT = P + "/issue-1/img"; IMG = P + "/img"; os.makedirs(OUT, exist_ok=True); os.makedirs(IMG, exist_ok=True)
 F = "/workspace/ace-fonts/Bangers.ttf"
 def save(im, path, w):
     im = im.convert("RGB")
@@ -13,7 +13,7 @@ for n in ["p1-arena", "p2-stage", "p3-boot", "p4-hand", "p5-zap", "p6-guitar", "
     save(Image.open(f"{R}/{n}.jpg"), f"{OUT}/{n}", 1280)
 c = Image.open(f"{R}/cover.jpg").convert("RGB")
 # portrait crop for the shop rack (3:4)
-save(ImageOps.fit(c, (540, 720), centering=(0.5, 0.5)), "img/issue1-rack", 540)
+save(ImageOps.fit(c, (540, 720), centering=(0.5, 0.5)), IMG + "/issue1-rack", 540)
 # 1200x630 share image with banner
 s = ImageOps.fit(c, (1200, 630), centering=(0.5, 0.5)); d = ImageDraw.Draw(s)
 def T(xy, t, size, fill, sw=4):
@@ -21,6 +21,6 @@ def T(xy, t, size, fill, sw=4):
     d.text((x + 6, y + 6), t, font=f, fill=(0, 0, 0), stroke_width=sw, stroke_fill=(0, 0, 0)); d.text((x, y), t, font=f, fill=fill, stroke_width=sw, stroke_fill=(0, 0, 0))
 d.rectangle([0, 0, 1200, 84], fill=(10, 10, 14)); T((28, 12), "ACE IS BACK!  TRUE TALES  •  No. 1", 58, (255, 214, 10), 2)
 f = ImageFont.truetype(F, 120); w = d.textlength("SHOCK ME!", font=f); T(((1200 - w) / 2, 470), "SHOCK ME!", 120, (255, 214, 10), 5)
-s.save("img/issue1-share.jpg", "JPEG", quality=84, optimize=True, progressive=True)
-for root in (OUT, "img"):
+s.save(IMG + "/issue1-share.jpg", "JPEG", quality=84, optimize=True, progressive=True)
+for root in (OUT, IMG):
     for x in sorted(os.listdir(root)): print(root + "/" + x, os.path.getsize(root + "/" + x) // 1024, "KB")
