@@ -183,3 +183,9 @@ body.dark .dots button{border-color:#f4ecd6}body.dark .dots button.on{background
 .page.on.pan .panel img{animation:kbpan 9s cubic-bezier(.45,.05,.55,.95) forwards}
 @keyframes kbpan{from{object-position:0% 50%;transform:var(--k0)}to{object-position:100% 50%;transform:var(--k1)}}
 @media (prefers-reduced-motion:reduce){.page.on.pan .panel img,.pan .panel img{animation:none;transform:none}}
+
+/* zoomout: start tight on a point (--zx/--zy, portrait --mzx) and pull back slowly */
+.zoomout .panel img{transform-origin:var(--zx,50%) var(--zy,50%)}
+@media (orientation:portrait){.zoomout .panel img{transform-origin:var(--mzx,var(--zx,50%)) var(--zy,50%)}}
+.page.on.zoomout .panel img{animation:kb 9.5s cubic-bezier(.4,.1,.45,1) forwards}
+@media (prefers-reduced-motion:reduce){.page.on.zoomout .panel img,.zoomout .panel img{animation:none;transform:none}}

@@ -1,7 +1,8 @@
 /* Issue #2 script: "Gone in Fifth Gear!" (White Plains, NY, 21 May 1983)
    Panel: img, focus (portrait crop x), kb (Ken Burns: in|out|l|r|up|dn), spread (full-bleed big moment), buzz (vibration ms on arrival).
    Bits: cap (narration), say (invented comic dialogue, no name), quote (real, attributed), sfx. acev:true = "Ace's version" tag.
-   pos: tl tr bl br tc bc. sfx x/y (landscape) and mx/my (portrait) in % of panel. */
+   pos: tl tr bl br tc bc. sfx x/y (landscape) and mx/my (portrait) in % of panel.
+   kb: in out l r up dn pan (left-to-right sweep) zoomout (slow pull-back from zx/zy; mzx = portrait origin x). */
 const STORY = {
   panels: [
     { img: "d01-open", focus: "62%", kb: "in", alt: "A sunny downtown street corner in 1983. A stainless-steel DeLorean with its gull-wing doors up waits at the curb as a masked rocker in a leather jacket strides toward it, twirling his keys.",
@@ -24,7 +25,7 @@ const STORY = {
     { img: "d07-vroom", focus: "55%", kb: "out", spread: true, buzz: 60, alt: "The DeLorean blasts away from the curb in a cloud of tyre smoke. The officer's cap flies off and a police car flashes behind.",
       bits: [ {t: "sfx", x: 50, y: 22, mx: 50, my: 18, rot: -6, size: 1.8, text: "VROOOM!"},
               {t: "cap", pos: "bl", text: "Gull-wing door down. Foot down. Ace is gone."} ] },
-    { img: "d08-speedo", focus: "19%", kb: "in", rattle: true, buzz: 40, alt: "Extreme close-up of a shaking speedometer marked 0 to 85 mph: the red needle is jammed against the 85 peg, ghost needles trailing behind it, while a black leather glove grips the gear stick.",
+    { img: "d08-speedo", focus: "19%", kb: "zoomout", zx: "35%", zy: "47%", mzx: "56%", rattle: true, buzz: 40, alt: "Extreme close-up of a shaking speedometer marked 0 to 85 mph: the red needle is jammed against the 85 peg, ghost needles trailing behind it, while a black leather glove grips the gear stick.",
       bits: [ {t: "cap", pos: "tr", text: "A US-model DeLorean speedometer only goes up to 85 mph."},
               {t: "cap", pos: "bl", text: "Police say he hit 90."},
               {t: "quote", pos: "br", text: "I hit fifth gear, and I was gone.", who: "Ace Frehley, to Loudwire"} ] },

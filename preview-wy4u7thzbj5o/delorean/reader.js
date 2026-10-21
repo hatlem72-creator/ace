@@ -8,13 +8,14 @@ const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const KB = { in: ['scale(1.04)', 'scale(1.13)'], out: ['scale(1.15)', 'scale(1.04)'],
   l: ['scale(1.1) translateX(2.5%)', 'scale(1.1) translateX(-2.5%)'], r: ['scale(1.1) translateX(-2.5%)', 'scale(1.1) translateX(2.5%)'],
   up: ['scale(1.1) translateY(2.5%)', 'scale(1.1) translateY(-2.5%)'], dn: ['scale(1.1) translateY(-2.5%)', 'scale(1.1) translateY(2.5%)'],
-  pan: ['scale(1.14) translateX(6%)', 'scale(1.14) translateX(-6%)'] };
+  pan: ['scale(1.14) translateX(6%)', 'scale(1.14) translateX(-6%)'],
+  zoomout: ['scale(1.7)', 'scale(1.02)'] };
 const VT = '<span class="vt">Ace’s version</span>';
 
 /* build panel pages */
 STORY.panels.forEach((p, i) => {
   const s = document.createElement('section');
-  s.className = 'page panel-page' + (p.spread ? ' spread' : '') + (p.rattle ? ' rattle' : '') + (p.kb === 'pan' ? ' pan' : '');
+  s.className = 'page panel-page' + (p.spread ? ' spread' : '') + (p.rattle ? ' rattle' : '') + (p.kb === 'pan' ? ' pan' : '') + (p.kb === 'zoomout' ? ' zoomout' : '');
   s.setAttribute('aria-label', `Panel ${i + 1} of ${STORY.panels.length}`);
   if (p.buzz) s.dataset.buzz = p.buzz;
   let d = 0.65;                                                  // lettering starts after the art has landed
@@ -34,7 +35,7 @@ STORY.panels.forEach((p, i) => {
     + `<div class="lt top">${grp(q => q[0] === 't')}</div><div class="lt bot">${grp(q => q[0] === 'b')}</div>`;
   s.dataset.done = Math.round(d * 1000);
   const [k0, k1] = KB[p.kb || 'in'];
-  s.innerHTML = `<div class="sheet"><figure class="panel" style="--fx:${p.focus || '50%'};--k0:${k0};--k1:${k1}">
+  s.innerHTML = `<div class="sheet"><figure class="panel" style="--fx:${p.focus || '50%'};--k0:${k0};--k1:${k1}${p.zx ? `;--zx:${p.zx}` : ''}${p.zy ? `;--zy:${p.zy}` : ''}${p.mzx ? `;--mzx:${p.mzx}` : ''}">
       <picture><source data-srcset="img/${p.img}.webp" type="image/webp"><img data-src="img/${p.img}.jpg" alt="${esc(p.alt)}" width="1280" height="720" decoding="async"></picture>
       ${bits}</figure><span class="pno">${i + 1}</span></div>`;
   track.insertBefore(s, endPage);
