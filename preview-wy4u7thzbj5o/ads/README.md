@@ -36,7 +36,8 @@ the row removes itself if all its ads are hidden. Random slots on one page never
    - **"Support your local record shop!"** – the run-down little shop by itself, **no people at all**, linking to a shop finder (https://recordstoreday.com/Stores).
    - **"Buy vinyl. Anywhere!"** – a wonky invented 1970s superfan beaming and proudly holding up **that site's artist's record**
      (generic stylised sleeve, no real cover art; the caption/alt names the artist), with homemade, wonky DIY fan face paint
-     that clearly does not copy any band's makeup. The button goes to the artist's Discogs artist page (verify the URL).
+     (Ace site: a hand-smeared silver lightning bolt on ONE cheek plus glitter; nothing around the eyes, no white base)
+     that clearly does not copy any band member's makeup design. The button goes to the artist's Discogs artist page (verify the URL).
 5. **Models are wonky people FROM THE 1970s**: quirky, odd, funny-faced, invented, never real or recognisable people.
    70s hair (perms, feathered hair, afros, mullets, big sideburns, moustaches), flares, wide collars, tinted aviators, polyester,
    70s interiors and colours (orange, brown, mustard, avocado). The photography is a 70s photo with modern punch; the layout stays modern.

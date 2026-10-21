@@ -99,5 +99,5 @@ a{color:inherit}
 @media (min-width:700px){
   .slot.slot-leader .vad{grid-template-columns:minmax(0,2.2fr) minmax(0,1fr)}
   .slot.slot-leader .vad-pic{aspect-ratio:auto;height:200px}
-  .slot.slot-leader .vad-pic img{object-position:50% 35%}
+  .slot.slot-leader .vad-pic img{object-position:50% 12%}
 }

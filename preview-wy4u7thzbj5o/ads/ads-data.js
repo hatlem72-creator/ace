@@ -75,7 +75,7 @@ window.VINYL_ADS = {
   },
   anywhere: {
     url: "https://www.discogs.com/artist/315339-Ace-Frehley", label: "Ace on Discogs", color: "#8fb4ff", img: "ad-anywhere",
-    alt: "A beaming 1970s superfan with a curly perm, a moustache, a wonky homemade silver star smeared round one eye and glitter on his cheeks holds up an Ace Frehley LP in a dark starry sleeve with a silver lightning bolt.",
+    alt: "A beaming 1970s superfan with a curly perm and a moustache, a wonky homemade silver lightning bolt smeared on one cheek and glitter on the other, holds up an Ace Frehley LP in a dark starry sleeve with a silver lightning bolt.",
     caption: "Model is holding an Ace Frehley record.",
     head: "Buy vinyl. Anywhere!",
     fine: "Face paint optional. Glitter is forever."
@@ -87,11 +87,11 @@ window.VINYL_ADS = {
     "pencil": { color: "#2ec4b6", img: "ad-pencil", head: "Rewind with a pencil.", fine: "Batteries are for quitters.",
       alt: "A wide-eyed 1970s grandma with a grey perm and huge glasses winds a cassette tape with a yellow pencil." },
     "straws": { color: "#ff5fa2", img: "ad-straws", head: "Suck it, paper.", fine: "Plastic straws: still the loudest way to finish a milkshake.",
-      alt: "A sweaty 1970s bodybuilder with a perm, a moustache and a headband sips a pink milkshake through three plastic straws taped together." },
+      alt: "A sweaty 1970s bodybuilder with a perm, a moustache and a headband grips a pink milkshake and sips it through three plastic straws taped together into one contraption." },
     "mixtape": { color: "#ff3b5c", img: "ad-mixtape", head: "Mixtape = love letter.", fine: "Side B is where you say it.",
       alt: "A nervous 1970s teenager with braces and a shaggy haircut holds out a cassette with a hand-drawn heart on it." },
     "louder": { color: "#3b82ff", img: "ad-louder", head: "Louder.", fine: "Hair not guaranteed to come back.",
-      alt: "A small man in a powder-blue 1970s leisure suit stands before a towering wall of speakers, his long hair and scarf blown sideways." },
+      alt: "A man in a powder-blue 1970s leisure suit leans into the blast from a towering wall of speakers, his long hair and tie blown straight back." },
     "champagne": { color: "#e8c35a", img: "ad-champagne", head: "Bring a straw.", fine: "Vintage pressing. Vintage bubbly. Bendy straw, obviously.",
       alt: "A smug 1970s man in a velvet bow tie and frilly shirt sips champagne off a vinyl record through a striped bendy straw." },
     "side-b": { color: "#9be15d", img: "ad-side-b", head: "Side B is better.", fine: "He will tell you why. For an hour.",
