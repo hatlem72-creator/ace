@@ -16,7 +16,7 @@ const VT = '<span class="vt">Ace’s version</span>';
 /* build panel pages */
 STORY.panels.forEach((p, i) => {
   const s = document.createElement('section');
-  s.className = 'page panel-page' + (p.spread ? ' spread' : '') + (p.rattle ? ' rattle' : '') + (['pan', 'zoomout', 'panout'].includes(p.kb) ? ' ' + p.kb : '');
+  s.className = 'page panel-page' + (p.spread ? ' spread' : '') + (p.rattle ? ' rattle' : '') + (['pan', 'zoomout', 'panout'].includes(p.kb) ? ' ' + p.kb : '') + (p.mtop === 'right' ? ' mtop-r' : '');
   s.setAttribute('aria-label', `Panel ${i + 1} of ${STORY.panels.length}`);
   if (p.buzz) s.dataset.buzz = p.buzz;
   let d = 0.65;                                                  // lettering starts after the art has landed

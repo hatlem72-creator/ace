@@ -2,7 +2,7 @@
    Panel: img, focus (portrait crop x), kb (Ken Burns: in|out|l|r|up|dn), spread (full-bleed big moment), buzz (vibration ms on arrival).
    Bits: cap (narration), say (invented comic dialogue, no name), quote (real, attributed), sfx. acev:true = "Ace's version" tag.
    pos: tl tr bl br tc bc. sfx x/y (landscape) and mx/my (portrait) in % of panel.
-   kb: in out l r up dn pan (left-to-right sweep) zoomout (slow pull-back from zx/zy; mzx = portrait origin x) panout (pan left-to-right while zooming out). */
+   kb: in out l r up dn pan (left-to-right sweep) zoomout (slow pull-back from zx/zy; mzx = portrait origin x) panout (pan left-to-right while zooming out). mtop: "right" stacks top bits on the right on portrait screens. */
 const STORY = {
   panels: [
     { img: "d01-open", focus: "62%", kb: "in", alt: "A sunny downtown street corner in 1983. A stainless-steel DeLorean with its gull-wing doors up waits at the curb as a masked rocker in a leather jacket strides toward it, twirling his keys.",
@@ -49,10 +49,9 @@ const STORY = {
               {t: "cap", pos: "tl", text: "He steps outside. The police are waiting."},
               {t: "say", pos: "tr", tail: "l", shout: true, text: "GET DOWN ON THE GROUND! NOW!"},
               {t: "cap", pos: "br", acev: true, small: true, text: "A deli phone booth, and “like 15 cops with their guns drawn.”"} ] },
-    { img: "d14-cell", focus: "50%", kb: "r", alt: "Night in a holding cell: the masked rocker stands on the metal bench with his arms spread wide like he is on stage, while two scruffy drunk cellmates gawk at him, one pointing with his jaw dropped, the other clutching his head in disbelief.",
-      bits: [ {t: "say", pos: "tl", tail: "b", text: "Hey… wait a minute… you’re ACE!"},
-              {t: "say", pos: "tr", tail: "b", text: "No way, man! In OUR cell?!"},
-              {t: "cap", pos: "bl", text: "Charges: drunken driving, reckless driving, leaving the scene. On Monday he posts $500 bail."},
-              {t: "quote", pos: "br", text: "Had this been twenty-five years later, the fallout would have been much worse: mug shot on TMZ.com…", who: "Ace Frehley, No Regrets (2011)"} ] }
+    { img: "d14-cell", focus: "60%", kb: "in", mtop: "right", alt: "Low angle inside a dark holding cell framed by bars: the masked rocker stands centre-stage on the steel bench like a rock star, one arm thrown up, lit by a single spotlight beam from the barred window and a pop-art starburst. Two scruffy drunk cellmates in the foreground gaze up in awe, one pointing, one clutching his cheeks, while a third inmate peeks from the next cell.",
+      bits: [ {t: "say", pos: "tl", tail: "l", text: "Hey… you’re ACE!"},
+              {t: "say", pos: "tr", tail: "r", text: "In OUR cell?!"},
+              {t: "cap", pos: "bc", mini: true, text: "Locked up till Monday. Bail: $500."} ] }
   ]
 };
