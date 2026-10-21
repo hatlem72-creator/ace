@@ -171,3 +171,7 @@ body.dark .dots button{border-color:#f4ecd6}body.dark .dots button.on{background
 @media (orientation:portrait){.cover-page .sheet{width:min(calc(100vw - 24px),calc((100dvh - 270px) * 3 / 4))}}
 
 .bubble.acev{background:#fff6d8}
+
+/* cover without masthead: the story's strongest panel, small clean title */
+.cover-page .ctitle{font-size:clamp(34px,7cqw,104px);bottom:5%;transform:translateX(-50%) rotate(-3deg)}
+@media (orientation:portrait){.cover-page .ctitle{font-size:clamp(32px,11cqw,60px)}}

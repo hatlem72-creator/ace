@@ -93,3 +93,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 .dots button.on{background:#111;border-color:#111;width:22px;border-radius:5px}
 @media (prefers-reduced-motion:reduce){.track{transition:none}.page .bit,.page .sfx{opacity:1;animation:none!important}.hint span{animation:none}}
 @media (orientation:portrait){.sfx{white-space:normal;width:max-content;max-width:92%;text-align:center;line-height:.95}}
+
+/* cover without masthead: the story's strongest panel, small clean title */
+.cover-page .ctitle{font-size:clamp(34px,7cqw,104px);bottom:5%;transform:translateX(-50%) rotate(-3deg)}
+@media (orientation:portrait){.cover-page .ctitle{font-size:clamp(32px,11cqw,60px)}}

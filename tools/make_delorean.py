@@ -14,14 +14,13 @@ def save(im, path, w, q=64):
     im.save(path + ".jpg", "JPEG", quality=80, optimize=True, progressive=True)
 for n in PANELS:
     save(Image.open(f"{R}/{n}.jpg"), f"{OUT}/{n}", 1280)
-c = Image.open(f"{R}/cover.jpg").convert("RGB")
-save(ImageOps.fit(c, (540, 720), centering=(0.55, 0.5)), IMG + "/issue2-rack", 540)
-s = ImageOps.fit(c, (1200, 630), centering=(0.5, 0.45)); d = ImageDraw.Draw(s)
+c = Image.open(f"{R}/d14-cell.jpg").convert("RGB")  # thumbnail/share = the story's strongest panel (no masthead)
+save(ImageOps.fit(c, (540, 720), centering=(0.5, 0.5)), IMG + "/issue2-rack", 540)
+s = ImageOps.fit(c, (1200, 630), centering=(0.5, 0.4)); d = ImageDraw.Draw(s)
 def T(xy, t, size, fill, sw=4):
     f = ImageFont.truetype(F, size); x, y = xy
     d.text((x + 6, y + 6), t, font=f, fill=(0, 0, 0), stroke_width=sw, stroke_fill=(0, 0, 0)); d.text((x, y), t, font=f, fill=fill, stroke_width=sw, stroke_fill=(0, 0, 0))
-d.rectangle([0, 0, 1200, 84], fill=(10, 10, 14)); T((28, 12), "ACE IS BACK!  TRUE TALES  •  No. 2", 58, (255, 214, 10), 2)
-f = ImageFont.truetype(F, 112); w = d.textlength("GONE IN FIFTH GEAR!", font=f); T(((1200 - w) / 2, 486), "GONE IN FIFTH GEAR!", 112, (255, 214, 10), 5)
+f = ImageFont.truetype(F, 92); w = d.textlength("GONE IN FIFTH GEAR!", font=f); T(((1200 - w) / 2, 516), "GONE IN FIFTH GEAR!", 92, (255, 214, 10), 4)
 s.save(IMG + "/issue2-share.jpg", "JPEG", quality=84, optimize=True, progressive=True)
 for root in (OUT, IMG):
     for x in sorted(os.listdir(root)): print(root + "/" + x, os.path.getsize(root + "/" + x) // 1024, "KB")
