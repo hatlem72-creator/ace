@@ -1,42 +1,53 @@
-/* Retro fake vinyl ads: 1970s back-of-the-comic mail-order look. Self-contained: everything is scoped to .vad. */
-.vad{--vp:#f4ead0;--vi:#111;--vr:#e3262d;--vy:#ffd60a;--vb:#1d5fd8;
-  position:relative;box-sizing:border-box;container-type:inline-size;margin:0;padding:18px 18px 12px;text-align:left;color:var(--vi);
-  background:var(--vp);border:3px solid var(--vi);box-shadow:6px 6px 0 var(--vi);
-  background-image:radial-gradient(rgba(0,0,0,.09) 1px,transparent 1.3px),radial-gradient(ellipse at 30% 20%,rgba(255,255,255,.5),transparent 60%),linear-gradient(transparent,rgba(120,90,30,.12));
-  background-size:5px 5px,100% 100%,100% 100%;font:400 15px/1.35 Georgia,"Times New Roman",serif;transform:rotate(-.4deg)}
+/* Fake vinyl ads: sleek, dark, record-label look. Self-contained: everything is scoped to .vad (accent colour per ad: --ac). */
+.vad{--ac:#ffd60a;--vt:#f2f2f5;--vm:#9a9aa8;
+  position:relative;box-sizing:border-box;container-type:inline-size;display:block;
+  margin:0;padding:24px 26px 22px;border-radius:20px;color:var(--vt);text-align:left;isolation:isolate;overflow:hidden;
+  background:radial-gradient(120% 90% at 0% 0%,color-mix(in srgb,var(--ac) 16%,transparent),transparent 55%),linear-gradient(160deg,#17171e 0%,#0b0b0f 60%,#08080a 100%);
+  border:1px solid rgba(255,255,255,.09);box-shadow:0 24px 50px -24px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.07);
+  font:400 15px/1.5 "Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;transition:border-color .3s,box-shadow .3s,transform .3s}
 .vad *{box-sizing:border-box}
-.vad:nth-child(even){transform:rotate(.5deg)}
-.vad::before{content:"";position:absolute;inset:5px;border:1.5px solid var(--vi);pointer-events:none}
-.vad-tag{position:absolute;top:-12px;left:14px;z-index:2;background:var(--vi);color:var(--vy);font:400 13px/1 "Bangers",Impact,sans-serif;letter-spacing:.08em;padding:4px 8px 3px;transform:rotate(-2deg)}
-.vad-burst{position:absolute;top:-22px;right:-14px;z-index:2;width:96px;height:96px;display:grid;place-items:center;text-align:center;
-  background:var(--vy);clip-path:polygon(50% 0,61% 17%,79% 7%,80% 27%,98% 30%,87% 46%,100% 60%,82% 67%,86% 86%,67% 83%,58% 100%,45% 86%,28% 96%,25% 77%,5% 75%,14% 58%,0 43%,17% 33%,13% 13%,33% 16%);
-  transform:rotate(12deg);filter:drop-shadow(2px 2px 0 var(--vi))}
-.vad-burst span{max-width:64px;font:400 15px/.95 "Bangers",Impact,sans-serif;letter-spacing:.03em;color:var(--vr);text-transform:uppercase}
-.vad-head{margin:6px 70px 2px 0;font:400 clamp(26px,8.6cqw,46px)/.92 "Bangers",Impact,"Arial Black",sans-serif;letter-spacing:.02em;text-transform:uppercase;color:var(--vr);-webkit-text-stroke:1px var(--vi);text-shadow:3px 3px 0 var(--vi)}
-.vad-sub{margin:6px 0 10px;font:700 italic clamp(14px,3.6cqw,18px)/1.2 Georgia,serif}
-.vad-mid{display:grid;grid-template-columns:minmax(120px,38%) 1fr;gap:14px;align-items:start}
-.vad-disc{display:block;width:100%;height:auto;overflow:visible}
-.vad-disc .vad-st{font-family:"Bangers",Impact,sans-serif;letter-spacing:.04em}
-.vad-vinyl{transition:transform .5s cubic-bezier(.3,1.4,.5,1)}
-.vad:hover .vad-vinyl{transform:translateX(10px) rotate(25deg);transform-origin:128px 75px}
-.vad-facts{margin:0 0 8px;padding:6px 8px;background:#fff;border:2px solid var(--vi);font:400 13.5px/1.3 Georgia,serif}
-.vad-facts b{font-weight:700}.vad-facts cite{font-style:italic;font-weight:700}
-.vad-body{margin:0 0 8px}
-.vad-q{margin:0;padding:6px 10px;border-left:5px solid var(--vb);background:rgba(29,95,216,.08);font:italic 14px/1.3 Georgia,serif}
-.vad-q cite{display:block;margin-top:3px;font:normal 12px/1.2 Georgia,serif;color:#444}
-.vad-coupon{position:relative;margin:14px 0 8px;padding:12px 12px 10px;border:2.5px dashed var(--vi);background:#fffdf3}
-.vad-scissors{position:absolute;top:-15px;left:-6px;font-size:22px;line-height:1;background:var(--vp);padding:0 3px;transform:rotate(-90deg)}
-.vad-cq{margin:0 0 6px;font:400 19px/1.05 "Bangers",Impact,sans-serif;letter-spacing:.03em;text-transform:uppercase}
-.vad-lines{display:flex;align-items:flex-end;gap:6px;margin:0 0 10px;font:400 11px/1 "Courier New",monospace;text-transform:uppercase}
-.vad-lines i{flex:1;border-bottom:1.5px solid var(--vi);height:12px}
-.vad-act{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:0}
-.vad-btn{display:inline-block;padding:9px 14px 7px;background:var(--vr);color:#fff;text-decoration:none;border:2.5px solid var(--vi);box-shadow:3px 3px 0 var(--vi);
-  font:400 19px/1 "Bangers",Impact,sans-serif;letter-spacing:.05em;text-transform:uppercase;transition:transform .12s}
-.vad-btn:hover,.vad-btn:focus-visible{transform:rotate(-2deg) scale(1.05);background:var(--vb)}
-.vad-spin{font:700 14px/1 Georgia,serif;color:var(--vi);text-decoration:underline;text-underline-offset:3px}
-.vad-fine{margin:6px 0 0;font:400 10.5px/1.3 "Courier New",monospace;color:#3b3b3b}
-.vad-fine::before{content:"Fine print: ";font-weight:700}
-@container (max-width:420px){.vad-mid{grid-template-columns:1fr}.vad-disc{max-width:230px;margin:0 auto}.vad-head{margin-right:58px}}
-@media (prefers-reduced-motion:reduce){.vad-vinyl{transition:none}.vad:hover .vad-vinyl{transform:none}.vad-btn{transition:none}}
+.vad::after{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;pointer-events:none;opacity:.5;
+  background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.05) 50%,transparent 60%)}
+.vad:hover,.vad:focus-within{border-color:color-mix(in srgb,var(--ac) 55%,transparent);transform:translateY(-2px);
+  box-shadow:0 0 0 1px color-mix(in srgb,var(--ac) 25%,transparent),0 0 38px -6px color-mix(in srgb,var(--ac) 45%,transparent),0 30px 60px -28px rgba(0,0,0,.9)}
+/* the record */
+.vad-hd{display:flex;align-items:center;gap:20px;margin:0 0 18px}
+.vad-media{position:relative;flex:0 0 clamp(92px,26cqw,132px);aspect-ratio:1}
+.vad-media::before{content:"";position:absolute;inset:8%;border-radius:50%;background:var(--ac);filter:blur(28px);opacity:.28;transition:opacity .3s}
+.vad:hover .vad-media::before{opacity:.5}
+.vad-art{position:relative;display:block;width:100%;height:auto;filter:drop-shadow(0 12px 18px rgba(0,0,0,.6))}
+.vad-spin-g{transform-origin:100px 100px;animation:vad-spin 3.6s linear infinite}
+.vad:hover .vad-spin-g{animation-duration:1.8s}
+.vad-lbl{font:700 7px/1 "Inter",system-ui,sans-serif;letter-spacing:.12em}
+@keyframes vad-spin{to{transform:rotate(360deg)}}
+/* text */
+.vad-top{display:flex;flex-direction:column;align-items:flex-start;gap:5px;margin:0;font-size:13px;line-height:1.3;color:var(--vm)}
+.vad-tag{margin-bottom:4px}
+.vad-meta b{color:var(--vt);font-weight:600}
+.vad-tag{display:inline-block;padding:4px 9px;border-radius:999px;border:1px solid color-mix(in srgb,var(--ac) 60%,transparent);color:var(--ac);
+  font:600 10.5px/1 "Inter",system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;background:color-mix(in srgb,var(--ac) 8%,transparent)}
+.vad-meta cite{font-style:normal;color:var(--vt);font-weight:600}
+.vad-track{color:var(--vt)}
+.vad-head{margin:0 0 8px;font:800 clamp(24px,6.4cqw,36px)/1.04 "Inter",system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:-.025em;
+  background:linear-gradient(180deg,#fff 30%,#b9bcc6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.vad-sub{margin:0 0 12px;font-size:15px;font-weight:600;color:color-mix(in srgb,var(--ac) 70%,#fff)}
+.vad-body{margin:0 0 14px;color:#c9c9d3;font-size:14.5px}
+.vad-q{margin:0 0 16px;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06)}
+.vad-q p{margin:0;font-size:14px;font-style:italic;color:#e6e6ec}
+.vad-q cite{display:block;margin-top:6px;font:400 11.5px/1.2 "Inter",system-ui,sans-serif;font-style:normal;color:var(--vm);letter-spacing:.04em}
+.vad-q cite::before{content:"— "}
+.vad-act{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:0 0 14px}
+.vad-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:999px;text-decoration:none;color:#0b0b0d;
+  background:linear-gradient(180deg,color-mix(in srgb,var(--ac) 80%,#fff),var(--ac));font:700 14px/1 "Inter",system-ui,sans-serif;letter-spacing:.01em;
+  box-shadow:0 0 0 1px rgba(0,0,0,.4),0 8px 22px -8px color-mix(in srgb,var(--ac) 80%,transparent);transition:transform .15s,box-shadow .2s}
+.vad-btn:hover,.vad-btn:focus-visible{transform:translateY(-1px);box-shadow:0 0 0 1px rgba(0,0,0,.4),0 0 26px -2px color-mix(in srgb,var(--ac) 90%,transparent)}
+.vad-btn:focus-visible,.vad-ghost:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.vad-ghost{font:600 14px/1 "Inter",system-ui,sans-serif;color:var(--vt);text-decoration:none;padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.16);transition:border-color .2s,color .2s}
+.vad-ghost:hover{border-color:var(--ac);color:var(--ac)}
+.vad-fine{margin:0;padding-top:12px;border-top:1px solid rgba(255,255,255,.07);font-size:11px;line-height:1.45;color:#7d7d8a}
+.vad-fine::before{content:"Fine print · ";color:#a5a5b2;font-weight:600}
+@container (max-width:400px){.vad-hd{gap:14px}.vad-head{font-size:clamp(23px,8.4cqw,30px)}}
+@media (max-width:480px){.vad{padding:20px 18px 18px}}
+@media (prefers-reduced-motion:reduce){.vad-spin-g{animation:none}.vad,.vad-btn,.vad-ghost,.vad-media::before{transition:none}.vad:hover{transform:none}}
 /* a row of ads (e.g. on a shelf page) */
-.vad-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:34px 30px;align-items:start}
+.vad-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px;align-items:start}

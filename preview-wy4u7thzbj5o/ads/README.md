@@ -1,9 +1,9 @@
-# Retro fake vinyl ads (reusable module)
+# Fake vinyl ads (reusable module)
 
-Playful 1970s back-of-the-comic mail-order ads for **real records**. Files:
+Cool, modern, deadpan-funny ads for **real records**. Files:
 
 - `ads.js` – renders the ads (no dependencies).
-- `ads.css` – the cheap-print look, all scoped under `.vad` so it never touches the host site's style.
+- `ads.css` – the look, all scoped under `.vad` so it never touches the host site's style.
 - `ads-data.js` – the per-site data: `BMAC_URL` and the records. Only this file changes between sites.
 
 ## Use
@@ -22,9 +22,9 @@ Wrap several in `<div class="vad-row" data-vinyl-ads-row>` for a responsive row;
 
 ## House rules (all of his music sites)
 
-1. **HUMOUR IS EXTREMELY IMPORTANT.** Every ad must be genuinely funny: cheeky 70s mail-order parody copy
-   ("Guaranteed to SHOCK you! (Not literally. Please ground your amps.)", "Results not typical. Gull-wing doors sold separately."),
-   silly fine print, fake testimonials from obviously made-up fans with invented names (never real people, and always tagged "made-up fan"),
+1. **HUMOUR IS EXTREMELY IMPORTANT.** Every ad must be genuinely funny: witty, modern, deadpan copy
+   ("Grounded. Finally.", "Zero to 85 in one track.", "Results not typical. Gull-wing doors sold separately."),
+   funny fine print, quotes from obviously made-up fans with invented names (never real people, always labelled "made-up fan"),
    and jokes tied to the stories on the page. Affectionate toward the artist, never mean.
 2. **The record facts are real.** Artist, title, label, year, the featured track and the Discogs master link must be checked; never invent them.
    The jokes go in `head`, `sub`, `body`, `quote` and `fine`; facts go in `artist`, `title`, `label`, `year`, `track`, `discogs`.
@@ -34,3 +34,14 @@ Wrap several in `<div class="vad-row" data-vinyl-ads-row>` for a responsive row;
 6. "Find this pressing" goes to the Discogs master page; "Spin it" is an optional YouTube or Spotify search.
 7. Keep the ads out of story panels: shelf/home page, end pages and footers only.
 8. The coffee ad stays hidden until `BMAC_URL` is set to an https:// link.
+
+## Style (not retro: cool)
+
+The user asked for **cool, not retro**. No 70s mail-order framing, coupons, halftone or "SEND NO MONEY".
+The look is a sleek record-label or streaming-era ad that fits a dark, minimal site:
+
+- dark glossy card (`#0b0b0f` to `#17171e`), 20px radius, hairline border, soft sheen;
+- one neon/chrome accent per ad (`color` in the data → `--ac`): tag pill, sub-line, button and hover glow;
+- a spinning vinyl record (SVG + CSS), faster on hover, still for `prefers-reduced-motion`;
+- bold modern type (Inter/system UI, 800 weight, tight tracking) with a chrome gradient on the headline;
+- a pill "Find this pressing →" button and a ghost "Spin it ▸" link; fine print in small grey type.
