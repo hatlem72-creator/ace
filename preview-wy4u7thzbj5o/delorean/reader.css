@@ -177,3 +177,9 @@ body.dark .dots button{border-color:#f4ecd6}body.dark .dots button.on{background
 .page.on.rattle .panel picture{display:block;height:100%;animation:rattle .11s linear infinite}
 @keyframes rattle{0%{translate:0 0}25%{translate:-2px 1px}50%{translate:1.5px -2px}75%{translate:2px .5px}100%{translate:0 0}}
 @media (prefers-reduced-motion:reduce){.page.on.rattle .panel picture{animation:none}}
+
+/* pan: camera travels left to right across the whole picture (follows the car); on portrait screens object-position sweeps the full width */
+.pan .panel img{transform-origin:50% 50%}
+.page.on.pan .panel img{animation:kbpan 9s cubic-bezier(.45,.05,.55,.95) forwards}
+@keyframes kbpan{from{object-position:0% 50%;transform:var(--k0)}to{object-position:100% 50%;transform:var(--k1)}}
+@media (prefers-reduced-motion:reduce){.page.on.pan .panel img,.pan .panel img{animation:none;transform:none}}

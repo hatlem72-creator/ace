@@ -32,7 +32,7 @@ const STORY = {
       bits: [ {t: "say", pos: "tl", tail: "b", radio: true, text: "Silver DeLorean, southbound on the parkway!"},
               {t: "cap", pos: "tr", text: "Onto the Bronx River Parkway: a few miles south, then a turn back north."},
               {t: "cap", pos: "bl", acev: true, small: true, text: "“80 miles an hour against traffic.” And “the cop Chevy Nova couldn’t keep up.”"} ] },
-    { img: "d10-roadblock", focus: "60%", kb: "in", rattle: true, buzz: 70, alt: "Low, tilted angle: the silver DeLorean tears off the road onto the grass shoulder around a police roadblock, dirt and smoke spraying from its wheels and a wooden barricade splintering. The masked rocker grips the wheel inside as stunned officers by their flashing squad cars turn, stare and point at the car.",
+    { img: "d10-roadblock", focus: "60%", kb: "pan", rattle: true, buzz: 70, alt: "Low, tilted angle: the silver DeLorean tears off the road onto the grass shoulder around a police roadblock, dirt and smoke spraying from its wheels and a wooden barricade splintering. The masked rocker grips the wheel inside as stunned officers by their flashing squad cars turn, stare and point at the car.",
       bits: [ {t: "cap", pos: "tr", text: "Police throw up a roadblock."},
               {t: "sfx", x: 30, y: 17, mx: 50, my: 22, rot: -8, size: 1.7, text: "SCREEEECH!"},
               {t: "cap", pos: "br", text: "He drives around it."} ] },

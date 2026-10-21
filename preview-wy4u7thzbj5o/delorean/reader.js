@@ -7,13 +7,14 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':
 const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const KB = { in: ['scale(1.04)', 'scale(1.13)'], out: ['scale(1.15)', 'scale(1.04)'],
   l: ['scale(1.1) translateX(2.5%)', 'scale(1.1) translateX(-2.5%)'], r: ['scale(1.1) translateX(-2.5%)', 'scale(1.1) translateX(2.5%)'],
-  up: ['scale(1.1) translateY(2.5%)', 'scale(1.1) translateY(-2.5%)'], dn: ['scale(1.1) translateY(-2.5%)', 'scale(1.1) translateY(2.5%)'] };
+  up: ['scale(1.1) translateY(2.5%)', 'scale(1.1) translateY(-2.5%)'], dn: ['scale(1.1) translateY(-2.5%)', 'scale(1.1) translateY(2.5%)'],
+  pan: ['scale(1.14) translateX(6%)', 'scale(1.14) translateX(-6%)'] };
 const VT = '<span class="vt">Ace’s version</span>';
 
 /* build panel pages */
 STORY.panels.forEach((p, i) => {
   const s = document.createElement('section');
-  s.className = 'page panel-page' + (p.spread ? ' spread' : '') + (p.rattle ? ' rattle' : '');
+  s.className = 'page panel-page' + (p.spread ? ' spread' : '') + (p.rattle ? ' rattle' : '') + (p.kb === 'pan' ? ' pan' : '');
   s.setAttribute('aria-label', `Panel ${i + 1} of ${STORY.panels.length}`);
   if (p.buzz) s.dataset.buzz = p.buzz;
   let d = 0.65;                                                  // lettering starts after the art has landed
