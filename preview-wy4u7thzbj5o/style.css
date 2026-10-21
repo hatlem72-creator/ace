@@ -48,3 +48,8 @@ a{color:inherit}
 /* thumbnails without masthead: the story's strongest panel, small clean title */
 .book .ctitle,.book .ctitle.long{bottom:5%;font-size:clamp(20px,2.5vw,32px);line-height:.95;padding:0 6%;-webkit-text-stroke:1.5px #000;text-shadow:3px 3px 0 #000;transform:rotate(-3deg)}
 .newflag{top:4%}
+
+/* ad strip under the shelf (ad look lives in ads/ads.css) */
+.adpage{margin:clamp(56px,9vh,90px) auto 0;max-width:980px}
+.adpage-h{display:flex;align-items:center;gap:14px;margin:0 0 34px;color:var(--muted);font-size:12px;letter-spacing:.22em;text-transform:uppercase}
+.adpage-h::before,.adpage-h::after{content:"";flex:1;height:1px;background:#26262f}
