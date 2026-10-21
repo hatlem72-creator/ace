@@ -55,5 +55,6 @@ document.querySelectorAll('[data-vinyl-ad]').forEach(el => {
   const html = build(key);
   if (html) { el.innerHTML = html; el.hidden = false; } else el.remove();
 });
-document.querySelectorAll('[data-vinyl-ads-row]').forEach(row => { if (!row.querySelector('.vad')) row.remove(); });
+/* a row or a labelled slot wrapper (data-vinyl-slot) disappears when none of its ads is shown */
+document.querySelectorAll('[data-vinyl-ads-row],[data-vinyl-slot]').forEach(w => { if (!w.querySelector('.vad')) w.remove(); });
 })();

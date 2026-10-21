@@ -19,6 +19,8 @@ Cool, modern, **image-first** ads for **real records**, with as few words as pos
 <script src="ads/ads-data.js"></script><script src="ads/ads.js"></script>
 ```
 
+Banner slots (leaderboard, in-feed): add `class="vad-h"` to the slot div for the horizontal layout (stacks on narrow screens).
+A labelled wrapper such as `<div class="slot" data-vinyl-slot><p>Advertisement · fake</p>…</div>` removes itself when its ad is hidden (e.g. coffee).
 Wrap several in `<div class="vad-row" data-vinyl-ads-row>` for a responsive two-up row (a lone last card is centred);
 the row removes itself if all its ads are hidden. Random slots on one page never repeat an ad while unused options remain. `?vad=<id>` forces that ad into the first random slot that allows it (for testing).
 

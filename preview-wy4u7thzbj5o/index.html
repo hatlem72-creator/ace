@@ -24,54 +24,131 @@
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="ads/ads.css">
 </head>
-<body class="shop">
+<body class="news">
 <div class="sky" aria-hidden="true"></div>
-<main class="window">
-  <header class="brand">
-    <h1 class="logo" aria-label="Ace Is Back! True Tales"><span class="l1">Ace Is Back!</span><span class="l2">True Tales</span></h1>
-    <p class="intro">The wildest true stories of rock’s Spaceman, as pop-art comics. Pick an issue off the shelf.</p>
-  </header>
+<a class="skip" href="#main">Skip to stories</a>
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="mark" href="./" aria-label="Ace Is Back! True Tales, home"><span class="m1">Ace Is Back!</span><span class="m2">True Tales</span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#lead" aria-current="page">Latest</a>
+      <a href="#stories">Stories</a>
+      <a href="https://recordstoreday.com/Stores" target="_blank" rel="noopener">Record shops</a>
+      <a href="#about">About</a>
+    </nav>
+    <span class="edition">Fan-made · every story sourced</span>
+  </div>
+</header>
 
-  <section class="shelf" aria-label="Issues">
-    <div class="rack">
-      <a class="issue-cover live featured" href="rocket-guitar/" aria-label="Read Issue 3, new: Holy Smoke! (1975–1980)">
-        <span class="book">
-          <picture><source srcset="img/issue3-rack.webp" type="image/webp"><img src="img/issue3-rack.jpg" alt="Comic art: the masked rocker plays a sunburst guitar pouring white smoke under the stage lights" width="540" height="720"></picture>
-          <span class="ctitle">Holy Smoke!</span>
-          <span class="newflag">New!</span>
-        </span>
-        <span class="label"><b>#3</b> Holy Smoke! <em>1975–80</em></span>
+<div class="slot slot-leader" data-vinyl-slot aria-label="Advertisement">
+  <p class="slot-label">Advertisement · fake</p>
+  <div class="vad-h" data-vinyl-ad="@extras" hidden></div>
+</div>
+
+<main class="page" id="main">
+  <div class="feed">
+    <article class="lead" id="lead">
+      <a class="lead-link" href="rocket-guitar/">
+        <figure class="lead-pic">
+          <picture><source srcset="rocket-guitar/img/r05-glow.webp" type="image/webp"><img src="rocket-guitar/img/r05-glow.jpg" alt="Comic art: the masked rocker plays a sunburst guitar pouring white smoke under the stage lights" width="1280" height="720" fetchpriority="high"></picture>
+          <span class="flag">New</span>
+        </figure>
+        <div class="lead-txt">
+          <p class="kicker">Issue #3 · <time>1975–1980</time></p>
+          <h1 class="lead-h">Holy Smoke!</h1>
+          <p class="dek">A store-bought smoke bomb in a Les Paul, a rocket past Gene’s head and a burnt thigh: how Ace Frehley’s guitar learned to smoke and shoot.</p>
+          <span class="more">Read the comic <span aria-hidden="true">→</span></span>
+        </div>
       </a>
-      <a class="issue-cover live" href="delorean/" aria-label="Read Issue 2: Gone in Fifth Gear! (1983)">
-        <span class="book">
-          <picture><source srcset="img/issue2-rack.webp" type="image/webp"><img src="img/issue2-rack.jpg" alt="Comic art: in a jail cell, the masked rocker stands on the bench in a spotlight like a rock star as awed cellmates stare" width="540" height="720"></picture>
-          <span class="ctitle long">Gone in Fifth Gear!</span>
-        </span>
-        <span class="label"><b>#2</b> Gone in Fifth Gear! <em>1983</em></span>
-      </a>
-      <a class="issue-cover live" href="issue-1/" aria-label="Read Issue 1: Shock Me! (1976)">
-        <span class="book">
-          <picture><source srcset="img/issue1-rack.webp" type="image/webp"><img src="img/issue1-rack.jpg" alt="Comic art: a silver-gloved hand grips a stage handrail as a huge electric flash bursts from it" width="540" height="720"></picture>
-          <span class="ctitle">Shock Me!</span>
-        </span>
-        <span class="label"><b>#1</b> Shock Me! <em>1976</em></span>
-      </a>
-      <div class="issue-cover soon" aria-label="Issue 4: coming soon"><span class="book"><span class="q">#4</span><span class="cs">Coming soon</span></span><span class="label"><b>#4</b> Coming soon</span></div>
+    </article>
+
+    <div class="slot slot-mobile" data-vinyl-slot aria-label="Advertisement">
+      <p class="slot-label">Advertisement · fake</p>
+      <div data-vinyl-ad="@extras" hidden></div>
     </div>
-  </section>
-  <section class="adpage" aria-label="Parody ads for real records">
-    <p class="adpage-h"><span>Meanwhile, at the back of the comic…</span></p>
-    <div class="vad-row" data-vinyl-ads-row>
-      <div data-vinyl-ad="shop" hidden></div>
-      <div data-vinyl-ad="anywhere" hidden></div>
-      <div data-vinyl-ad="ace-1978|space-invader|origins-1|@extras" hidden></div>
-      <div data-vinyl-ad="coffee" hidden></div>
+
+    <section class="stories" id="stories" aria-labelledby="stories-h">
+      <h2 class="sec-h" id="stories-h">More true tales</h2>
+      <div class="grid">
+        <article class="card">
+          <a href="delorean/">
+            <figure class="card-pic"><picture><source srcset="delorean/img/d14-cell.webp" type="image/webp"><img src="delorean/img/d14-cell.jpg" alt="Comic art: in a jail cell, the masked rocker stands on the bench in a spotlight as awed cellmates stare" width="1280" height="720" loading="lazy"></picture></figure>
+            <p class="kicker">Issue #2 · <time datetime="1983-05-21">21 May 1983</time> · White Plains, NY</p>
+            <h3 class="card-h">Gone in Fifth Gear!</h3>
+            <p class="hook">A fender-bender, a $25,000 DeLorean and the White Plains police.</p>
+          </a>
+        </article>
+        <article class="card">
+          <a href="issue-1/">
+            <figure class="card-pic"><picture><source srcset="issue-1/img/p5-zap.webp" type="image/webp"><img src="issue-1/img/p5-zap.jpg" alt="Comic art: a silver-gloved hand grips a stage handrail as a huge electric flash bursts from it" width="1280" height="720" loading="lazy"></picture></figure>
+            <p class="kicker">Issue #1 · <time datetime="1976-12-12">12 Dec 1976</time> · Lakeland, FL</p>
+            <h3 class="card-h">Shock Me!</h3>
+            <p class="hook">An ungrounded handrail, a plugged-in Les Paul and 10,000 fans.</p>
+          </a>
+        </article>
+
+        <div class="slot slot-feed" data-vinyl-slot aria-label="Advertisement">
+          <p class="slot-label">Advertisement · fake</p>
+          <div class="vad-h" data-vinyl-ad="shop" hidden></div>
+        </div>
+
+        <article class="card soon" aria-label="Issue 4: coming soon">
+          <div class="card-pic soon-pic"><span class="q">#4</span></div>
+          <p class="kicker">Issue #4 · Coming soon</p>
+          <h3 class="card-h">The next true tale</h3>
+          <p class="hook">Being researched, sourced and inked.</p>
+        </article>
+
+        <div class="slot slot-card" data-vinyl-slot aria-label="Advertisement">
+          <p class="slot-label">Advertisement · fake</p>
+          <div data-vinyl-ad="ace-1978|space-invader|origins-1|love-gun|comet-1987|dynasty-1979" hidden></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <aside class="side" aria-label="Sidebar">
+    <section class="box trending" aria-labelledby="tr-h">
+      <h2 class="sec-h" id="tr-h">Trending</h2>
+      <ol>
+        <li><a href="rocket-guitar/"><b>Holy Smoke!</b><span>The guitar that smoked and shot rockets · 1975–80</span></a></li>
+        <li><a href="delorean/"><b>Gone in Fifth Gear!</b><span>The DeLorean police chase · 1983</span></a></li>
+        <li><a href="issue-1/"><b>Shock Me!</b><span>Electrocuted on stage in Lakeland · 1976</span></a></li>
+      </ol>
+    </section>
+    <div class="slot slot-side" data-vinyl-slot aria-label="Advertisement">
+      <p class="slot-label">Advertisement · fake</p>
+      <div class="vad-compact" data-vinyl-ad="anywhere" hidden></div>
     </div>
-  </section>
+    <div class="slot slot-side" data-vinyl-slot aria-label="Advertisement">
+      <p class="slot-label">Advertisement · fake</p>
+      <div class="vad-compact" data-vinyl-ad="coffee" hidden></div>
+    </div>
+    <div class="slot slot-side sticky" data-vinyl-slot aria-label="Advertisement">
+      <p class="slot-label">Advertisement · fake</p>
+      <div class="vad-compact" data-vinyl-ad="@extras" hidden></div>
+    </div>
+  </aside>
 </main>
-<footer class="foot">
-  <p>A non-commercial fan tribute to Ace Frehley (1951–2025). Not affiliated with KISS, the Frehley estate or any label. Original art: no likenesses, makeup designs or logos. The masked rocker is an invented stand-in. Every story is sourced.</p>
-  </footer>
+
+<footer class="foot" id="about">
+  <div class="foot-in">
+    <div>
+      <a class="mark" href="./"><span class="m1">Ace Is Back!</span><span class="m2">True Tales</span></a>
+      <p>The wildest true stories of rock’s Spaceman, told as pop-art comics. A non-commercial fan tribute to Ace Frehley (1951–2025). Not affiliated with KISS, the Frehley estate or any label. Original art: no likenesses, makeup designs or logos. The masked rocker is an invented stand-in. Every story is sourced.</p>
+    </div>
+    <nav aria-label="Footer">
+      <h2>Stories</h2>
+      <a href="rocket-guitar/">#3 Holy Smoke!</a><a href="delorean/">#2 Gone in Fifth Gear!</a><a href="issue-1/">#1 Shock Me!</a>
+    </nav>
+    <nav aria-label="Vinyl">
+      <h2>Vinyl</h2>
+      <a href="https://recordstoreday.com/Stores" target="_blank" rel="noopener">Find a record shop</a>
+      <a href="https://www.discogs.com/artist/315339-Ace-Frehley" target="_blank" rel="noopener">Ace on Discogs</a>
+    </nav>
+  </div>
+  <p class="foot-note">The ads on this site are fake. The records are real.</p>
+</footer>
 <script src="ads/ads-data.js"></script><script src="ads/ads.js"></script>
 </body>
 </html>
