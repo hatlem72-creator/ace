@@ -169,3 +169,11 @@ body.dark .dots button{border-color:#f4ecd6}body.dark .dots button.on{background
 }
 .cover-page .sheet{width:min(var(--pw),calc((100dvh - 250px) * 16 / 9))}
 @media (orientation:portrait){.cover-page .sheet{width:min(calc(100vw - 24px),calc((100dvh - 270px) * 3 / 4))}}
+
+/* shouted dialogue: yellow, heavy, tilted */
+.say.shout{background:#ffd60a;border-width:4px;border-radius:.35em;transform:rotate(-2.5deg);font-size:clamp(15px,2.5cqw,32px);letter-spacing:.02em;color:#c8102e;text-shadow:1px 1px 0 #fff}
+.say.shout::after{background:#ffd60a}
+/* rattle: the whole panel vibrates (speedometer page) */
+.page.on.rattle .panel picture{display:block;height:100%;animation:rattle .11s linear infinite}
+@keyframes rattle{0%{translate:0 0}25%{translate:-2px 1px}50%{translate:1.5px -2px}75%{translate:2px .5px}100%{translate:0 0}}
+@media (prefers-reduced-motion:reduce){.page.on.rattle .panel picture{animation:none}}

@@ -24,7 +24,7 @@ const STORY = {
     { img: "d07-vroom", focus: "55%", kb: "out", spread: true, buzz: 60, alt: "The DeLorean blasts away from the curb in a cloud of tyre smoke. The officer's cap flies off and a police car flashes behind.",
       bits: [ {t: "sfx", x: 50, y: 22, mx: 50, my: 18, rot: -6, size: 1.8, text: "VROOOM!"},
               {t: "cap", pos: "bl", text: "Gull-wing door down. Foot down. Ace is gone."} ] },
-    { img: "d08-speedo", focus: "30%", kb: "dn", alt: "Close-up of a speedometer needle slammed past the last mark while a leather glove grips the gear stick.",
+    { img: "d08-speedo", focus: "19%", kb: "in", rattle: true, buzz: 40, alt: "Extreme close-up of a shaking speedometer marked 0 to 85 mph: the red needle is jammed against the 85 peg, ghost needles trailing behind it, while a black leather glove grips the gear stick.",
       bits: [ {t: "cap", pos: "tr", text: "A US-model DeLorean speedometer only goes up to 85 mph."},
               {t: "cap", pos: "bl", text: "Police say he hit 90."},
               {t: "quote", pos: "br", text: "I hit fifth gear, and I was gone.", who: "Ace Frehley, to Loudwire"} ] },
@@ -44,12 +44,15 @@ const STORY = {
       bits: [ {t: "cap", pos: "tr", text: "The police lose him. Twenty minutes later, less than a mile from the first crash…"},
               {t: "cap", pos: "bl", text: "…he parks the wreck and walks into a flower shop to use the phone."},
               {t: "cap", pos: "br", small: true, text: "A witness is making a call too. To the police."} ] },
-    { img: "d13-busted", focus: "50%", kb: "in", buzz: 50, alt: "Seen from behind, the masked rocker stands in the flower shop doorway with his hands up, facing a wall of police cars and officers.",
+    { img: "d13-busted", focus: "52%", kb: "in", buzz: 50, alt: "Seen from behind, the masked rocker stands in the flower shop doorway with his hands high in the air as a line of police officers crouch behind their squad cars, revolvers aimed at him, shouting.",
       bits: [ {t: "sfx", x: 50, y: 64, mx: 50, my: 60, rot: -4, size: 1.5, text: "BUSTED!"},
               {t: "cap", pos: "tl", text: "He steps outside. The police are waiting."},
+              {t: "say", pos: "tr", tail: "l", shout: true, text: "GET DOWN ON THE GROUND! NOW!"},
               {t: "cap", pos: "br", acev: true, small: true, text: "A deli phone booth, and “like 15 cops with their guns drawn.”"} ] },
-    { img: "d14-cell", focus: "62%", kb: "r", alt: "Night in a holding cell: the masked rocker slumps on a metal bench behind bars, a lone hubcap leaning on the wall.",
-      bits: [ {t: "cap", pos: "tl", text: "Charges: drunken driving, reckless driving, leaving the scene. On Monday he posts $500 bail."},
+    { img: "d14-cell", focus: "50%", kb: "r", alt: "Night in a holding cell: the masked rocker stands on the metal bench with his arms spread wide like he is on stage, while two scruffy drunk cellmates gawk at him, one pointing with his jaw dropped, the other clutching his head in disbelief.",
+      bits: [ {t: "say", pos: "tl", tail: "b", text: "Hey… wait a minute… you’re ACE!"},
+              {t: "say", pos: "tr", tail: "b", text: "No way, man! In OUR cell?!"},
+              {t: "cap", pos: "bl", text: "Charges: drunken driving, reckless driving, leaving the scene. On Monday he posts $500 bail."},
               {t: "quote", pos: "br", text: "Had this been twenty-five years later, the fallout would have been much worse: mug shot on TMZ.com…", who: "Ace Frehley, No Regrets (2011)"} ] }
   ]
 };

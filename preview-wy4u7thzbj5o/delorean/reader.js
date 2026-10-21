@@ -13,7 +13,7 @@ const VT = '<span class="vt">Ace’s version</span>';
 /* build panel pages */
 STORY.panels.forEach((p, i) => {
   const s = document.createElement('section');
-  s.className = 'page panel-page' + (p.spread ? ' spread' : '');
+  s.className = 'page panel-page' + (p.spread ? ' spread' : '') + (p.rattle ? ' rattle' : '');
   s.setAttribute('aria-label', `Panel ${i + 1} of ${STORY.panels.length}`);
   if (p.buzz) s.dataset.buzz = p.buzz;
   let d = 0.65;                                                  // lettering starts after the art has landed
@@ -23,7 +23,7 @@ STORY.panels.forEach((p, i) => {
     const delay = `--d:${d.toFixed(2)}s`; d += 0.85;
     const av = b.acev ? ' acev' : '', tag = b.acev ? VT : '';
     if (b.t === 'quote') return `<figure class="bit bubble ${b.pos}" style="${delay}"><blockquote>“${esc(b.text)}”</blockquote><figcaption>${esc(b.who)}</figcaption></figure>`;
-    if (b.t === 'say') return `<p class="bit say ${b.pos} tail-${b.tail || 'b'}${b.radio ? ' radio' : ''}${av}" style="${delay}">${tag}${esc(b.text)}</p>`;
+    if (b.t === 'say') return `<p class="bit say ${b.pos} tail-${b.tail || 'b'}${b.radio ? ' radio' : ''}${b.shout ? ' shout' : ''}${av}" style="${delay}">${tag}${esc(b.text)}</p>`;
     return `<p class="bit cap ${b.pos}${b.small ? ' small' : ''}${av}" style="${delay}">${tag}${b.text}</p>`;
   };
   /* lettering is rendered in reading order (delays), then grouped: top / bottom layers stack neatly on portrait screens */
