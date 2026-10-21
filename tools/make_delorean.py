@@ -5,8 +5,8 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 P = "preview-wy4u7thzbj5o"; R = "img-src/delorean"; OUT = P + "/delorean/img"; IMG = P + "/img"
 os.makedirs(OUT, exist_ok=True)
 F = "/workspace/ace-fonts/Bangers.ttf"
-PANELS = ["d01-open", "d02-driver", "d03-bump", "d04-cop", "d06-close", "d07-vroom", "d08-speedo",
-          "d09-pov", "d10-roadblock", "d11-krunch", "d12-florist", "d13-busted", "d14-cell", "cover"]
+PANELS = ["d01-open", "d01b-doors", "d02-driver", "d03-bump", "d03b-shrug", "d04-cop", "d06-close", "d07-vroom", "d08-speedo",
+          "d09-pov", "d09b-parkway", "d10-roadblock", "d11-krunch", "d12-florist", "d12b-phone", "d13-busted", "d13b-booking", "d14-cell", "cover"]
 def save(im, path, w, q=64):
     im = im.convert("RGB")
     if im.width > w: im = im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
