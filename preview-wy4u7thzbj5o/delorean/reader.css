@@ -189,3 +189,15 @@ body.dark .dots button{border-color:#f4ecd6}body.dark .dots button.on{background
 @media (orientation:portrait){.zoomout .panel img{transform-origin:var(--mzx,var(--zx,50%)) var(--zy,50%)}}
 .page.on.zoomout .panel img{animation:kb 9.5s cubic-bezier(.4,.1,.45,1) forwards}
 @media (prefers-reduced-motion:reduce){.page.on.zoomout .panel img,.zoomout .panel img{animation:none;transform:none}}
+
+/* panout: pan left to right while slowly zooming out (desktop via transform, portrait also sweeps object-position) */
+.panout .panel img{transform-origin:50% 50%}
+.page.on.panout .panel img{animation:kbpan 9.5s cubic-bezier(.42,.1,.5,1) forwards}
+@media (prefers-reduced-motion:reduce){.page.on.panout .panel img,.panout .panel img{animation:none;transform:none}}
+
+/* mini: a compact narration box tucked into a corner so the art stays clear */
+.cap.mini{font-size:clamp(11px,1.45cqw,19px);padding:.35em .55em .3em;max-width:30%;box-shadow:2px 2px 0 var(--ink)}
+.cap.mini.tr,.cap.mini.tl{top:2%}.cap.mini.br,.cap.mini.bl{bottom:2.5%}.cap.mini.tr,.cap.mini.br{right:1.5%}.cap.mini.tl,.cap.mini.bl{left:1.5%}
+@media (orientation:portrait){.cap.mini{font-size:clamp(10px,3.1cqw,14px);max-width:56%}}
+@media (orientation:portrait) and (prefers-reduced-motion:no-preference){.page.on.panout .panel img{animation-name:kbpanout}}
+@keyframes kbpanout{from{object-position:0% 50%;transform:var(--k0)}to{object-position:62% 50%;transform:var(--k1)}}

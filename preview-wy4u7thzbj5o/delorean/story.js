@@ -2,7 +2,7 @@
    Panel: img, focus (portrait crop x), kb (Ken Burns: in|out|l|r|up|dn), spread (full-bleed big moment), buzz (vibration ms on arrival).
    Bits: cap (narration), say (invented comic dialogue, no name), quote (real, attributed), sfx. acev:true = "Ace's version" tag.
    pos: tl tr bl br tc bc. sfx x/y (landscape) and mx/my (portrait) in % of panel.
-   kb: in out l r up dn pan (left-to-right sweep) zoomout (slow pull-back from zx/zy; mzx = portrait origin x). */
+   kb: in out l r up dn pan (left-to-right sweep) zoomout (slow pull-back from zx/zy; mzx = portrait origin x) panout (pan left-to-right while zooming out). */
 const STORY = {
   panels: [
     { img: "d01-open", focus: "62%", kb: "in", alt: "A sunny downtown street corner in 1983. A stainless-steel DeLorean with its gull-wing doors up waits at the curb as a masked rocker in a leather jacket strides toward it, twirling his keys.",
@@ -41,10 +41,9 @@ const STORY = {
       bits: [ {t: "sfx", x: 26, y: 30, mx: 40, my: 46, rot: -10, size: 1.7, text: "KRUNCH!"},
               {t: "cap", pos: "tr", text: "Four cars hit. The wrong way down a one-way street. Then a railroad bridge."},
               {t: "cap", pos: "bl", text: "Somehow, nobody is hurt."} ] },
-    { img: "d12-florist", focus: "26%", kb: "l", alt: "Quiet moment: the wrecked, steaming DeLorean parked on the curb outside a florist, as the masked rocker chats on a phone among the flowers.",
-      bits: [ {t: "cap", pos: "tr", text: "The police lose him. Twenty minutes later, less than a mile from the first crash…"},
-              {t: "cap", pos: "bl", text: "…he parks the wreck and walks into a flower shop to use the phone."},
-              {t: "cap", pos: "br", small: true, text: "A witness is making a call too. To the police."} ] },
+    { img: "d12-florist", focus: "26%", kb: "panout", alt: "Quiet moment: the wrecked, steaming DeLorean parked on the curb outside a florist, as the masked rocker chats on a phone among the flowers.",
+      bits: [ {t: "cap", pos: "tr", mini: true, text: "Police lose him. 20 minutes later, under a mile away…"},
+              {t: "cap", pos: "br", mini: true, text: "He parks at a florist to use the phone. A witness calls the cops."} ] },
     { img: "d13-busted", focus: "52%", kb: "in", buzz: 50, alt: "Seen from behind, the masked rocker stands in the flower shop doorway with his hands high in the air as a line of police officers crouch behind their squad cars, revolvers aimed at him, shouting.",
       bits: [ {t: "sfx", x: 50, y: 64, mx: 50, my: 60, rot: -4, size: 1.5, text: "BUSTED!"},
               {t: "cap", pos: "tl", text: "He steps outside. The police are waiting."},

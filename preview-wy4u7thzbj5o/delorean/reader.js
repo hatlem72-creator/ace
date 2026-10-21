@@ -9,13 +9,14 @@ const KB = { in: ['scale(1.04)', 'scale(1.13)'], out: ['scale(1.15)', 'scale(1.0
   l: ['scale(1.1) translateX(2.5%)', 'scale(1.1) translateX(-2.5%)'], r: ['scale(1.1) translateX(-2.5%)', 'scale(1.1) translateX(2.5%)'],
   up: ['scale(1.1) translateY(2.5%)', 'scale(1.1) translateY(-2.5%)'], dn: ['scale(1.1) translateY(-2.5%)', 'scale(1.1) translateY(2.5%)'],
   pan: ['scale(1.14) translateX(6%)', 'scale(1.14) translateX(-6%)'],
-  zoomout: ['scale(1.7)', 'scale(1.02)'] };
+  zoomout: ['scale(1.7)', 'scale(1.02)'],
+  panout: ['scale(1.3) translateX(11%)', 'scale(1.02) translateX(-0.9%)'] };
 const VT = '<span class="vt">Ace’s version</span>';
 
 /* build panel pages */
 STORY.panels.forEach((p, i) => {
   const s = document.createElement('section');
-  s.className = 'page panel-page' + (p.spread ? ' spread' : '') + (p.rattle ? ' rattle' : '') + (p.kb === 'pan' ? ' pan' : '') + (p.kb === 'zoomout' ? ' zoomout' : '');
+  s.className = 'page panel-page' + (p.spread ? ' spread' : '') + (p.rattle ? ' rattle' : '') + (['pan', 'zoomout', 'panout'].includes(p.kb) ? ' ' + p.kb : '');
   s.setAttribute('aria-label', `Panel ${i + 1} of ${STORY.panels.length}`);
   if (p.buzz) s.dataset.buzz = p.buzz;
   let d = 0.65;                                                  // lettering starts after the art has landed
@@ -26,7 +27,7 @@ STORY.panels.forEach((p, i) => {
     const av = b.acev ? ' acev' : '', tag = b.acev ? VT : '';
     if (b.t === 'quote') return `<figure class="bit bubble ${b.pos}" style="${delay}"><blockquote>“${esc(b.text)}”</blockquote><figcaption>${esc(b.who)}</figcaption></figure>`;
     if (b.t === 'say') return `<p class="bit say ${b.pos} tail-${b.tail || 'b'}${b.radio ? ' radio' : ''}${b.shout ? ' shout' : ''}${av}" style="${delay}">${tag}${esc(b.text)}</p>`;
-    return `<p class="bit cap ${b.pos}${b.small ? ' small' : ''}${av}" style="${delay}">${tag}${b.text}</p>`;
+    return `<p class="bit cap ${b.pos}${b.small ? ' small' : ''}${b.mini ? ' mini' : ''}${av}" style="${delay}">${tag}${b.text}</p>`;
   };
   /* lettering is rendered in reading order (delays), then grouped: top / bottom layers stack neatly on portrait screens */
   const parts = p.bits.map(b => [b, html(b)]);
