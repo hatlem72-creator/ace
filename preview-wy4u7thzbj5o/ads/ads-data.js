@@ -1,100 +1,106 @@
 /* Fake vinyl ads: SITE DATA for the Ace Is Back! site.
-   Copy ads.js + ads.css + this file to reuse on another music site; only this file changes per site.
+   Copy ads.js + ads.css + this file (and an img/ folder) to reuse on another music site; only this file and img/ change per site.
    BMAC_URL: paste the Buy Me a Coffee link here. The coffee ad stays hidden until it is set. */
 const BMAC_URL = "";
 
 window.VINYL_ADS = {
   bmacUrl: BMAC_URL,
-  /* every record: real facts only (artist, title, label, year, track, Discogs master). The jokes go in head/sub/body/quote/fine. color = the neon accent. */
+  /* the payoff line every ad signs off with (house rule: exactly this) */
+  payoff: "Lover of muzak!",
+  /* Image first, few words. img = file name in img/ without extension (.webp + .jpg fallback, 960x540).
+     Facts (artist, title, label, year, track, discogs) are real and checked; the joke is the picture + head + one line of fine print.
+     The models are invented, generic music nerds (no real people). color = the accent. */
   records: {
     "love-gun": {
       artist: "KISS", title: "Love Gun", label: "Casablanca", year: 1977, track: "Shock Me",
       discogs: "https://www.discogs.com/master/41815-Kiss-Love-Gun",
       spin: "https://www.youtube.com/results?search_query=KISS+Shock+Me+Love+Gun+1977",
-      color: "#ff3b5c",
-      head: "Grounded. Finally.",
-      sub: "The song Ace wrote after a stage handrail tried to electrocute him.",
-      body: "Lakeland, 1976: a railing nearly ends his career. His bandmates’ advice: write a song about it. “Shock Me” became the first KISS song he ever sang lead on, recorded lying on his back in the dark because he was nervous. Relatable.",
-      quote: "I’ve never been shocked by a song before. I have since licked a 9-volt battery. Unrelated.",
-      who: "Darlene P., made-up fan",
-      fine: "Ground your amps. Avoid handrails. Plugged-in guitars and metal staircases are not a pairing. We are not electricians."
+      color: "#ff3b5c", img: "ad-love-gun",
+      alt: "A 1970s fan with a feathered mullet and big sideburns, hair standing on end, gapes at the vinyl record crackling with electricity in his hands.",
+      head: "Please ground your amps.",
+      fine: "Inspired by a true story (Lakeland, 1976). We are not electricians."
     },
     "ace-1978": {
       artist: "Ace Frehley", title: "Ace Frehley", label: "Casablanca", year: 1978, track: "New York Groove",
       discogs: "https://www.discogs.com/master/49903-Kiss-Ace-Frehley-Ace-Frehley",
       spin: "https://www.youtube.com/results?search_query=Ace+Frehley+New+York+Groove+1978",
-      color: "#3b82ff",
-      head: "Now in New York Groove.",
-      sub: "One of four KISS solo albums released on the same day, 18 September 1978. His is the one with the strut.",
-      body: "Contains “New York Groove”, which makes walking to the corner shop feel like the opening credits of a film. Side effects include finger-snapping on public transport.",
-      quote: "I put it on and walked to New Jersey. I live in Queens. I don’t know how.",
-      who: "Gary M., made-up fan",
-      fine: "Strut at your own risk. Platform boots not included. Neighbours may form a backing band without warning."
+      color: "#3b82ff", img: "ad-ace-1978",
+      alt: "A 1970s fan with an afro, aviators and huge paisley flares struts down a New York street at dusk, an LP under his arm, a yellow cab behind him.",
+      head: "Strut responsibly.",
+      fine: "Platform boots sold separately."
     },
     "comet-1987": {
       artist: "Ace Frehley", title: "Frehley’s Comet", label: "Megaforce / Atlantic", year: 1987, track: "Rock Soldiers",
       discogs: "https://www.discogs.com/master/49907-Ace-Frehley-Frehleys-Comet",
       spin: "https://www.youtube.com/results?search_query=Frehley%27s+Comet+Rock+Soldiers",
-      color: "#c0c8d0",
-      head: "Zero to 85 in one track.",
-      sub: "The comeback album. Its opener, “Rock Soldiers”, is partly about that day in White Plains.",
-      body: "Four years after the chase, Ace turned it into a song. Same adrenaline, considerably fewer police cars.",
-      quote: "I listened to it in the car. Then I parked outside a florist, out of respect.",
-      who: "Earl T., made-up fan",
-      fine: "Results not typical. Gull-wing doors sold separately. The DeLorean speedometer still stops at 85. Never drink and drive; the florists have been through enough."
+      color: "#c0c8d0", img: "ad-comet-1987",
+      alt: "A 1970s fan with a mullet and a leather jacket kneels on the road beside fresh skid marks, cradling a still-smoking vinyl record.",
+      head: "Zero to 85.",
+      fine: "Gull-wing doors sold separately. Never drink and drive."
     },
     "dynasty-1979": {
       artist: "KISS", title: "Dynasty", label: "Casablanca", year: 1979, track: "Hard Times",
       discogs: "https://www.discogs.com/master/41703-Kiss-Dynasty",
       spin: "https://www.youtube.com/results?search_query=KISS+Hard+Times+Dynasty+1979",
-      color: "#b26bff",
-      head: "Now with rockets. Again.",
-      sub: "The album of the 1979 tour that brought back Ace’s rocket launcher.",
-      body: "On the Dynasty tour, twin rockets were aimed at his smoking guitar up in the lights. On the record: “Hard Times”, written by Ace. No fire marshal was consulted for this ad.",
-      quote: "My guitar started smoking on track seven. Turns out it was on the toaster.",
-      who: "Lorraine B., made-up fan",
-      fine: "Smoke not included. Rockets not included. Keep a fire extinguisher near the turntable, as a lifestyle choice."
+      color: "#b26bff", img: "ad-dynasty-1979",
+      alt: "A worried 1970s fan with a perm and tinted aviators hugs a fire extinguisher next to a turntable that is pouring out smoke.",
+      head: "Do not extinguish.",
+      fine: "Rockets not included."
     },
     "space-invader": {
       artist: "Ace Frehley", title: "Space Invader", label: "Entertainment One", year: 2014, track: "Gimme a Feelin’",
       discogs: "https://www.discogs.com/master/723141-Ace-Frehley-Space-Invader",
       spin: "https://www.youtube.com/results?search_query=Ace+Frehley+Gimme+a+Feelin",
-      color: "#39ff88",
-      head: "The Spaceman has re-entered the atmosphere.",
-      sub: "His 2014 solo album, with the lead single “Gimme a Feelin’”.",
-      body: "Recommended listening altitude: anywhere above the sofa. Air guitar is optional but will happen anyway.",
-      quote: "Abducted by aliens. They let me go once I promised to stream it. I bought the vinyl to be safe.",
-      who: "Mervin Q., made-up fan",
-      fine: "Not responsible for crop circles. One per planet. Gravity still applies."
+      color: "#39ff88", img: "ad-space-invader",
+      alt: "A giant vinyl record hovers like a UFO over a 1970s suburban street and beams up an ecstatic fan in flares, clutching a stack of LPs.",
+      head: "Take me to your vinyl.",
+      fine: "Limit one per planet."
     },
     "origins-1": {
       artist: "Ace Frehley", title: "Origins Vol. 1", label: "eOne", year: 2016, track: "Cold Gin",
       discogs: "https://www.discogs.com/master/987841-Ace-Frehley-Origins-Vol1",
       spin: "https://www.youtube.com/results?search_query=Ace+Frehley+Origins+Vol+1+Cold+Gin",
-      color: "#ff8a3d",
-      head: "The origin story, minus the spider.",
-      sub: "Ace plays the songs that made him, plus a new take on “Cold Gin”, the KISS classic he wrote.",
-      body: "Twelve songs, mostly covers. Basically his record collection, except he plays all of it for you.",
-      quote: "I learned all twelve songs in one weekend. My parents now live elsewhere.",
-      who: "Rhonda V., made-up fan",
-      fine: "No radioactive spiders, gamma rays or tragic backstories were involved. Covers contain songs."
+      color: "#ff8a3d", img: "ad-origins-1",
+      alt: "A moustached 1970s man in a cardigan sits on a shag rug, proudly cradling a cracked golden egg with a vinyl record hatching out of it.",
+      head: "It’s a record!",
+      fine: "Origin story. No radioactive spiders involved."
     }
   },
-  /* house ads (always the same rules on every music site) */
+  /* house ads: standard on every music site */
   shop: {
-    url: "https://recordstoreday.com/Stores", label: "Find a record shop near you", color: "#ffd60a",
-    head: "The original streaming service.",
-    sub: "Your local record shop: real racks, real people, real opinions you didn’t ask for.",
-    body: "Every record in these ads is sitting in a bin somewhere near you, waiting to be flipped past twice and then bought.",
-    quote: "Went in for one LP. Came out with nine and a best friend called Clerk.", who: "Tommy O., made-up fan",
-    fine: "Side effects include dusty fingertips and saying “the B-side is better” at parties. No algorithm was harmed in the making of this ad."
+    url: "https://recordstoreday.com/Stores", label: "Find a shop near you", color: "#ff5fa2", img: "ad-shop",
+    alt: "A run-down little record shop at dusk: peeling paint, a taped-up window, a pink neon record sign and crates of vinyl spilling onto the pavement. Nobody in sight.",
+    head: "Support your local record shop!",
+    fine: "No algorithm was harmed."
+  },
+  anywhere: {
+    url: "https://www.discogs.com/artist/315339-Ace-Frehley", label: "Ace on Discogs", color: "#8fb4ff", img: "ad-anywhere",
+    alt: "A beaming 1970s superfan with a curly perm, a moustache, a wonky homemade silver star smeared round one eye and glitter on his cheeks holds up an Ace Frehley LP in a dark starry sleeve with a silver lightning bolt.",
+    caption: "Model is holding an Ace Frehley record.",
+    head: "Buy vinyl. Anywhere!",
+    fine: "Face paint optional. Glitter is forever."
+  },
+  /* wonky-70s house ads: no record, just the love of muzak (rotate with the record ads) */
+  extras: {
+    "flip": { color: "#ff8a3d", img: "ad-flip", head: "Flip it.", fine: "Side A, then Side B. Not the pan.",
+      alt: "A gangly 1970s man with a handlebar moustache and an orange apron flips a vinyl record out of a frying pan like a pancake in an avocado-green kitchen." },
+    "pencil": { color: "#2ec4b6", img: "ad-pencil", head: "Rewind with a pencil.", fine: "Batteries are for quitters.",
+      alt: "A wide-eyed 1970s grandma with a grey perm and huge glasses winds a cassette tape with a yellow pencil." },
+    "straws": { color: "#ff5fa2", img: "ad-straws", head: "Suck it, paper.", fine: "Plastic straws: still the loudest way to finish a milkshake.",
+      alt: "A sweaty 1970s bodybuilder with a perm, a moustache and a headband sips a pink milkshake through three plastic straws taped together." },
+    "mixtape": { color: "#ff3b5c", img: "ad-mixtape", head: "Mixtape = love letter.", fine: "Side B is where you say it.",
+      alt: "A nervous 1970s teenager with braces and a shaggy haircut holds out a cassette with a hand-drawn heart on it." },
+    "louder": { color: "#3b82ff", img: "ad-louder", head: "Louder.", fine: "Hair not guaranteed to come back.",
+      alt: "A small man in a powder-blue 1970s leisure suit stands before a towering wall of speakers, his long hair and scarf blown sideways." },
+    "champagne": { color: "#e8c35a", img: "ad-champagne", head: "Bring a straw.", fine: "Vintage pressing. Vintage bubbly. Bendy straw, obviously.",
+      alt: "A smug 1970s man in a velvet bow tie and frilly shirt sips champagne off a vinyl record through a striped bendy straw." },
+    "side-b": { color: "#9be15d", img: "ad-side-b", head: "Side B is better.", fine: "He will tell you why. For an hour.",
+      alt: "A smug 1970s record collector with a giant afro, a belly-length beard and tinted glasses points at the vinyl record he holds up." }
   },
   coffee: {
-    color: "#ff9f43",
+    color: "#ff9f43", img: "ad-coffee",
+    alt: "A 1970s man with a mullet and a walrus moustache inspects a coffee through a jeweller's loupe; the foam looks like a vinyl record.",
     head: "Fuel the next issue.",
-    sub: "One coffee = one more panel of mayhem.",
-    body: "Every true tale takes sources, fact-checking and an irresponsible number of speed lines. Your coffee keeps the artist upright and the rockets firing.",
-    quote: "I bought one coffee and a rocket flew out of the next issue.", who: "Bev K., made-up fan",
-    fine: "Exchange rate: roughly one cup per panel. No refunds on mayhem. Decaf accepted; the panels may come out a bit sleepy."
+    fine: "One cup ≈ one panel of mayhem."
   }
 };
