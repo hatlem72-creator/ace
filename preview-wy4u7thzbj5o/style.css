@@ -58,6 +58,11 @@ a{color:inherit}
 /* sidebar */
 .side{display:flex;flex-direction:column;gap:30px}
 .box{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:20px 20px 8px}
+.nomk-box{margin-top:18px;padding:16px 16px 14px;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+.nomk-bh{margin:0 0 10px;font:800 24px/1.05 "Helvetica Neue",Helvetica,Arial,sans-serif;letter-spacing:-.01em;color:#fff}
+.nomk-pic{margin:0;border:2px solid #000;border-radius:4px;overflow:hidden}.nomk-pic img{display:block;width:100%;height:auto}
+.nomk-bq{margin:12px 0 0;font:700 15px/1.35 "Helvetica Neue",Helvetica,Arial,sans-serif;color:#fff}
+.nomk-bf{margin:8px 0 0;font-size:11.5px;line-height:1.45;color:var(--muted)}
 .trending ol{list-style:none;margin:0;padding:0;counter-reset:t}
 .trending li{counter-increment:t;border-top:1px solid var(--line)}
 .trending li:first-child{border-top:0}

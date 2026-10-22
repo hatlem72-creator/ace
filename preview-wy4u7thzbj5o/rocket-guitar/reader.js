@@ -83,7 +83,7 @@ const fromHash = () => { const m = location.hash.match(/page-(\d+)/); return m ?
 go(fromHash(), true);
 addEventListener('hashchange', () => go(fromHash()));
 dots.forEach((d, k) => d.addEventListener('click', e => { e.stopPropagation(); go(k); }));
-$('#again').addEventListener('click', () => go(0));
+$('#again').addEventListener('click', () => go(Math.max(0, pages.findIndex(p => p.classList.contains('cover-page')))));   // skip the intro on re-reads
 
 /* keys */
 addEventListener('keydown', e => {
@@ -122,7 +122,8 @@ const end = e => {
 vp.addEventListener('pointerup', end); vp.addEventListener('pointercancel', () => { down = false; if (drag) { track.style.transition = ''; release(); go(cur); } });
 
 /* share badges */
-const url = 'https://hatlem72-creator.github.io/ace/preview-wy4u7thzbj5o/rocket-guitar/', text = 'Holy Smoke! Ace Frehley’s smoking, rocket-firing Les Paul and how it fought back. A true tale in comic form';
+const meta = n => (document.querySelector(`meta[property="${n}"]`) || {}).content;
+const url = meta('og:url') || location.href.split('#')[0], text = (meta('og:title') || document.title) + '. A true tale in comic form';
 const u = encodeURIComponent(url), t = encodeURIComponent(text);
 const sh = $('#share');
 sh.insertAdjacentHTML('beforeend', [
