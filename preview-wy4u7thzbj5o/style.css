@@ -107,3 +107,4 @@ a{color:inherit}
 .card-wide .card-pic{margin:0}
 .card-wide .card-h{font-size:28px}
 @media (max-width:700px){.card-wide a{grid-template-columns:minmax(0,1fr);gap:0}.card-wide .card-pic{margin:0 0 14px}.desk{margin:40px 0 0}}
+.desk .card-wide+.card-wide{margin-top:34px}
