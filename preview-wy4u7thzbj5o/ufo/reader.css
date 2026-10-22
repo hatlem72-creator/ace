@@ -211,3 +211,26 @@ body.dark .dots button{border-color:#f4ecd6}body.dark .dots button.on{background
 
 /* retro fake vinyl ad on the end page (module: ../ads/) */
 .end-ad{margin:8px 10px 34px}
+
+/* ---- cam: purposeful per-panel camera moves (Issue #4). Vars come from story.js via reader.js. ---- */
+.cam .panel{--k0:var(--dk0);--k1:var(--dk1);--km:var(--dkm);--ko:var(--dko);--p0:var(--dp0);--p1:var(--dp1);--pm:var(--dpm);--kd:var(--dd)}
+@media (orientation:portrait){.cam .panel{--k0:var(--mk0);--k1:var(--mk1);--km:var(--mkm);--ko:var(--mko);--p0:var(--mp0);--p1:var(--mp1);--pm:var(--mpm);--kd:var(--md)}}
+.cam .panel img{transform-origin:var(--ko);transform:var(--k0);object-position:var(--p0) 50%}
+.page.on.cam .panel img{animation:cam2 var(--kd) var(--de) forwards}
+.page.on.cam3 .panel img{animation-name:cam3}
+@keyframes cam2{from{transform:var(--k0);object-position:var(--p0) 50%}to{transform:var(--k1);object-position:var(--p1) 50%}}
+@keyframes cam3{0%{transform:var(--k0);object-position:var(--p0) 50%}45%{transform:var(--km);object-position:var(--pm) 50%}100%{transform:var(--k1);object-position:var(--p1) 50%}}
+/* pulse: the light breathes */
+.pulse .panel picture{display:block;height:100%}
+.page.on.pulse .panel picture{animation:glowp 3.2s ease-in-out infinite}
+@keyframes glowp{0%,100%{filter:brightness(1) saturate(1)}50%{filter:brightness(1.13) saturate(1.12)}}
+/* cover: slow push into the glow (desktop), slow sweep across the whole crowd (phone) */
+.cover-page .cart img{transform-origin:50% 72%}
+.cover-page.on .cart img{animation:covin 16s cubic-bezier(.37,.08,.38,1) forwards}
+@keyframes covin{from{transform:scale(1)}to{transform:scale(1.12)}}
+@media (orientation:portrait){.cover-page.on .cart img{animation:covpan 18s ease-in-out forwards}}
+@keyframes covpan{0%{object-position:0% 50%;transform:scale(1.02)}100%{object-position:100% 50%;transform:scale(1.06)}}
+@media (prefers-reduced-motion:reduce){
+  .page.on.cam .panel img,.cam .panel img{animation:none!important;transform:none;object-position:var(--fx,50%) 50%}
+  .page.on.pulse .panel picture,.cover-page.on .cart img{animation:none!important;transform:none}
+}

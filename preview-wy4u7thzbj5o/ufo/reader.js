@@ -16,7 +16,9 @@ const VT = '<span class="vt">Ace’s version</span>';
 /* build panel pages */
 STORY.panels.forEach((p, i) => {
   const s = document.createElement('section');
-  s.className = 'page panel-page' + (p.spread ? ' spread' : '') + (p.rattle ? ' rattle' : '') + (['pan', 'zoomout', 'panout'].includes(p.kb) ? ' ' + p.kb : '') + (p.mtop === 'right' ? ' mtop-r' : '');
+  const c = p.cam;
+  s.className = 'page panel-page' + (p.spread ? ' spread' : '') + (p.rattle ? ' rattle' : '') + (['pan', 'zoomout', 'panout'].includes(p.kb) ? ' ' + p.kb : '') + (p.mtop === 'right' ? ' mtop-r' : '')
+    + (c ? ' cam' + (c.km || c.mkm ? ' cam3' : '') : '') + (p.pulse ? ' pulse' : '');
   s.setAttribute('aria-label', `Panel ${i + 1} of ${STORY.panels.length}`);
   if (p.buzz) s.dataset.buzz = p.buzz;
   let d = 0.65;                                                  // lettering starts after the art has landed
@@ -36,7 +38,18 @@ STORY.panels.forEach((p, i) => {
     + `<div class="lt top">${grp(q => q[0] === 't')}</div><div class="lt bot">${grp(q => q[0] === 'b')}</div>`;
   s.dataset.done = Math.round(d * 1000);
   const [k0, k1] = KB[p.kb || 'in'];
-  s.innerHTML = `<div class="sheet"><figure class="panel" style="--fx:${p.focus || '50%'};--k0:${k0};--k1:${k1}${p.zx ? `;--zx:${p.zx}` : ''}${p.zy ? `;--zy:${p.zy}` : ''}${p.mzx ? `;--mzx:${p.mzx}` : ''}">
+  /* cam: per-panel camera path. Desktop: k0 -> (km) -> k1 transforms, o = transform-origin, p = object-position x path, dur (s).
+     Phone (portrait): mk*, mo, mp, mdur override, so wide panels can sweep the full width with object-position. */
+  let cv = '';
+  if (c) {
+    const fx = p.focus || '50%', P = c.p || [fx, fx], MP = c.mp || P;
+    const V = { dk0: c.k0, dk1: c.k1, dkm: c.km || c.k0, mk0: c.mk0 || c.k0, mk1: c.mk1 || c.k1, mkm: c.mkm || c.km || c.mk0 || c.k0,
+      dko: c.o || '50% 50%', mko: c.mo || c.o || '50% 50%', dp0: P[0], dp1: P[P.length - 1], dpm: P.length > 2 ? P[1] : P[0],
+      mp0: MP[0], mp1: MP[MP.length - 1], mpm: MP.length > 2 ? MP[1] : MP[0], dd: (c.dur || 11) + 's', md: (c.mdur || c.dur || 11) + 's',
+      de: c.ease || 'cubic-bezier(.37,.08,.38,1)' };
+    cv = Object.entries(V).map(([k, v]) => `;--${k}:${v}`).join('');
+  }
+  s.innerHTML = `<div class="sheet"><figure class="panel" style="--fx:${p.focus || '50%'}${c ? cv : `;--k0:${k0};--k1:${k1}`}${p.zx ? `;--zx:${p.zx}` : ''}${p.zy ? `;--zy:${p.zy}` : ''}${p.mzx ? `;--mzx:${p.mzx}` : ''}">
       <picture><source data-srcset="img/${p.img}.webp" type="image/webp"><img data-src="img/${p.img}.jpg" alt="${esc(p.alt)}" width="1280" height="720" decoding="async"></picture>
       ${bits}</figure><span class="pno">${i + 1}</span></div>`;
   track.insertBefore(s, endPage);
