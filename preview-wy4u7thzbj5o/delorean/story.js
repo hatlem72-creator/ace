@@ -5,7 +5,7 @@
    kb: in out l r up dn pan (left-to-right sweep) zoomout (slow pull-back from zx/zy; mzx = portrait origin x) panout (pan left-to-right while zooming out). mtop: "right" stacks top bits on the right on portrait screens. */
 const STORY = {
   panels: [
-    { img: "d01-open", focus: "62%", kb: "in", alt: "A sunny downtown street corner in 1983. A stainless-steel DeLorean with its gull-wing doors up waits at the curb as a masked rocker in a leather jacket strides toward it, twirling his keys.",
+    { img: "d01-open", focus: "62%", kb: "in", alt: "A sunny downtown street corner in 1983. A stainless-steel DeLorean with its gull-wing doors up waits at the curb as a masked rocker in a green satin shirt and white flares strides toward it, twirling his keys.",
       bits: [ {t: "cap", pos: "tl", text: "White Plains, New York.<br>Saturday afternoon, May 21, 1983."},
               {t: "cap", pos: "br", text: "Ace is out of KISS and between bands. His ride: a $25,000 stainless-steel DeLorean."} ] },
     { img: "d01b-doors", focus: "68%", kb: "zoomout", zx: "74%", zy: "26%", mzx: "74%", alt: "Low angle at the curb: the DeLorean's gull-wing doors lifted high like wings against a red and yellow pop-art burst, as the masked rocker slides into the driver's seat, one silver boot still out, spinning his keys on one gloved finger.",
