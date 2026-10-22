@@ -1,0 +1,68 @@
+/* Issue #5 script: "Room Service!" (hotel mayhem on the road, 1975–77). PORTRAIT 9:16 panels.
+   cap = narration (sourced, paraphrased), say = comic dialogue, quote = exact, attributed words, sfx.
+   joke: true = invented gag, tagged "Joke!" on the page.
+   Camera: mostly stills (kb "still"), a few zooms and slow vertical tilts. Tilts at scale 1.14 travel ±5.5% (never past the edge).
+   Source: Peter Criss with Larry "Ratso" Sloman, Makeup to Breakup: My Life In and Out of KISS (Scribner, 2012). Background: Ace Frehley, No Regrets (2011). */
+const PC = "Peter Criss, Makeup to Breakup (2012)";
+const TILT_DN = {k0: "scale(1.14) translateY(5.5%)", k1: "scale(1.14) translateY(-5.5%)", dur: 12};
+const TILT_UP = {k0: "scale(1.14) translateY(-5.5%)", k1: "scale(1.14) translateY(5.5%)", dur: 12};
+const STORY = {
+  panels: [
+    { img: "r02-arrival", kb: "still", alt: "A long black limousine pulls up at a palm-lined Hollywood hotel at sunset. Fans scream behind velvet ropes, bellhops rush the luggage and a nervous hotel manager wrings his hands as the masked rocker in a blue satin star jacket steps out.",
+      bits: [ {t: "cap", pos: "tl", text: "Hollywood, the mid-1970s.<br>The band is on the road for months on end."},
+              {t: "cap", pos: "bl", mini: true, text: "Drummer Peter Criss tells this one in his memoir."} ] },
+    { img: "r03-bored", kb: "still", alt: "A hotel room. The masked rocker slumps in an armchair, staring at a TV showing nothing, while a band mate, shown only as a dark silhouette, lies bored on the bed. A roadie case full of cable sits open on the floor.",
+      bits: [ {t: "cap", pos: "tl", text: "Hotel after hotel. The road got lonely."},
+              {t: "cap", pos: "bl", text: "Peter’s cure for boredom? Break stuff."} ] },
+    { img: "r04-cable", cam: {k0: "scale(1)", k1: "scale(1.2)", o: "50% 45%", dur: 10}, alt: "A long hotel corridor. The masked rocker and grinning roadies uncoil hundreds of feet of black cable off a huge drum while guests in curlers and bathrobes peek out of their doors.",
+      bits: [ {t: "cap", pos: "tl", text: "Step one: the roadies have cable. Hundreds of feet of it."},
+              {t: "say", pos: "br", tail: "l", joke: true, text: "Long enough for the roof?"} ] },
+    { img: "r05-drop", cam: TILT_DN, buzz: 40, alt: "Close-up against a blazing sunset: a vintage TV set swings on a long cable high above a palm-lined boulevard, where a tiny crowd points up from the sidewalk.",
+      bits: [ {t: "sfx", x: 50, y: 44, mx: 50, my: 44, rot: -7, size: 1.15, text: "WHEEE-CRUNCH!"},
+              {t: "cap", pos: "tl", text: "Step two: hotel TVs on the end of it, swinging off the roof."} ] },
+    { img: "r06-desk", cam: TILT_UP, alt: "The hotel lobby. A mustached desk clerk on an old rotary phone goes wide-eyed while a woman clutches her poodle. Through the tall window behind them a TV dangles on a cable and the masked rocker waves from the roof.",
+      bits: [ {t: "cap", pos: "tl", mini: true, text: "Down in the lobby, the phone rings."},
+              {t: "say", pos: "br", tail: "l", joke: true, text: "Sir… it’s raining televisions."} ] },
+    { img: "r07-hammer", cam: {k0: "scale(1)", k1: "scale(1.22)", o: "50% 22%", dur: 9}, alt: "A hotel room in the next city. The masked rocker stands on a roadie case and hefts a huge sledgehammer over his head while cheering roadies surround an open toolbox.",
+      bits: [ {t: "cap", pos: "tl", text: "Next city. The road crew had a lot of tools."},
+              {t: "say", pos: "br", tail: "l", joke: true, text: "This one!"} ] },
+    { img: "r08-wall", kb: "still", buzz: 70, alt: "Close-up: a sledgehammer bursts through orange and brown patterned wallpaper in an explosion of plaster. Through the hole, two cheering roadies and a band mate's silhouette punch the air, and a table lamp topples.",
+      bits: [ {t: "sfx", x: 64, y: 13, mx: 64, my: 13, rot: 8, size: 1.2, text: "KA-RUNCH!"},
+              {t: "quote", pos: "bl", text: "…we took a sledgehammer and broke through the wall and created our own connecting door.", who: PC} ] },
+    { img: "r09-waiter", kb: "still", alt: "A room-service waiter in a white jacket stops dead, his tray of silver domes tilting, as he stares at a brand-new hole in the wall. The masked rocker steps through it like a doorway.",
+      bits: [ {t: "say", pos: "tl", tail: "b", joke: true, text: "Shall I… bill that to the room?"},
+              {t: "cap", pos: "br", mini: true, text: "Room service. Right on time."} ] },
+    { img: "r10-crossbow", cam: TILT_UP, alt: "In the gilded lobby, the masked rocker aims a toy crossbow loaded with suction darts at a wall of old portraits. Guests duck behind potted palms.",
+      bits: [ {t: "sfx", x: 52, y: 18, mx: 52, my: 18, rot: -6, size: 1, text: "THWOK!"},
+              {t: "cap", pos: "bl", text: "Lobby paintings kept wandering off. And then there was the crossbow."},
+              {t: "cap", pos: "bl", mini: true, joke: true, text: "Ours shoots suction darts."} ] },
+    { img: "r11-darts", cam: {k0: "scale(1.3)", k1: "scale(1)", o: "50% 30%", dur: 10}, alt: "Close-up of a hotel gallery wall: stern old portraits, every one with a suction dart stuck on its nose. Below, guests duck behind potted palms, laughing.",
+      bits: [ {t: "cap", pos: "tl", mini: true, joke: true, text: "Every duke in the lobby gets a new nose."},
+              {t: "say", pos: "br", tail: "l", joke: true, text: "Duck!"} ] },
+    { img: "r12-confiscate", kb: "still", alt: "A tour manager with a clipboard holds up the confiscated toy crossbow while the masked rocker crosses his arms and sulks. Hotel staff and security applaud in the background.",
+      bits: [ {t: "say", pos: "tl", tail: "b", joke: true, text: "Confiscated!"},
+              {t: "cap", pos: "bl", text: "Peter recalls it got so out of control, the crossbow had to be taken away."} ] },
+    { img: "r13-flood", cam: TILT_DN, alt: "A cutaway of the hotel: on the top floor the masked rocker lounges in an overflowing bathtub, water cascades down the grand staircase like a waterfall, and in the ballroom below guests party knee-deep in water with rubber ducks and umbrellas.",
+      bits: [ {t: "cap", pos: "tl", text: "Then there was the plumbing. Taps left running, water heading for the floors below."},
+              {t: "say", pos: "br", tail: "l", joke: true, text: "Is this the pool?"} ] },
+    { img: "r14-car", kb: "still", alt: "Moonlit night. Behind a hedge, the masked rocker raises one finger with a wicked idea, next to a band mate's silhouette and a bodyguard seen from behind. Up ahead, a beige rental sedan is parked at the top of a slope above a golf course and a grand hotel.",
+      bits: [ {t: "cap", pos: "tl", text: "Night. A hotel with a beautiful golf course. And up on the hill: the business manager’s rental car."},
+              {t: "say", pos: "bl", tail: "r", joke: true, text: "I have an idea."} ] },
+    { img: "r15-brake", cam: {k0: "scale(1)", k1: "scale(1.22)", o: "58% 55%", dur: 8}, alt: "Close-up inside the car: a hand in a blue satin sleeve releases the handbrake lever between the front seats. Through the windscreen, the moonlit slope drops toward the golf course; two silhouettes giggle outside.",
+      bits: [ {t: "sfx", x: 66, y: 66, mx: 66, my: 66, rot: -8, size: .85, text: "CLICK."},
+              {t: "cap", pos: "tl", mini: true, text: "Handbrake off…"} ] },
+    { img: "r16-roll", cam: TILT_UP, buzz: 60, alt: "Low-angle close-up on a golf green: a golf ball sits at the lip of the hole as a car tyre ploughs past in a spray of turf. Golfers and a caddie dive through the air above, clubs flying.",
+      bits: [ {t: "sfx", x: 70, y: 10, mx: 70, my: 10, rot: 7, size: 1, joke: true, text: "FORE!!"},
+              {t: "quote", pos: "bl", text: "That sucker destroyed greens, knocked down trees, did every kind of damage that could be done to a golf course.", who: PC} ] },
+    { img: "r17-laugh", kb: "still", alt: "Back in the hotel room, the masked rocker lies on the bed kicking his boots in the air, tears of laughter running under his sunglasses, feathers and pillows flying. A band mate's silhouette rolls on the other bed.",
+      bits: [ {t: "quote", pos: "tr", text: "That night we stayed in the room and laughed all night long.", who: PC} ] },
+    { img: "r18-bunker", cam: {k0: "scale(1.32)", k1: "scale(1)", o: "45% 68%", dur: 11}, alt: "Morning on the golf course: the beige sedan sits nose-down in a sand bunker beside an uprooted sapling and a broken flag, its tracks winding back up the fairway. Two police officers inspect it, one holding the rental slip, while golfers and guests in bathrobes stare.",
+      bits: [ {t: "cap", pos: "tl", text: "Morning. The cops find the car and check whose name is on the rental."},
+              {t: "cap", pos: "br", mini: true, text: "The business manager’s, of course."} ] },
+    { img: "r19-cheque", kb: "still", alt: "At the hotel's front desk, the business manager, seen from behind, writes out a huge cheque on a long adding-machine tape while the masked rocker leans on the desk and the staff look on.",
+      bits: [ {t: "cap", pos: "tl", text: "And the band had to pay for the damages."},
+              {t: "say", pos: "br", tail: "l", joke: true, text: "Do you take autographs?"} ] },
+    { img: "r20-finale", cam: {k0: "scale(1.38)", k1: "scale(1)", o: "38% 42%", dur: 12}, alt: "Finale in a grand hotel lobby: the masked rocker tips his aviators while the beaming desk clerk holds up a big card with a dollar sign and two money bags. Staff, guests and police officers cheer under a crystal chandelier.",
+      bits: [ {t: "quote", pos: "bl", text: "Eventually we got such a bad rep that Chris was forced to put down a $10,000 deposit against any damages that we might incur.", who: PC} ] },
+  ]
+};
