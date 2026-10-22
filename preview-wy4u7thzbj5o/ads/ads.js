@@ -19,7 +19,6 @@ const arrow = ' <span aria-hidden="true">→</span>';
 const card = (kind, a, meta, actions, tag, label) => `
   <aside class="vad vad-${kind}" style="--ac:${esc(a.color || '#ffd60a')}" aria-label="${esc(label)}">
     <figure class="vad-pic">${pic(a)}
-      <span class="vad-tag">${tag}</span>
       <figcaption class="vad-head">${esc(a.head)}</figcaption>
     </figure>
     <div class="vad-foot">

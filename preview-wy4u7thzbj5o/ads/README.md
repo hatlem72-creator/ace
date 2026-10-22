@@ -31,7 +31,7 @@ the row removes itself if all its ads are hidden. Random slots on one page never
    ("Gull-wing doors sold separately."). Tie the jokes to the stories on the page. Affectionate toward the artist, never mean.
 2. **The record facts are real.** Artist, title, label, year, the featured track and the Discogs link must be checked; never invent them.
    Facts go in `artist`, `title`, `label`, `year`, `track`, `discogs`; jokes go in `head`, `fine` and the picture.
-3. Every ad carries a small **"Fake ad · real record"** tag (house ads: "real advice", coffee: "real coffee").
+3. No "Fake ad" tag on the ads (removed at the user's request, 22 Oct 2026).
 4. **Two standing house ads on every music site, always shown, never rotated out**, side by side on the shelf/home page:
    - **"Support your local record shop!"** – the run-down little shop by itself, **no people at all**, linking to a shop finder (https://recordstoreday.com/Stores).
    - **"Buy vinyl. Anywhere!"** – a wonky invented 1970s superfan beaming and proudly holding up **that site's artist's record**
