@@ -16,7 +16,7 @@ const btn = (href, text, cls) => okUrl(href) ? `<a class="${cls}" href="${esc(hr
 const pic = a => `<picture><source srcset="${BASE}${esc(a.img)}.webp" type="image/webp">
   <img src="${BASE}${esc(a.img)}.jpg" alt="${esc(a.alt)}" width="960" height="540" loading="lazy" decoding="async"></picture>`;
 const arrow = ' <span aria-hidden="true">→</span>';
-const card = (kind, a, meta, actions, tag, label) => `
+const card = (kind, a, meta, actions, label) => `
   <aside class="vad vad-${kind}" style="--ac:${esc(a.color || '#ffd60a')}" aria-label="${esc(label)}">
     <figure class="vad-pic">${pic(a)}
       <figcaption class="vad-head">${esc(a.head)}</figcaption>
@@ -31,13 +31,13 @@ const card = (kind, a, meta, actions, tag, label) => `
 const record = r => card('rec', r,
   `${esc(r.artist)} · ${esc(r.title)} · ${esc(r.year)} · ${esc(r.label)} · ♪ ${esc(r.track)}`,
   btn(r.discogs, 'Find this pressing' + arrow, 'vad-btn') + btn(r.spin, 'Spin it ▸', 'vad-ghost'),
-  'Fake ad · real record', `Parody ad for a real record: ${r.artist}, ${r.title} (${r.year})`);
+  `Parody ad for a real record: ${r.artist}, ${r.title} (${r.year})`);
 const build = key => {
   const a = D[key];
-  if (key === 'shop') return card('shop', a, '', btn(a.url, esc(a.label) + arrow, 'vad-btn'), 'Fake ad · real advice', 'Parody ad: support your local record shop');
-  if (key === 'anywhere') return a ? card('anywhere', a, a.caption ? esc(a.caption) : '', btn(a.url, esc(a.label) + arrow, 'vad-btn'), 'Fake ad · real advice', 'Parody ad: buy vinyl anywhere') : '';
-  if (key === 'coffee') return okUrl(D.bmacUrl) ? card('coffee', a, '', btn(D.bmacUrl, 'Buy me a coffee <span aria-hidden="true">☕</span>', 'vad-btn'), 'Fake ad · real coffee', 'Parody ad: buy the artist a coffee') : '';
-  if (X[key]) return card('fun', X[key], '', btn(X[key].url, esc(X[key].label || 'More') + arrow, 'vad-btn'), 'Fake ad · real love of muzak', `Parody ad: ${X[key].head}`);
+  if (key === 'shop') return card('shop', a, '', btn(a.url, esc(a.label) + arrow, 'vad-btn'), 'Parody ad: support your local record shop');
+  if (key === 'anywhere') return a ? card('anywhere', a, a.caption ? esc(a.caption) : '', btn(a.url, esc(a.label) + arrow, 'vad-btn'), 'Parody ad: buy vinyl anywhere') : '';
+  if (key === 'coffee') return okUrl(D.bmacUrl) ? card('coffee', a, '', btn(D.bmacUrl, 'Buy me a coffee <span aria-hidden="true">☕</span>', 'vad-btn'), 'Parody ad: buy the artist a coffee') : '';
+  if (X[key]) return card('fun', X[key], '', btn(X[key].url, esc(X[key].label || 'More') + arrow, 'vad-btn'), `Parody ad: ${X[key].head}`);
   const r = D.records[key]; return r ? record(r) : '';
 };
 const expand = list => list.flatMap(k => k === '@extras' ? Object.keys(X) : k === '@records' ? Object.keys(D.records) : [k]);
