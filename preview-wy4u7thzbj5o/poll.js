@@ -1,6 +1,6 @@
-/* Fan poll "Vote for Issue #5!" — built, switched OFF. Set POLL_ENABLED = true and add <section class="poll-mount"></section> + <script src="poll.js"> to a page to use it. */
+/* Fan poll "Vote for Issue #6!" — built, switched OFF. Set POLL_ENABLED = true and add <section class="poll-mount"></section> + <script src="poll.js"> to a page to use it. */
 const POLL_ENABLED = false;
-/* ===== Fan poll: "Vote for Issue #5!" =====
+/* ===== Fan poll: "Vote for Issue #6!" =====
    Backend: Abacus (abacus.jasoncameron.dev), one public counter per option, no sign-up, no cookies.
    Repeat votes are blocked per browser with localStorage only: honor system, not fraud-proof. */
 (() => {
@@ -10,8 +10,8 @@ const OPTIONS = [
    src: 'https://faroutmagazine.co.uk/insane-story-of-when-ace-frehley-once-downed-a-bottle-of-perfume/'},
   {key: 'option-2', title: 'The Trout Player', year: 1979, tease: 'Live on network TV: “No, actually I’m a plumber!” Gene was not amused.',
    src: 'https://www.rollingstone.com/music/music-features/kiss-ace-frehley-laugh-interview-1235449092/'},
-  {key: 'option-3', title: 'Close Encounters of the Ace Kind', year: 'Legend', tease: 'He woke half outside his front door, with a circle pressed into the lawn. (Ace’s own account.)',
-   src: 'https://www.denofgeek.com/culture/kiss-guitarist-ace-frehley-claims-ufo-and-ghost-encounters/'},
+  {key: 'option-6', title: 'Half a Face', year: 1974, tease: 'Laps of the Hollywood Hills, a telephone pole, stitches, and a photo shoot with makeup on only half his face. So: profiles.',
+   src: 'https://ultimateclassicrock.com/kiss-hotter-than-hell-album-cover/'},
   {key: 'option-4', title: 'Blinded in Paris', year: '70s', tease: 'Four bottles of champagne, asleep in silver face paint, and he woke up with his eyes swollen shut.',
    src: 'https://www.loudersound.com/news/frehley-i-feared-kiss-face-paint-made-me-blind'},
   {key: 'option-5', title: 'The Ghost Punch', year: 'Legend', tease: 'The Spaceman believed in ghosts, and says one hit him. (Ace’s own account.)',
@@ -25,8 +25,8 @@ const getJSON = (u, ms = 6000) => { const c = new AbortController(); const t = s
 const readAll = () => Promise.all(OPTIONS.map(o => getJSON(`${API}/get/${NS}/${o.key}`).then(d => +d.value || 0).catch(() => null)));
 
 const shell = m => { m.classList.add('poll'); m.innerHTML = `
-  <h2 class="sec"><span>Vote for Issue #5!</span></h2>
-  <p class="sub">Issues #2–#4 are already on the editor’s desk. You pick which true tale becomes Issue #5. One vote per reader.</p>
+  <h2 class="sec"><span>Vote for Issue #6!</span></h2>
+  <p class="sub">Issues #1–#5 are out. You pick which true tale becomes Issue #6. One vote per reader.</p>
   <div class="poll-grid">${OPTIONS.map((o, i) => `
     <button class="pcard" type="button" data-i="${i}">
       <span class="p-no">${String.fromCharCode(65 + i)}</span><span class="p-yr">${o.year}</span>
