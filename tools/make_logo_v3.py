@@ -43,11 +43,14 @@ subprocess.run([sys.executable, "tools/make_logo_wall.py", V + "k08-wall-blank.j
 im = unpatch(load("k09-leap-blank"), [(285, 1008, 13)])
 lay = warp(bizz.make(900), im.size, [(138, 55), (570, 25), (593, 265), (150, 300)], (0.09, 0.22, 0.09, 0.24))
 im = comp(im, lay, not_hand_mask(im)); save(im, "k09-leap")
-# 11 stage: BIZZ in the light box, Gene's $ on the bassist's back
-im = load("k11-stage-blank")
-art = bizz.make(300); lay = Image.new("RGBA", im.size, (0, 0, 0, 0)); lay.paste(art, (451 - art.width // 2, 196 - art.height // 2), art)
-im = glow(im, (451, 196), 120, 0.35); im = comp(im, lay)
-im = place(im, dollar_upside_down(60), 384, 520, None, 0.95); save(im, "k11-stage")
+# 11 stage: Alive!-pose live shot, lit-bulb BIZZ marquee (scripted), Gene-like bassist's upside-down $
+from bizz_bulbs import bulbs, screen_onto
+im = load("k11-live-blank")
+d = ImageDraw.Draw(im); pc = im.getpixel((350, 770))  # the robot's chest panel: plain, with dials instead of squiggles
+d.rectangle((354, 761, 384, 779), fill=pc, outline=(20, 20, 30), width=1)
+for x, c in ((362, (240, 200, 60)), (376, (230, 60, 50))): d.ellipse((x - 3, 767, x + 3, 773), fill=c, outline=(20, 20, 30))
+im = screen_onto(im, bulbs(400), 360, 128, 0.45)
+im = place(im, dollar_upside_down(64), 178, 548, None, 0.92); save(im, "k11-stage")
 # 12 dream: tiny BIZZ on the lapel button
 im = load("k12-dream-blank"); im = place(im, bizz.make(30), 454, 406, None, 0.95); save(im, "k12-dream")
 # 13 merch machine: BIZZ on the poster, tees, lunchboxes and poster stacks
