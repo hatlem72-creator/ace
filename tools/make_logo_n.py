@@ -74,14 +74,14 @@ def crush(path, box, thr=78):
     mi = Image.fromarray(m).filter(ImageFilter.MaxFilter(3)).filter(ImageFilter.MinFilter(5)).filter(ImageFilter.GaussianBlur(1.2))
     im.paste(Image.new("RGB", im.size, (8, 7, 9)), (0, 0), mi); im.save(path, quality=95)
 # reveal: Gene is the silhouette on the right, so his upside-down $ shows faintly on his back
-im = Image.open("img-src/logo/k10-reveal.jpg").convert("RGB")
+im = Image.open("img-src/logo/k11-reveal.jpg").convert("RGB")
 im = place(im, dollar_upside_down(96, (200, 160, 60)), 620, 840, None, 0.8, rot=12)
-im.save("img-src/logo/k10-reveal.jpg", quality=95)
+im.save("img-src/logo/k11-reveal.jpg", quality=95)
 print("reveal $")
 # copy the finished art into img-src/logo/ under the story's panel names; panel 5 gets a Dutch tilt
 O = "img-src/logo/"
 for k, v in {"k02-name": "n02-name", "k03-fancy": "n03-fancy", "k04-walk": "n04-walk", "k06-lying": "n06-lying", "k07-window": "n07-window",
-             "k09-eureka": "n09-eureka", "k11-button": "n10-button", "k12-crowd": "n12-crowd", "k13-window": "n13-clubwindow",
+             "k09-eureka": "n09-eureka", "k10-button": "n10-button", "k12-crowd": "n12-crowd", "k13-window": "n13-clubwindow",
              "k14-dream": "n14-dream", "k15-flyer": "n15-flyer", "k16-handoff": "n16-handoff", "k19-smug": "n19-smug"}.items():
     Image.open(RAW + v + ".jpg").convert("RGB").save(O + k + ".jpg", quality=95)
 im = Image.open(RAW + "n05-sweat-raw.jpg").convert("RGB"); W, H = im.size

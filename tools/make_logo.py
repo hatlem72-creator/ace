@@ -6,7 +6,7 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 P = "preview-wy4u7thzbj5o"; R = "img-src/logo"; OUT = P + "/logo/img"; IMG = P + "/img"
 os.makedirs(OUT, exist_ok=True)
 F = "/workspace/ace-fonts/Bangers.ttf"
-PANELS = ["k01-cover", "k02-name", "k03-fancy", "k04-walk", "k05-sweat", "k06-lying", "k07-window", "k08-wall", "k09-eureka", "k10-reveal", "k11-button", "k12-crowd", "k13-window", "k14-dream", "k15-flyer", "k16-handoff", "k17-sofa", "k18-ruler", "k19-smug", "k20-billboards"]
+PANELS = ["k01-cover", "k02-name", "k03-fancy", "k04-walk", "k05-sweat", "k06-lying", "k07-window", "k08-wall", "k09-eureka", "k10-button", "k11-reveal", "k12-crowd", "k13-window", "k14-dream", "k15-flyer", "k16-handoff", "k17-sofa", "k18-ruler", "k19-smug", "k20-billboards"]
 def save(im, path, w, q=64):
     im = im.convert("RGB")
     if im.width > w: im = im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)

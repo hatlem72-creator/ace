@@ -58,7 +58,7 @@ im = Image.open(RAW + "k08-reveal-v2-blank.jpg").convert("RGB")
 quad = [(217, 410), (372, 406), (408, 612), (260, 602)]
 lay = warp(bizz.make(900), im.size, quad, (0.07, 0.05, 0.07, 0.635))
 im = comp(im, lay, not_hand_mask(im))
-im.save(OUT + "k10-reveal.jpg", quality=95)
+im.save(OUT + "k11-reveal.jpg", quality=95)
 # 3) RULER close-up: the polished final with mismatched Z's, a steel ruler below, red check marks
 im = Image.open(RAW + "k10r-ruler-blank.jpg").convert("RGB")
 art = bizz.make(560, final=True); x0, y0 = 360 - art.width // 2, 712 - art.height
