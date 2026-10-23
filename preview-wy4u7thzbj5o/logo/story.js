@@ -2,7 +2,8 @@
    cap = narration (sourced, paraphrased), say = comic dialogue, quote = exact, attributed words, sfx.
    joke: true = invented gag, tagged "Joke!" on the page.
    Camera: mostly stills (kb "still"), a few gentle zooms and slow vertical tilts. No pans.
-   RULE: the real logo, its letters and its bolts are never shown. Band mates are silhouettes only.
+   RULE: the real logo, its letters and its bolts are never shown. The drawn logo is our parody stand-in BIZZ (scripted lettering,
+   tools/bizz.py): Ace's sketch has matching Z's, Paul's polished final has mismatched Z's. Band mates are silhouettes only.
    Sources: Ace Frehley, No Regrets (2011, excerpts via Rolling Stone and Ultimate Classic Rock); Gene Simmons in KISS: Behind the Mask;
    Peter Criss, Makeup to Breakup (2012); Paul Stanley, Face the Music (2014); Ace to Eric Spitznagel, MTV (2011, via Logo Design Love);
    Rock & Roll Hall of Fame KISS biography (2014, archived). */
@@ -30,19 +31,26 @@ const STORY = {
       bits: [ {t: "sfx", x: 74, y: 30, mx: 72, my: 28, rot: 8, size: 1.1, text: "TING!"},
               {t: "quote", pos: "tl", text: "I then transferred the logo to a button using a felt-tip pen and presented it to the group…", who: AF},
               {t: "cap", pos: "bl", mini: true, text: "His version even had a little diamond for the dot on the “i”."} ] },
-    { img: "k08-reveal", cam: {k0: "scale(1.3)", k1: "scale(1)", o: "50% 30%", dur: 10}, alt: "The masked rocker, seen from behind, holds the sketchpad high toward his band mates. Only the plain cardboard back faces us, while a brilliant white-gold glow blazes from the hidden page and crumpled drafts swirl in the air. The three band mates, shown as black silhouettes, recoil in amazement.",
+    { img: "k08-wall", cam: {k0: "scale(1)", k1: "scale(1.3)", o: "42% 36%", dur: 12}, alt: "The masked rocker, seen from behind, scratches his head in front of an apartment wall plastered with pinned and taped sheets, each one a different try at the parody word BIZZ: bubbly, wobbly, disco script, too thin, tumbling letters, several crossed out with a red X, with red notes saying TOO THIN, MORE SHARP! and FANCY??. In the middle, a big sharp-edged red BIZZ is circled with YES!!",
+      bits: [ {t: "cap", pos: "tl", mini: true, joke: true, text: "Our version: a whole wall of tries. (BIZZ is our stand-in. The real logo stays off this page.)"},
+              {t: "say", pos: "br", tail: "l", joke: true, text: "Fancy… but SHARPER."} ] },
+    { img: "k09-reveal", cam: {k0: "scale(1.3)", k1: "scale(1)", o: "50% 30%", dur: 10}, alt: "In the kitchen, the masked rocker faces us, proudly holding up his sketchpad. The page glows, showing the parody word BIZZ in sharp-edged red letters. In the foreground three band mates, seen from behind as black silhouettes, clutch their heads in amazement as crumpled drafts swirl.",
       bits: [ {t: "say", pos: "tr", tail: "b", joke: true, text: "WHOA."},
               {t: "quote", pos: "bl", text: "When Ace came in a week later with his sketch for a Kiss logo, the name was confirmed in heaven.", who: "Peter Criss, Makeup to Breakup (2012)"} ] },
-    { img: "k09-sofa", cam: TILT_UP, alt: "A tidy 1970s living room with a plastic-covered floral sofa, a ceramic poodle and a suitcase. A young man, shown only as a black silhouette, sits on the sofa with a stiff drawing board on his knees, a straightedge and a drafting pen in his hands. We see only the back of the board, glowing softly at the top edge.",
+    { img: "k10-sofa", cam: TILT_UP, alt: "A tidy 1970s living room with a plastic-covered floral sofa, a ceramic poodle and a suitcase. A young man, shown only as a black silhouette, sits on the sofa with a stiff drawing board on his knees, a straightedge and a drafting pen in his hands. We see only the back of the board, glowing softly at the top edge.",
       bits: [ {t: "cap", pos: "tl", text: "Then Paul, a trained artist, gave it the final polish."},
               {t: "quote", pos: "bc", text: "I vividly remember sitting on my parents’ sofa while they were out of town and drawing up the final version on thick white stock using a straightedge and a drafting pen.", who: "Paul Stanley, Face the Music (2014)"} ] },
-    { img: "k10-smug", kb: "still", alt: "At dawn the masked rocker leans back on a kitchen chair with his silver boots on the table, smugly blowing on his marker like a gunslinger blowing smoke from a pistol. A cat sleeps on the pile of crumpled drafts; band mates wait in the doorway as silhouettes.",
+    { img: "k11-ruler", cam: {k0: "scale(1)", k1: "scale(1.15)", o: "56% 60%", dur: 10}, alt: "Close-up from above on a white drawing card on a floral sofa: the polished parody word BIZZ in red, a steel ruler and a drafting pen beneath it, and red measuring brackets above the two Z's showing that the last Z is wider and thicker than the other.",
+      bits: [ {t: "cap", pos: "tl", mini: true, text: "Look closely at the polished version: the last two letters don’t match."},
+              {t: "quote", pos: "bc", text: "The SS in the logo actually consists of one S that is thicker than the other, with different proportions, and they aren’t exactly parallel — because I just eyeballed it.", who: "Paul Stanley, Face the Music (2014)"},
+              {t: "say", pos: "tr", tail: "b", joke: true, text: "Looks perfect to me!"} ] },
+    { img: "k12-smug", kb: "still", alt: "At dawn the masked rocker leans back on a kitchen chair with his silver boots on the table, smugly blowing on his marker like a gunslinger blowing smoke from a pistol. A cat sleeps on the pile of crumpled drafts; band mates wait in the doorway as silhouettes.",
       bits: [ {t: "quote", pos: "tl", text: "Designing one of the most recognizable rock logos in history wasn’t really that difficult.", who: AF},
               {t: "quote", pos: "br", text: "(Thanks, Paul!)", who: AF} ] },
-    { img: "k11-three", cam: {k0: "scale(1.3)", k1: "scale(1)", o: "70% 22%", dur: 12}, alt: "On a giant arena stage, the masked rocker stands on the bronze, third-place block of a winners' podium, hoisting a bronze trophy over his head with a bronze medal on his chest. The gold and silver blocks are empty and lit by blinding spotlights, and a huge crowd cheers with lighters and raised fists.",
+    { img: "k13-three", cam: {k0: "scale(1.3)", k1: "scale(1)", o: "75% 30%", dur: 12}, alt: "On a giant arena stage stands a three-step winners' podium. A big gold trophy stands alone on the tall first-place block and a silver trophy on the second-place block, while the masked rocker stands on the lowest, bronze, third-place block, proudly hoisting a bronze trophy over his head as a huge crowd cheers with lighters and raised fists.",
       bits: [ {t: "cap", pos: "tl", mini: true, text: "Decades later, he was asked about it."},
               {t: "quote", pos: "bl", text: "It’s probably one of the most recognizable rock logos in the world. I think it’s probably number three.", who: "Ace Frehley, to Eric Spitznagel, MTV (2011)"} ] },
-    { img: "k12-billboards", cam: {k0: "scale(1.35)", k1: "scale(1)", o: "50% 62%", dur: 12}, alt: "A sunny 1970s city corner. The masked rocker stands proudly, hands on hips, under three giant parody billboards: NIKKY with a droopy backwards swoosh, Coca-Cooler in red curly script with an ice-cube mascot in sunglasses, and Apfel with a bitten yellow lemon. Passers-by do double-takes.",
+    { img: "k14-billboards", cam: {k0: "scale(1.35)", k1: "scale(1)", o: "50% 62%", dur: 12}, alt: "A sunny 1970s city corner. The masked rocker stands proudly, hands on hips, under three giant parody billboards: NIKKY with a droopy backwards swoosh, Coca-Cooler in red curly script with an ice-cube mascot in sunglasses, and Apfel with a bitten yellow lemon. Passers-by do double-takes.",
       bits: [ {t: "say", pos: "bl", tail: "r", joke: true, text: "Up there with NIKKY, Coca-\u2060Cooler and Apfel!"},
               {t: "cap", pos: "bl", mini: true, text: "Fact: the Rock & Roll Hall of Fame noted that the Nike swoosh and the Apple logo were “still on the drawing board” when KISS designed theirs."} ] }
   ]

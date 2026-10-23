@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
+# pipeline: tools/make_logo_bizz.py (cover, reveal, ruler) + tools/make_logo_wall.py (wall) + tools/make_logo_billboards.py, then this script
 """Logo short (The Logo!) portrait raw art in img-src/logo/ -> web images in the preview folder (run from repo root)."""
 import os
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 P = "preview-wy4u7thzbj5o"; R = "img-src/logo"; OUT = P + "/logo/img"; IMG = P + "/img"
 os.makedirs(OUT, exist_ok=True)
 F = "/workspace/ace-fonts/Bangers.ttf"
-PANELS = ["k01-cover", "k02-photo", "k03-kitchen", "k04-drafts", "k05-boots", "k06-spark", "k07-button", "k08-reveal", "k09-sofa", "k10-smug", "k11-three", "k12-billboards"]
+PANELS = ["k01-cover", "k02-photo", "k03-kitchen", "k04-drafts", "k05-boots", "k06-spark", "k07-button", "k08-wall", "k09-reveal", "k10-sofa", "k11-ruler", "k12-smug", "k13-three", "k14-billboards"]
 def save(im, path, w, q=64):
     im = im.convert("RGB")
     if im.width > w: im = im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
