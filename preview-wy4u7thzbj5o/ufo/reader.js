@@ -1,5 +1,6 @@
 /* Ace Is Back! True Tales: full-screen comic reader v2.
-   One page at a time; swipe, tap, click or arrow keys. Ken Burns art, timed lettering, spreads, physical page turn. */
+   One page at a time; swipe, tap, click or arrow keys. Ken Burns art, timed lettering, spreads, physical page turn.
+   Issue #5 copy: portrait 9:16 art (720x1280), kb 'still', joke tags (b.joke). */
 (() => {
 const $ = s => document.querySelector(s);
 const track = $('#track'), endPage = $('#endPage'), dotsEl = $('#dots'), countEl = $('#count');
@@ -10,8 +11,9 @@ const KB = { in: ['scale(1.04)', 'scale(1.13)'], out: ['scale(1.15)', 'scale(1.0
   up: ['scale(1.1) translateY(2.5%)', 'scale(1.1) translateY(-2.5%)'], dn: ['scale(1.1) translateY(-2.5%)', 'scale(1.1) translateY(2.5%)'],
   pan: ['scale(1.14) translateX(6%)', 'scale(1.14) translateX(-6%)'],
   zoomout: ['scale(1.7)', 'scale(1.02)'],
-  panout: ['scale(1.3) translateX(11%)', 'scale(1.02) translateX(-0.9%)'] };
-const VT = '<span class="vt">Ace’s version</span>';
+  panout: ['scale(1.3) translateX(11%)', 'scale(1.02) translateX(-0.9%)'],
+  still: ['scale(1.02)', 'scale(1.02)'] };
+const VT = '<span class="vt">Ace’s version</span>', JK = '<span class="vt">Joke!</span>';
 
 /* build panel pages */
 STORY.panels.forEach((p, i) => {
@@ -26,7 +28,7 @@ STORY.panels.forEach((p, i) => {
   const html = b => {
     if (b.t === 'sfx') return `<span class="sfx" style="--d:.28s;--x:${b.x}%;--y:${b.y}%;--mx:${b.mx ?? b.x}%;--my:${b.my ?? b.y}%;--r:${b.rot || 0}deg;--s:${b.size || 1}" aria-hidden="true">${esc(b.text)}</span>`;
     const delay = `--d:${d.toFixed(2)}s`; d += 0.85;
-    const av = b.acev ? ' acev' : '', tag = b.acev ? VT : '';
+    const av = b.acev ? ' acev' : b.joke ? ' acev joke' : '', tag = b.acev ? VT : b.joke ? JK : '';
     if (b.t === 'quote') return `<figure class="bit bubble ${b.pos}" style="${delay}"><blockquote>“${esc(b.text)}”</blockquote><figcaption>${esc(b.who)}</figcaption></figure>`;
     if (b.t === 'say') return `<p class="bit say ${b.pos} tail-${b.tail || 'b'}${b.radio ? ' radio' : ''}${b.shout ? ' shout' : ''}${av}" style="${delay}">${tag}${esc(b.text)}</p>`;
     return `<p class="bit cap ${b.pos}${b.small ? ' small' : ''}${b.mini ? ' mini' : ''}${av}" style="${delay}">${tag}${b.text}</p>`;
@@ -50,7 +52,7 @@ STORY.panels.forEach((p, i) => {
     cv = Object.entries(V).map(([k, v]) => `;--${k}:${v}`).join('');
   }
   s.innerHTML = `<div class="sheet"><figure class="panel" style="--fx:${p.focus || '50%'}${c ? cv : `;--k0:${k0};--k1:${k1}`}${p.zx ? `;--zx:${p.zx}` : ''}${p.zy ? `;--zy:${p.zy}` : ''}${p.mzx ? `;--mzx:${p.mzx}` : ''}">
-      <picture><source data-srcset="img/${p.img}.webp" type="image/webp"><img data-src="img/${p.img}.jpg" alt="${esc(p.alt)}" width="1280" height="720" decoding="async"></picture>
+      <picture><source data-srcset="img/${p.img}.webp" type="image/webp"><img data-src="img/${p.img}.jpg" alt="${esc(p.alt)}" width="720" height="1280" decoding="async"></picture>
       ${bits}</figure><span class="pno">${i + 1}</span></div>`;
   track.insertBefore(s, endPage);
 });

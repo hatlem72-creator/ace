@@ -234,3 +234,46 @@ body.dark .dots button{border-color:#f4ecd6}body.dark .dots button.on{background
   .page.on.cam .panel img,.cam .panel img{animation:none!important;transform:none;object-position:var(--fx,50%) 50%}
   .page.on.pulse .panel picture,.cover-page.on .cart img{animation:none!important;transform:none}
 }
+
+/* =====================================================================
+   Issue #5 "Room Service!": PORTRAIT 9:16 art on every screen (phone-first).
+   Overrides the landscape defaults above; lettering always uses the stacked portrait layout.
+   ===================================================================== */
+:root{--ratio:9/16;--pw:min(calc(100vw - 24px),calc((100dvh - 120px) * 9 / 16))}
+@media (orientation:portrait){:root{--ratio:9/16;--pw:min(calc(100vw - 24px),calc((100dvh - 120px) * 9 / 16))}}
+.page{padding:50px 12px 54px}
+.bit{max-width:84%}.cap.small{max-width:62%}.bubble{max-width:88%}
+.cap{font-size:clamp(13px,3.9cqw,19px)}.cap.small{font-size:clamp(11px,3.1cqw,15px)}
+.cap.mini{font-size:clamp(11px,3.3cqw,15px);max-width:64%}
+.bubble blockquote{font-size:clamp(14px,4.3cqw,21px)}.bubble figcaption{font-size:clamp(10px,2.9cqw,13px)}
+.say{max-width:70%;font-size:clamp(13px,4.2cqw,20px)}
+.say.shout{font-size:clamp(14px,4.6cqw,22px)}
+.acev .vt{font-size:clamp(10px,2.9cqw,13px)}
+.joke .vt{background:var(--blu)}
+.cap.joke{background:var(--yel)}
+.sfx{font-size:calc(var(--s) * clamp(30px,11cqw,64px));left:var(--mx);top:var(--my);white-space:normal;width:max-content;max-width:92%;text-align:center;line-height:.95}
+.lt{display:flex;flex-direction:column;gap:clamp(8px,2.4cqw,14px)}
+.lt.top{inset:3% 3% auto 3%;align-items:flex-start}
+.lt.bot{inset:auto 3% 3.5% 3%;align-items:flex-start;justify-content:flex-end}
+.lt .bit{position:relative;inset:auto;transform:none;max-width:86%}
+.lt .tr,.lt .br{align-self:flex-end}.lt .tc,.lt .bc{align-self:center}
+.lt .acev{margin-top:.6em}
+/* cover: tall art, title wraps, room for the kicker underneath */
+.cover-page .sheet{width:min(calc(100vw - 24px),calc((100dvh - 230px) * 9 / 16))}
+.cart{max-height:none}
+.cover-page .ctitle{white-space:normal;width:94%;text-align:center;line-height:.85;font-size:clamp(34px,14cqw,72px);bottom:4%}
+.cover-page .stamp{width:clamp(62px,20cqw,96px);font-size:clamp(14px,4.4cqw,20px);top:3%}
+.cover-page .ckick{font-size:clamp(12px,3.4vw,16px)}
+/* cover camera: slow vertical tilt from the rocker on the roof, down the cable, to the crowd */
+.cover-page .cart img{transform-origin:50% 50%;transform:scale(1.14) translateY(5.5%)}
+.cover-page.on .cart img,.cover-page.on .cart img{animation:covtilt 14s cubic-bezier(.37,.08,.38,1) forwards}
+@media (orientation:portrait){.cover-page.on .cart img{animation:covtilt 14s cubic-bezier(.37,.08,.38,1) forwards}}
+@keyframes covtilt{0%{transform:scale(1.14) translateY(5.5%)}100%{transform:scale(1.14) translateY(-5.5%)}}
+/* cam vars are the same for phone and desktop now (story.js gives one path) */
+.cam .panel img{object-position:50% 50%}
+@media (prefers-reduced-motion:reduce){
+  .cover-page .cart img,.cover-page.on .cart img{animation:none!important;transform:none}
+  .page.on.cam .panel img,.cam .panel img{animation:none!important;transform:none;object-position:50% 50%}
+  .page.on .panel img,.panel img{animation:none!important;transform:none}
+}
+/* the intro page keeps its landscape art but fits a tall phone */

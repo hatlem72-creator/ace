@@ -3,7 +3,7 @@
 Old landscape art stays in img-src/ufo/ (backup copy in img-src/ufo_landscape/)."""
 import os
 from PIL import Image
-P = "preview-wy4u7thzbj5o"; R = "img-src/ufo-v2"; OUT = P + "/ufo-v2/img"
+P = "preview-wy4u7thzbj5o"; R = "img-src/ufo-v2"; OUT = P + "/ufo/img"
 os.makedirs(OUT, exist_ok=True)
 for f in sorted(os.listdir(R)):
     if not f.endswith(".jpg"): continue
