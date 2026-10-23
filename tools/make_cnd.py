@@ -5,7 +5,7 @@ import os
 from PIL import Image
 P = "preview-wy4u7thzbj5o"; R = "img-src/cnd"; OUT = P + "/img/cnd"
 os.makedirs(OUT, exist_ok=True)
-for n in ["base", "shock", "delorean", "rocket", "ufo", "room"]:
+for n in ["base", "shock", "delorean", "rocket", "ufo", "room", "logo"]:
     im = Image.open(f"{R}/{n}.jpg").convert("RGB")
     if im.width > 1280: im = im.resize((1280, round(im.height * 1280 / im.width)), Image.LANCZOS)
     im.save(f"{OUT}/{n}.webp", "WEBP", quality=66, method=6)
