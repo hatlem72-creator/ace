@@ -1,5 +1,7 @@
 """Helpers shared by the logo-short overlay scripts."""
-from PIL import Image, ImageDraw, ImageFilter, ImageChops
+from PIL import Image, ImageDraw, ImageFilter, ImageChops, ImageFont, ImageOps
+import numpy as np
+import bizz
 def coeffs(dst, src):  # perspective coefficients mapping output (dst quad) -> input (src rect)
     import numpy as np
     A = []; b = []
@@ -36,3 +38,31 @@ def glow(im, xy, r, strength=1.0):
         rr = r * k / 12; d.ellipse((xy[0] - rr, xy[1] - rr, xy[0] + rr, xy[1] + rr), fill=int(255 * (1 - k / 13) ** 1.6 * strength))
     g = g.filter(ImageFilter.GaussianBlur(r / 8))
     white = Image.new("RGB", im.size, (255, 248, 225)); return Image.composite(white, im, g)
+
+def place(im, art, cx, cy, mask=None, op=1.0, rot=0):
+    if rot: art = art.rotate(rot, Image.BICUBIC, expand=True)
+    lay = Image.new("RGBA", im.size, (0, 0, 0, 0)); lay.paste(art, (int(cx - art.width / 2), int(cy - art.height / 2)), art)
+    return comp(im, lay, mask, op)
+def bizz_I_x(art):  # x centre of the I in a bizz.make() image (same maths as bizz.make)
+    total = 58 + 19 + 58 + 58 + 30; pad = 9; sc = art.width / (total + 2 * pad)
+    return (pad + 58 + 10 + 9.5) * sc
+def diamond(size, col=(235, 240, 248)):
+    S = 4; w = size * S; im = Image.new("RGBA", (w * 2, w * 2), (0, 0, 0, 0)); d = ImageDraw.Draw(im); c = w
+    d.polygon([(c, c - w * .55), (c + w * .38, c), (c, c + w * .55), (c - w * .38, c)], fill=(12, 10, 10, 255))
+    d.polygon([(c, c - w * .44), (c + w * .28, c), (c, c + w * .44), (c - w * .28, c)], fill=col + (255,))
+    d.polygon([(c, c - w * .44), (c + w * .28, c), (c, c)], fill=(255, 255, 255, 255))
+    for a, b in (((c, c - w * .95), (c, c - w * .6)), ((c, c + w * .6), (c, c + w * .95)), ((c - w * .85, c), (c - w * .5, c)), ((c + w * .5, c), (c + w * .85, c))):
+        d.line((a, b), fill=(255, 250, 220, 255), width=S * 2)
+    return im.resize((w * 2 // S, w * 2 // S), Image.LANCZOS)
+def dollar_upside_down(h, col=(222, 178, 60)):
+    f = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", int(h * 1.15))
+    im = Image.new("RGBA", (int(h * 1.2), int(h * 1.5)), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    d.text((im.width / 2, im.height / 2), "$", font=f, anchor="mm", fill=col + (255,), stroke_width=max(2, h // 28), stroke_fill=(30, 22, 10, 255))
+    im = ImageOps.flip(im)  # flipped top-to-bottom: a $ turned 180 degrees looks unchanged, so it has to be mirrored to read as upside down
+    a = np.asarray(im).astype(float); rng = np.random.default_rng(3)  # worn paint
+    a[..., 3] *= np.clip(0.82 + rng.normal(0, 0.12, a.shape[:2]), 0.45, 1)
+    return Image.fromarray(a.astype("uint8"))
+def dark_front(im, thr=62):  # hair and other dark bits stay in front
+    g = np.asarray(im.convert("L")); m = np.where(g < thr, 0, 255).astype("uint8")
+    return Image.fromarray(m).filter(ImageFilter.MinFilter(3)).filter(ImageFilter.GaussianBlur(1))
+

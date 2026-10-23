@@ -15,7 +15,9 @@ F = {"bubbly": G + "Chewy/Chewy-Regular.ttf", "wobbly": G + "Caveat Brush/Caveat
      "heavy": G + "Shrikhand/Shrikhand-Regular.ttf", "round": G + "Righteous/Righteous-Regular.ttf", "pirate": G + "Pirata One/PirataOne-Regular.ttf"}
 NOTE = G + "Caveat Brush/CaveatBrush-Regular.ttf"
 RED = (214, 36, 36, 255); INK = (30, 28, 30, 255); PENCIL = (95, 95, 105, 235)
-src = Image.open("/workspace/outfits/logo/raw/k08-wall-blank.jpg").convert("RGB"); W, H = src.size
+import sys
+SRC, DST = (sys.argv[1], sys.argv[2]) if len(sys.argv) > 2 else ("/workspace/outfits/logo/raw/k08-wall-blank.jpg", "img-src/logo/k08-wall.jpg")
+src = Image.open(SRC).convert("RGB"); W, H = src.size
 a = np.asarray(src).astype(int); lum = a.mean(2); sat = a.max(2) - a.min(2)
 paper = (lum > 150) & (sat < 75)
 # connected components of paper on a 4x grid
@@ -91,4 +93,4 @@ note(d, (x0 + int(bw * 0.30), ay + art.height + 24), "YES!!", size=int(bh * 0.11
 mask = Image.fromarray(np.where(paper | ((lum > 140) & (sat < 70)), 255, 0).astype("uint8")).filter(ImageFilter.GaussianBlur(0.8))
 alpha = Image.fromarray((np.asarray(lay.getchannel("A")).astype(int) * np.asarray(mask).astype(int) // 255).astype("uint8"))
 out = src.copy(); out.paste(lay.convert("RGB"), (0, 0), alpha.filter(ImageFilter.GaussianBlur(0.3)))
-out.save("img-src/logo/k08-wall.jpg", quality=95); print("wrote img-src/logo/k08-wall.jpg", [s[1:] for s in sheets[-3:]])
+out.save(DST, quality=95); print("wrote", DST, [s[1:] for s in sheets[-3:]])

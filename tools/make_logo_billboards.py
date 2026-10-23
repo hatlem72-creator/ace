@@ -43,7 +43,7 @@ for ex in (-13, 13): d.rounded_rectangle(((cx + ex - 11) * S, (cy - 8) * S, (cx 
 d.line(((cx - 2) * S, (cy - 4) * S, (cx + 2) * S, (cy - 4) * S), fill=K, width=3 * S)
 d.arc(((cx - 10) * S, (cy + 2) * S, (cx + 10) * S, (cy + 18) * S), 20, 160, fill=K, width=3 * S)
 # 3) Apfel: grey board (166,510)-(546,719); keep clear of his head (x 300-412, y > 640)
-lx, ly = 246, 618  # bitten LEMON, upright, yellow with ink outline, pointy nubs top and bottom
+lx, ly = 222, 618  # bitten LEMON, upright, yellow with ink outline, pointy nubs top and bottom
 def lemon(o, fill):
     d.ellipse(((lx - 44 - o) * S, (ly - 56 - o) * S, (lx + 44 + o) * S, (ly + 56 + o) * S), fill=fill)
     d.polygon([((lx - 13 - o) * S, (ly - 50) * S), (lx * S, (ly - 72 - o) * S), ((lx + 13 + o) * S, (ly - 50) * S)], fill=fill)
@@ -55,7 +55,14 @@ import statistics
 sm = [base.getpixel((x, y)) for x in range(lx + 70, lx + 110, 3) for y in range(ly - 40, ly + 40, 3)]
 GREY = tuple(int(statistics.median(c[i] for c in sm)) for i in range(3)) + (255,)
 d.ellipse(((lx + 30) * S, (ly - 24) * S, (lx + 66) * S, (ly + 12) * S), fill=(0, 0, 0, 0))  # the bite, on the right side (clears the layer, board texture shows through)
-text_center(455, 584, "Apfel", font(ANT, 74, 250), K)
+text_center(452, 566, "Apfel", font(ANT, 74, 250), K)
 L = L.resize(base.size, Image.LANCZOS).filter(ImageFilter.GaussianBlur(0.4))
-base.paste(L, (0, 0), L)
+import numpy as np
+A = np.asarray(base).astype(int); keep = np.zeros(A.shape[:2], bool)
+for (x0, y0, x1, y1), (sx, sy) in (((185, 77, 527, 265), (200, 100)), ((178, 287, 535, 487), (200, 300)), ((169, 512, 544, 719), (190, 530))):
+    c = np.median(A[sy - 4:sy + 5, sx - 4:sx + 5].reshape(-1, 3), axis=0); sub = np.abs(A[y0:y1, x0:x1] - c).sum(axis=2) < 100
+    keep[y0:y1, x0:x1] = sub  # only paint where the board shows, so anyone standing in front stays in front
+km = Image.fromarray((keep * 255).astype("uint8")).filter(ImageFilter.MaxFilter(7)).filter(ImageFilter.MinFilter(9)).filter(ImageFilter.GaussianBlur(1))
+from PIL import ImageChops
+base.paste(L, (0, 0), ImageChops.multiply(L.getchannel("A"), km))
 base.save(out, quality=95); print("wrote", out)
