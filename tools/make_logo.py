@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-# pipeline: tools/make_logo_bizz.py (cover, reveal, ruler) + tools/make_logo_wall.py (wall) + tools/make_logo_billboards.py, then this script
+# pipeline: tools/make_logo_bizz.py (cover, reveal, ruler), tools/make_logo_wall.py (wall), tools/make_logo_billboards.py RAW/k12-blank.jpg img-src/logo/k20-billboards.jpg, tools/make_logo_n.py (other overlays + copies), then this script
 """Logo short (The Logo!) portrait raw art in img-src/logo/ -> web images in the preview folder (run from repo root)."""
 import os
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 P = "preview-wy4u7thzbj5o"; R = "img-src/logo"; OUT = P + "/logo/img"; IMG = P + "/img"
 os.makedirs(OUT, exist_ok=True)
 F = "/workspace/ace-fonts/Bangers.ttf"
-PANELS = ["k01-cover", "k02-photo", "k03-kitchen", "k04-drafts", "k05-boots", "k06-spark", "k07-button", "k08-wall", "k09-reveal", "k10-sofa", "k11-ruler", "k12-smug", "k13-three", "k14-billboards"]
+PANELS = ["k01-cover", "k02-name", "k03-fancy", "k04-walk", "k05-sweat", "k06-lying", "k07-window", "k08-wall", "k09-eureka", "k10-reveal", "k11-button", "k12-crowd", "k13-window", "k14-dream", "k15-flyer", "k16-handoff", "k17-sofa", "k18-ruler", "k19-smug", "k20-billboards"]
 def save(im, path, w, q=64):
     im = im.convert("RGB")
     if im.width > w: im = im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
