@@ -31,6 +31,17 @@ a{color:inherit}
 .kicker time{color:inherit}
 .sec-h{display:flex;align-items:center;gap:12px;margin:0 0 18px;font:800 13px/1 var(--ui);letter-spacing:.18em;text-transform:uppercase;color:#fff}
 .sec-h::after{content:"";flex:1;height:2px;background:linear-gradient(90deg,var(--yel),transparent 70%)}
+
+/* site intro */
+.intro{margin:0 0 36px;padding:18px 20px 16px;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--yel);border-radius:6px;max-width:680px}
+.intro-p{margin:0 0 12px;font-size:16px;line-height:1.55;color:#c4c4cf}
+.intro-p:last-child{margin-bottom:0}
+.intro-p b{color:#fff;font-weight:600}
+.joke-tag{display:inline-block;font:700 11px/1 var(--ui);letter-spacing:.08em;text-transform:uppercase;color:#111;background:var(--yel);padding:3px 6px;border-radius:2px;vertical-align:2px}
+@media (max-width:700px){
+  .intro{margin:0 0 28px;padding:14px 14px 12px}
+  .intro-p{font-size:15px;line-height:1.5}
+}
 /* lead story */
 .lead{margin:0 0 44px}
 .lead-link{display:block;text-decoration:none}
