@@ -64,3 +64,7 @@ No 70s mail-order framing, coupons, halftone or "SEND NO MONEY". The look is a s
   then the "Lover of muzak!" payoff under a hairline;
 - dark card, 18px radius, hairline border; one accent per ad (`color` → `--ac`) only for the hover glow; slow zoom on hover,
   all motion off for `prefers-reduced-motion`.
+
+## Vintage hi-fi scans
+
+Period-style magazine ads live in `hifi` in `ads-data.js` (full-page portraits, not 960×540). Use `<div data-vinyl-ad="technics-science">` or `@hifi` for a random one. They render as `.vad-scan`: the printed page is shown full-bleed, with **no HTML headline over the type** and no 16:9 crop. A small “From the collection” link sits under the scan.

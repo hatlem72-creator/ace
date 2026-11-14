@@ -46,3 +46,16 @@
   .vad-h .vad-pic{aspect-ratio:16/9}
   .vad-h .vad-foot{display:flex;flex-direction:column;justify-content:center;padding:20px 24px}
 }
+
+/* Full-bleed vintage magazine scans: show the printed page as-is.
+   No overlaid headline, no gradient, no crop to 16:9. */
+.vad-scan{max-width:480px;margin:0 auto;background:#111;border-radius:6px}
+.vad-scan:hover,.vad-scan:focus-within{transform:none}
+.vad-scan .vad-pic{aspect-ratio:auto;background:#111}
+.vad-scan .vad-pic::after{content:none}
+.vad-scan .vad-head{display:none}
+.vad-scan .vad-pic img{width:100%;height:auto;object-fit:contain}
+.vad-scan:hover .vad-pic img{transform:none}
+.vad-scan .vad-foot{padding:10px 12px 12px;text-align:center}
+.vad-scan .vad-act{justify-content:center}
+.vad-scan .vad-ghost{padding:7px 12px;font-size:12px}

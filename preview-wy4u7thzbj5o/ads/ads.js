@@ -14,7 +14,15 @@ const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;
 const okUrl = u => /^https:\/\//.test(u || '');
 const btn = (href, text, cls) => okUrl(href) ? `<a class="${cls}" href="${esc(href)}" target="_blank" rel="noopener">${text}</a>` : '';
 const pic = a => `<picture><source srcset="${BASE}${esc(a.img)}.webp" type="image/webp">
-  <img src="${BASE}${esc(a.img)}.jpg" alt="${esc(a.alt)}" width="960" height="540" loading="lazy" decoding="async"></picture>`;
+  <img src="${BASE}${esc(a.img)}.jpg" alt="${esc(a.alt)}" width="${a.width || 960}" height="${a.height || 540}" loading="lazy" decoding="async"></picture>`;
+const collectionHref = () => new URL('../../collection/', BASE).href;
+const scanCard = a => `
+  <aside class="vad vad-scan" style="--ac:${esc(a.color || "#c4a35a")}" aria-label="${esc(a.label || "Vintage print advertisement")}">
+    <figure class="vad-pic">${pic(a)}</figure>
+    <div class="vad-foot">
+      <p class="vad-act"><a class="vad-ghost" href="${esc(collectionHref())}">From the collection${arrow}</a></p>
+    </div>
+  </aside>`;
 const arrow = ' <span aria-hidden="true">→</span>';
 const card = (kind, a, meta, actions, label) => `
   <aside class="vad vad-${kind}" style="--ac:${esc(a.color || '#ffd60a')}" aria-label="${esc(label)}">
@@ -33,6 +41,7 @@ const record = r => card('rec', r,
   btn(r.discogs, 'Find this pressing' + arrow, 'vad-btn') + btn(r.spin, 'Spin it ▸', 'vad-ghost'),
   `Parody ad for a real record: ${r.artist}, ${r.title} (${r.year})`);
 const build = key => {
+  if (D.hifi && D.hifi[key]) return scanCard(D.hifi[key]);
   const a = D[key];
   if (key === 'shop') return card('shop', a, '', btn(a.url, esc(a.label) + arrow, 'vad-btn'), 'Parody ad: support your local record shop');
   if (key === 'anywhere') return a ? card('anywhere', a, a.caption ? esc(a.caption) : '', btn(a.url, esc(a.label) + arrow, 'vad-btn'), 'Parody ad: buy vinyl anywhere') : '';
@@ -40,7 +49,7 @@ const build = key => {
   if (X[key]) return card('fun', X[key], '', btn(X[key].url, esc(X[key].label || 'More') + arrow, 'vad-btn'), `Parody ad: ${X[key].head}`);
   const r = D.records[key]; return r ? record(r) : '';
 };
-const expand = list => list.flatMap(k => k === '@extras' ? Object.keys(X) : k === '@records' ? Object.keys(D.records) : [k]);
+const expand = list => list.flatMap(k => k === '@extras' ? Object.keys(X) : k === '@records' ? Object.keys(D.records) : k === '@hifi' ? Object.keys(D.hifi || {}) : [k]);
 const used = new Set();
 let force = new URLSearchParams(location.search).get('vad');
 document.querySelectorAll('[data-vinyl-ad]').forEach(el => {

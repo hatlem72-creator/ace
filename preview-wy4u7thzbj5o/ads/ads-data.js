@@ -97,7 +97,71 @@ window.VINYL_ADS = {
     "side-b": { color: "#9be15d", img: "ad-side-b", head: "Side B is better.", fine: "He will tell you why. For an hour.",
       alt: "A smug 1970s record collector with a giant afro, a belly-length beard and tinted glasses points at the vinyl record he holds up." }
   },
-  coffee: {
+  /* Vintage magazine hi-fi ads (full-page scans). Rendered as .vad-scan:
+     no HTML headline over the printed type. Portrait originals, not 960x540. */
+  hifi: {
+    "technics-science": {
+      color: "#3d6bb3", img: "ad-technics-science", width: 784, height: 1168,
+      label: "Vintage Technics magazine advertisement",
+      alt: "Vintage magazine ad headed Technics — The Sound of Science. A woman in a patterned dress sits beside a Technics SL-1200 turntable, SA-700 receiver and a pair of SB-700 speakers."
+    },
+    "marantz-beauty": {
+      color: "#c4a574", img: "ad-marantz-beauty", width: 784, height: 1168,
+      label: "Vintage Marantz magazine advertisement",
+      alt: "Vintage magazine ad headed Marantz — The Real Beauty is the Sound. A woman in a floral dress leans on a stack of Marantz components beside Marantz speakers."
+    },
+    "marantz-nice-pair": {
+      color: "#c4a574", img: "ad-marantz-nice-pair", width: 784, height: 1168,
+      label: "Vintage Marantz magazine advertisement, 1974",
+      alt: "Vintage 1974 magazine ad headed Nice Pair. Listen to This. A woman in a white tank and denim shorts sits between Marantz speakers, with a receiver and other components stacked on the cabinets. The page names the Model 2270 stereo receiver and Model HD-88 speaker system."
+    },
+    "pioneer-speakers": {
+      color: "#e85d04", img: "ad-pioneer-speakers", width: 784, height: 1168,
+      label: "Vintage Pioneer magazine advertisement",
+      alt: "Vintage magazine ad headed What a Pair of Speakers! A woman in a white halter and yellow shorts sits on a shag rug beside a Pioneer SX-737 receiver, CT-F7171 cassette deck and CS-99A speakers."
+    },
+    "pioneer-pair": {
+      color: "#e85d04", img: "ad-pioneer-pair", width: 784, height: 1168,
+      label: "Vintage Pioneer magazine advertisement",
+      alt: "Vintage magazine ad headed What a Pair! A woman in a patterned mini dress sits on a stack of Pioneer components, with a turntable, speakers and a cassette deck around her."
+    },
+    "pioneer-sound": {
+      color: "#e85d04", img: "ad-pioneer-sound", width: 784, height: 1168,
+      label: "Vintage Pioneer magazine advertisement",
+      alt: "Vintage magazine ad headed What a Sound! A woman in rust shorts and a cream halter leans on a Pioneer CS-66A speaker, with an SX-727 receiver and CT-4141 cassette deck behind her."
+    },
+    "jbl-lancer": {
+      color: "#d4a017", img: "ad-jbl-lancer", width: 784, height: 1168,
+      label: "Vintage JBL magazine advertisement",
+      alt: "Vintage magazine ad headed JBL — The new Lancer 66. A woman in a mustard dress leans on a stack of components beside a JBL Lancer 66 loudspeaker. The headline at the bottom reads Feel the Music."
+    },
+    "pioneer-catalog": {
+      color: "#e85d04", img: "ad-pioneer-catalog", width: 960, height: 2080,
+      label: "Vintage Pioneer catalog-style magazine advertisement",
+      alt: "Tall vintage catalog-style magazine page headed What a Pair!, for Pioneer and Stereo Discounters. A woman in a printed tank and denim shorts sits atop a stack of hi-fi components, with a speaker, a turntable, merch and a mail-order coupon on the page."
+    },
+    "fisher-434b": {
+      color: "#5a7a4a", img: "ad-fisher-434b", width: 784, height: 1168,
+      label: "Vintage Fisher and Altec Lansing magazine advertisement",
+      alt: "Vintage magazine ad headed Hear the Difference. Power and Beauty. A woman in a green blouse and pale trousers sits on a sofa beside a Fisher 434B receiver and a pair of grille-cloth speakers. The page also carries Altec Lansing branding."
+    },
+    "yamaha-natural": {
+      color: "#b45309", img: "ad-yamaha-natural", width: 784, height: 1168,
+      label: "Vintage Yamaha magazine advertisement",
+      alt: "Vintage magazine ad headed Yamaha — Natural Sound. A woman in a floral jumpsuit and tan jacket leans on a Yamaha CR-620 receiver beside a YP-211 turntable and a pair of Yamaha speakers."
+    },
+    "kenwood-difference": {
+      color: "#b91c1c", img: "ad-kenwood-difference", width: 784, height: 1168,
+      label: "Vintage Kenwood magazine advertisement",
+      alt: "Vintage magazine ad headed Kenwood — Listen to the Difference. A woman in a floral blouse and rust trousers sits beside a stack of Kenwood components and a pair of speakers. The copy names the KR-6030 receiver."
+    },
+    "sansui-name": {
+      color: "#6b4f3a", img: "ad-sansui-name", width: 784, height: 1168,
+      label: "Vintage Sansui magazine advertisement",
+      alt: "Vintage magazine ad headed Sansui — Music in the Name. A woman in a patterned mini dress stands beside a stack of Sansui components and a turntable, with SP-2000 and SP-1000 speakers labeled on the cabinets."
+    }
+  },
+    coffee: {
     color: "#ff9f43", img: "ad-coffee",
     alt: "A 1970s man with a mullet and a walrus moustache inspects a coffee through a jeweller's loupe; the foam looks like a vinyl record.",
     head: "Fuel the next issue.",

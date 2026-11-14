@@ -17,7 +17,7 @@ a{color:inherit}
 .mark .m1{font:400 28px/1 var(--hand);letter-spacing:1px;color:var(--yel);-webkit-text-stroke:1px #000;text-shadow:2px 2px 0 var(--red)}
 .mark .m2{font:600 11px/1 var(--ui);letter-spacing:.28em;text-transform:uppercase;color:#cfcfd8}
 .nav{display:flex;gap:22px;font:600 13px/1 var(--ui);letter-spacing:.06em;text-transform:uppercase}
-.nav a{text-decoration:none;color:#b9b9c6;padding:8px 0;border-bottom:2px solid transparent}
+.nav a{text-decoration:none;color:#b9b9c6;padding:8px 0;border-bottom:2px solid transparent;white-space:nowrap}
 .nav a:hover,.nav a[aria-current]{color:#fff;border-color:var(--yel)}
 .edition{margin-left:auto;font-size:12px;color:var(--muted)}
 /* ad slots */
@@ -115,7 +115,13 @@ a{color:inherit}
   .slot.slot-leader .vad{grid-template-columns:minmax(0,2.2fr) minmax(0,1fr)}
   .slot.slot-leader .vad-pic{aspect-ratio:auto;height:200px}
   .slot.slot-leader .vad-pic img{object-position:50% 12%}
+  .slot.slot-leader .vad-scan{display:block;max-width:480px;margin:0 auto}
+  .slot.slot-leader .vad-scan .vad-pic{height:auto;aspect-ratio:auto}
+  .slot.slot-leader .vad-scan .vad-pic img{object-position:50% 50%;width:100%;height:auto}
 }
+.slot-mid{margin:36px 0 8px}
+.slot-scan .vad-scan{max-width:480px}
+
 /* Vinyl desk: a wide card (picture left, words right; stacks on phones) */
 .desk{margin:48px 0 0}
 .card-wide a{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:24px;align-items:center}
