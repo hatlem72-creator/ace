@@ -68,10 +68,20 @@ window.VINYL_ADS = {
   },
   /* house ads: standard on every music site */
   shop: {
-    url: "https://recordstoreday.com/Stores", label: "Find a shop near you", color: "#ff5fa2", img: "ad-shop",
-    alt: "A run-down little record shop at dusk: peeling paint, a taped-up window, a pink neon record sign and crates of vinyl spilling onto the pavement. Nobody in sight.",
-    head: "Support your local record shop!",
-    fine: "No algorithm was harmed."
+    url: "https://recordstoreday.com/Stores", label: "Find a shop near you", color: "#ff7a18",
+    img: "ad-vinyl-heaven", width: 1280, height: 720,
+    alt: "A smiling 1970s advertising man with long feathered hair and a mustache, in a mustard jacket and a teal-and-magenta patterned tank top, stands in the open doorway of a colourful record shop and beckons you in with both arms open. A neon sign in the window reads VINYL HEAVEN, and crates of colourful records sit on the sidewalk.",
+    head: "Come on in — Vinyl Heaven is open!",
+    line: "“Step inside, friend. The good stuff is in the crates.” — The Ad Man",
+    payoff: "Support your local record shop!"
+  },
+  rsd: {
+    url: "https://recordstoreday.com/Stores", label: "Find a shop. Bring your elbows", color: "#e4007c",
+    img: "ad-rsd", width: 1280, height: 720,
+    alt: "A grainy 1970s press photo of a frenzied crowd of stylish people in flares, afros, fringe jackets and sunglasses sprinting toward the open doors of a colourful record shop. Some scream with joy and clutch records; a policeman tries to hold the rush back. The sign above the doors reads RECORD STORE DAY.",
+    head: "RECORD STORE DAY",
+    line: "Doors open at 8. Bring your elbows.",
+    payoff: "See you at the door."
   },
   anywhere: {
     url: "https://www.discogs.com/artist/315339-Ace-Frehley", label: "Ace on Discogs", color: "#8fb4ff", img: "ad-anywhere",

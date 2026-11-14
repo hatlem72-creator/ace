@@ -1,7 +1,8 @@
 /* Fake vinyl ads: reusable module (needs ads.css + a data file that sets window.VINYL_ADS + an img/ folder next to this file).
    Usage: <div data-vinyl-ad="love-gun"></div>              one record (or one extra, e.g. "flip")
           <div data-vinyl-ad="ace-1978|space-invader|@extras"></div>   random pick per visit; @extras = every wonky-70s extra ad
-          <div data-vinyl-ad="shop"></div>                  STANDARD: support your local record shop
+          <div data-vinyl-ad="shop"></div>                  STANDARD: Vinyl Heaven / support your local record shop
+          <div data-vinyl-ad="rsd"></div>                   Record Store Day (also in rsd|@extras rotation)
           <div data-vinyl-ad="anywhere"></div>              STANDARD: "Buy vinyl. Anywhere!"
           <div data-vinyl-ad="coffee"></div>                Buy Me a Coffee ad, removed while bmacUrl is empty
    Random slots on one page never repeat an ad while there are unused options left.
@@ -13,8 +14,21 @@ const BASE = ((document.currentScript && document.currentScript.src) || '').repl
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const okUrl = u => /^https:\/\//.test(u || '');
 const btn = (href, text, cls) => okUrl(href) ? `<a class="${cls}" href="${esc(href)}" target="_blank" rel="noopener">${text}</a>` : '';
-const pic = a => `<picture><source srcset="${BASE}${esc(a.img)}.webp" type="image/webp">
-  <img src="${BASE}${esc(a.img)}.jpg" alt="${esc(a.alt)}" width="${a.width || 960}" height="${a.height || 540}" loading="lazy" decoding="async"></picture>`;
+const pic = a => {
+  const ver = a.v ? `?v=${esc(a.v)}` : '';
+  return `<picture><source srcset="${BASE}${esc(a.img)}.webp${ver}" type="image/webp">
+  <img src="${BASE}${esc(a.img)}.jpg${ver}" alt="${esc(a.alt)}" width="${a.width || 960}" height="${a.height || 540}" loading="lazy" decoding="async"></picture>`;
+};
+const inviteCard = (kind, a, label) => `
+  <aside class="vad vad-invite vad-${kind}" style="--ac:${esc(a.color || '#ff7a18')}" aria-label="${esc(label)}">
+    <figure class="vad-pic">${pic(a)}</figure>
+    <div class="vad-foot">
+      <p class="vad-head">${esc(a.head)}</p>
+      ${a.line ? `<p class="vad-line">${esc(a.line)}</p>` : ''}
+      ${okUrl(a.url) ? `<p class="vad-act">${btn(a.url, esc(a.label) + arrow, 'vad-btn')}</p>` : ''}
+      ${a.payoff ? `<p class="vad-payoff">${esc(a.payoff)}</p>` : ''}
+    </div>
+  </aside>`;
 const collectionHref = () => new URL('../../collection/', BASE).href;
 const scanCard = a => `
   <aside class="vad vad-scan" style="--ac:${esc(a.color || "#c4a35a")}" aria-label="${esc(a.label || "Vintage print advertisement")}">
@@ -43,7 +57,8 @@ const record = r => card('rec', r,
 const build = key => {
   if (D.hifi && D.hifi[key]) return scanCard(D.hifi[key]);
   const a = D[key];
-  if (key === 'shop') return card('shop', a, '', btn(a.url, esc(a.label) + arrow, 'vad-btn'), 'Parody ad: support your local record shop');
+  if (key === 'shop') return inviteCard('shop', a, 'Advertisement: support your local record shop');
+  if (key === 'rsd') return inviteCard('rsd', a, 'Advertisement: Record Store Day');
   if (key === 'anywhere') return a ? card('anywhere', a, a.caption ? esc(a.caption) : '', btn(a.url, esc(a.label) + arrow, 'vad-btn'), 'Parody ad: buy vinyl anywhere') : '';
   if (key === 'coffee') return okUrl(D.bmacUrl) ? card('coffee', a, '', btn(D.bmacUrl, 'Buy me a coffee <span aria-hidden="true">☕</span>', 'vad-btn'), 'Parody ad: buy the artist a coffee') : '';
   if (X[key]) return card('fun', X[key], '', btn(X[key].url, esc(X[key].label || 'More') + arrow, 'vad-btn'), `Parody ad: ${X[key].head}`);

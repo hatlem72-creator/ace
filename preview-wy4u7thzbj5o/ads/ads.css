@@ -59,3 +59,48 @@
 .vad-scan .vad-foot{padding:10px 12px 12px;text-align:center}
 .vad-scan .vad-act{justify-content:center}
 .vad-scan .vad-ghost{padding:7px 12px;font-size:12px}
+
+/* Inviting 70s house ads (Vinyl Heaven, Record Store Day).
+   Headline lives in the footer, not over the photo, so nothing overlaps on a narrow screen. */
+.vad-invite{
+  background:linear-gradient(165deg,#ffe9b3 0%,#ffb347 50%,#ff7a3a 100%);
+  border:2px solid #c44900;color:#2a1408;
+  box-shadow:0 24px 50px -24px rgba(196,73,0,.5)
+}
+.vad-rsd{
+  background:linear-gradient(165deg,#ffe29a 0%,#ff8fab 45%,#2ec4b6 130%);
+  border-color:#9b1d6b
+}
+.vad-invite:hover,.vad-invite:focus-within{
+  border-color:#8a2200;
+  box-shadow:0 0 0 1px color-mix(in srgb,var(--ac) 45%,transparent),0 0 36px -8px color-mix(in srgb,var(--ac) 50%,transparent),0 28px 56px -28px rgba(0,0,0,.4)
+}
+.vad-rsd:hover,.vad-rsd:focus-within{border-color:#6a1048}
+.vad-invite .vad-pic{background:#f4d7a0}
+.vad-invite .vad-pic::after{content:none}
+.vad-invite .vad-head{
+  position:static;left:auto;right:auto;bottom:auto;
+  margin:0 0 8px;color:#8b1248;
+  font:800 clamp(22px,3vw,32px)/1.15 var(--hv);
+  letter-spacing:-.03em;text-shadow:none
+}
+.vad-rsd .vad-head{color:#7a1020;letter-spacing:.04em;text-transform:uppercase}
+.vad-invite .vad-line{margin:0 0 14px;font:600 15px/1.4 var(--hv);color:#2a1408}
+.vad-invite .vad-foot{padding:16px 18px}
+.vad-invite .vad-btn{background:#12827c;border-color:#0b5e5a;color:#fff}
+.vad-invite .vad-btn:hover,.vad-invite .vad-btn:focus-visible{
+  background:#0b5e5a;border-color:#083e3c;color:#fff;
+  box-shadow:0 0 24px -4px rgba(18,130,124,.55)
+}
+.vad-rsd .vad-btn{background:#9b1d6b;border-color:#6a1048}
+.vad-rsd .vad-btn:hover,.vad-rsd .vad-btn:focus-visible{background:#6a1048;border-color:#4a0b32;box-shadow:0 0 24px -4px rgba(155,29,107,.55)}
+.vad-invite .vad-payoff{margin:12px 0 0;padding-top:10px;border-top:1px solid rgba(42,20,8,.18);color:#5a2a10;font:800 13px/1.3 var(--hv)}
+@media (max-width:520px){
+  .vad-invite .vad-head{font-size:clamp(20px,6.4vw,26px)}
+  .vad-invite .vad-line{font-size:14px}
+  .vad-invite .vad-foot{padding:14px 14px}
+  .vad-invite .vad-btn{white-space:normal;text-align:center;max-width:100%}
+}
+@media (min-width:700px){
+  .vad-h .vad-invite .vad-foot{padding:20px 24px}
+}

@@ -33,7 +33,8 @@ the row removes itself if all its ads are hidden. Random slots on one page never
    Facts go in `artist`, `title`, `label`, `year`, `track`, `discogs`; jokes go in `head`, `fine` and the picture.
 3. No "Fake ad" tag on the ads (removed at the user's request, 22 Oct 2026).
 4. **Two standing house ads on every music site, always shown, never rotated out**, side by side on the shelf/home page:
-   - **"Support your local record shop!"** – the run-down little shop by itself, **no people at all**, linking to a shop finder (https://recordstoreday.com/Stores).
+   - **"Come on in — Vinyl Heaven is open!"** – the Ad Man (different clothes from the collection portrait) inviting you into a colourful shop, linking to a shop finder (https://recordstoreday.com/Stores).
+   - **"RECORD STORE DAY"** – a Beatlemania-style rush on the doors; also rotates in `rsd|@extras` slots.
    - **"Buy vinyl. Anywhere!"** – a wonky invented 1970s superfan beaming and proudly holding up **that site's artist's record**
      (generic stylised sleeve, no real cover art; the caption/alt names the artist), with homemade, wonky DIY fan face paint
      (Ace site: a hand-smeared silver lightning bolt on ONE cheek plus glitter; nothing around the eyes, no white base)
@@ -42,7 +43,7 @@ the row removes itself if all its ads are hidden. Random slots on one page never
    70s hair (perms, feathered hair, afros, mullets, big sideburns, moustaches), flares, wide collars, tinted aviators, polyester,
    70s interiors and colours (orange, brown, mustard, avocado). The photography is a 70s photo with modern punch; the layout stays modern.
    They promote vinyl, music, cassettes and **plastic straws** (a running joke). The comedy is their earnest reaction.
-   Exception: the local record shop ad shows the shop only, **no people**.
+   The Vinyl Heaven shop ad stars the Ad Man as the host. The Record Store Day ad is a crowd scene (invented faces only).
 6. **One strong image, minimum text.** No readable generated text in the pictures, no real album cover images, band logos, makeup designs or readable text in the pictures.
 7. "Find this pressing" goes to the Discogs master page; "Spin it" is an optional YouTube or Spotify search.
 8. Keep the ads out of story panels: shelf/home page, end pages and footers only.
