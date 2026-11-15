@@ -146,9 +146,24 @@ window.VINYL_ADS = {
       alt: "Vintage magazine ad headed JBL — The new Lancer 66. A woman in a mustard dress leans on a stack of components beside a JBL Lancer 66 loudspeaker. The headline at the bottom reads Feel the Music."
     },
     "orbit-reel": {
-      color: "#c45c26", img: "ad-orbit-reel", width: 784, height: 1168, v: 1,
-      label: "Vintage Orbit Reel Co. magazine advertisement",
-      alt: "Vintage magazine ad headed ORBIT / Both reels. A woman in a metallic copper jumpsuit presents a walnut open-reel tape machine that floats in mid-air with tape curling around it like rings, against a gold starburst and a colourful cosmic backdrop. The page is signed Orbit Reel Co."
+      color: "#c45c26", img: "ad-orbit-reel", width: 784, height: 1168, v: 2,
+      label: "Vintage Orbit magazine advertisement",
+      alt: "Vintage magazine ad headed ORBIT / Both reels. A woman in a metallic copper jumpsuit presents a walnut open-reel tape machine that floats in mid-air with tape curling around it like rings, against a gold starburst and a colourful cosmic backdrop. The campaign payoff at the bottom reads Stay in orbit."
+    },
+    "orbit-speaker": {
+      color: "#1f7a4d", img: "ad-orbit-speaker", width: 784, height: 1168,
+      label: "Vintage Orbit magazine advertisement",
+      alt: "Vintage magazine ad headed ORBIT / It has a pull. A woman with a dark 1970s beehive, in a metallic emerald jumpsuit, presents a walnut loudspeaker that floats in mid-air with a ring of gold light, against a gold starburst and a colourful cosmic backdrop. Body copy: A walnut cabinet with a gravity of its own. The campaign payoff reads Stay in orbit."
+    },
+    "orbit-stylus": {
+      color: "#6b3fa0", img: "ad-orbit-stylus", width: 784, height: 1168,
+      label: "Vintage Orbit magazine advertisement",
+      alt: "Vintage magazine ad headed ORBIT / It never skips. A woman with an auburn-red 1970s feathered mane, in a metallic purple jumpsuit, presents a chrome-and-black phono cartridge and diamond stylus that floats in mid-air with a ring of gold light, against a gold starburst and a colourful cosmic backdrop. Body copy: A diamond that stays in the groove. Even when the dancing doesn’t. The campaign payoff reads Stay in orbit."
+    },
+    "orbit-turntable": {
+      color: "#1e4d8c", img: "ad-orbit-turntable", width: 784, height: 1168,
+      label: "Vintage Orbit magazine advertisement",
+      alt: "Vintage magazine ad headed ORBIT / One revolution. A woman with a short dark 1970s shag, in a metallic cobalt jumpsuit, presents a walnut-and-silver turntable that floats in mid-air with a record turning and a ring of gold light, against a gold starburst and a colourful cosmic backdrop. Body copy: A platter that finds its speed and keeps it. The campaign payoff reads Stay in orbit."
     },
     "fisher-434b": {
       color: "#5a7a4a", img: "ad-fisher-434b", width: 784, height: 1168,
