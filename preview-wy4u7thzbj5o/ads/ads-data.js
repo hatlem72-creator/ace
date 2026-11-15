@@ -145,10 +145,10 @@ window.VINYL_ADS = {
       label: "Vintage JBL magazine advertisement",
       alt: "Vintage magazine ad headed JBL — The new Lancer 66. A woman in a mustard dress leans on a stack of components beside a JBL Lancer 66 loudspeaker. The headline at the bottom reads Feel the Music."
     },
-    "pioneer-catalog": {
-      color: "#e85d04", img: "ad-pioneer-catalog", width: 960, height: 2080,
-      label: "Vintage Pioneer catalog-style magazine advertisement",
-      alt: "Tall vintage catalog-style magazine page headed What a Pair!, for Pioneer and Stereo Discounters. A woman in a printed tank and denim shorts sits atop a stack of hi-fi components, with a speaker, a turntable, merch and a mail-order coupon on the page."
+    "orbit-reel": {
+      color: "#2f6f6f", img: "ad-orbit-reel", width: 784, height: 1168,
+      label: "Vintage Orbit Reel Co. magazine advertisement",
+      alt: "Vintage magazine ad headed ORBIT / Both reels. A woman in a teal wrap blouse and rust trousers stands with a walnut open-reel tape machine. The page is signed Orbit Reel Co."
     },
     "fisher-434b": {
       color: "#5a7a4a", img: "ad-fisher-434b", width: 784, height: 1168,
@@ -169,6 +169,21 @@ window.VINYL_ADS = {
       color: "#6b4f3a", img: "ad-sansui-name", width: 784, height: 1168,
       label: "Vintage Sansui magazine advertisement",
       alt: "Vintage magazine ad headed Sansui — Music in the Name. A woman in a patterned mini dress stands beside a stack of Sansui components and a turntable, with SP-2000 and SP-1000 speakers labeled on the cabinets."
+    },
+    "roomspan-cable": {
+      color: "#e85d04", img: "ad-roomspan-cable", width: 784, height: 1168,
+      label: "Vintage Roomspan magazine advertisement",
+      alt: "Vintage magazine ad headed ROOMSPAN / It reaches. A woman with a blonde blowout, in a lemon-yellow jumpsuit, walks a long copper-orange speaker cable across an orange shag rug to a far walnut speaker. The page is signed Roomspan Speaker Cable."
+    },
+    "goldstrand-cable": {
+      color: "#c9a227", img: "ad-goldstrand-cable", width: 784, height: 1168,
+      label: "Vintage Goldstrand magazine advertisement",
+      alt: "Vintage magazine ad headed GOLDSTRAND / Listen to the jacket. A woman with a dark feathered shag, in a metallic gold blouse and rust trousers, holds a gold-jacketed speaker cable like jewellery beside a walnut speaker. The page is signed Goldstrand Cable."
+    },
+    "westgauge-cable": {
+      color: "#1e3a5f", img: "ad-westgauge-cable", width: 784, height: 1168,
+      label: "Vintage Westgauge magazine advertisement",
+      alt: "Vintage magazine ad headed WESTGAUGE / Twelve. Not ten. A woman with a chestnut short crop, in a pink floral blouse and cream trousers, holds a fat colourful 12-gauge speaker cable beside a man with a sandy moustache, in a navy knit and jeans, who holds a skinny grey cable. The page is signed Westgauge Speaker Cable."
     }
   },
     coffee: {
