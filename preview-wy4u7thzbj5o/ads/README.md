@@ -37,7 +37,7 @@ the row removes itself if all its ads are hidden. Random slots on one page never
    - **"RECORD STORE DAY"** – a Beatlemania-style rush on the doors; also rotates in `rsd|@extras` slots.
    - **"Buy vinyl. Anywhere!"** – a wonky invented 1970s superfan beaming and proudly holding up **that site's artist's record**
      (generic stylised sleeve, no real cover art; the caption/alt names the artist), with homemade, wonky DIY fan face paint
-     (Ace site: a hand-smeared silver lightning bolt on ONE cheek plus glitter; nothing around the eyes, no white base)
+     (Star Man Studio: a hand-smeared silver lightning bolt on ONE cheek plus glitter; nothing around the eyes, no white base)
      that clearly does not copy any band member's makeup design. The button goes to the artist's Discogs artist page (verify the URL).
 5. **Models are wonky people FROM THE 1970s**: quirky, odd, funny-faced, invented, never real or recognisable people.
    70s hair (perms, feathered hair, afros, mullets, big sideburns, moustaches), flares, wide collars, tinted aviators, polyester,

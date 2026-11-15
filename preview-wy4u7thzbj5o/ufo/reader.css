@@ -1,4 +1,4 @@
-/* Ace Is Back! True Tales — comic reader v2 (Issue #2): Ken Burns, timed bubbles, spreads, physical page turn */
+/* Star Man Studio True Tales — comic reader v2 (Issue #2): Ken Burns, timed bubbles, spreads, physical page turn */
 :root{--paper:#efe5cb;--ink:#111;--yel:#ffe14d;--red:#e3262d;--blu:#1d5fd8;--hand:"Bangers",Impact,"Arial Black",sans-serif;--letter:"Comic Neue","Comic Sans MS",cursive;
   --pw:min(calc(100vw - 32px),calc((100dvh - 112px) * 16 / 9));--ratio:16/9}
 @media (orientation:portrait){:root{--pw:min(calc(100vw - 24px),calc((100dvh - 120px) * 3 / 4));--ratio:3/4}}

@@ -1,4 +1,4 @@
-/* Fake vinyl ads: SITE DATA for the Ace Is Back! site.
+/* Fake vinyl ads: SITE DATA for the Star Man Studio site.
    Copy ads.js + ads.css + this file (and an img/ folder) to reuse on another music site; only this file and img/ change per site.
    BMAC_URL: paste the Buy Me a Coffee link here. The coffee ad stays hidden until it is set. */
 const BMAC_URL = "";

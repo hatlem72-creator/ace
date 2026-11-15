@@ -1,4 +1,4 @@
-/* Ace Is Back! True Tales: full-screen comic reader v2.
+/* Star Man Studio True Tales: full-screen comic reader v2.
    One page at a time; swipe, tap, click or arrow keys. Ken Burns art, timed lettering, spreads, physical page turn.
    Issue #5 copy: portrait 9:16 art (720x1280), kb 'still', joke tags (b.joke). */
 (() => {

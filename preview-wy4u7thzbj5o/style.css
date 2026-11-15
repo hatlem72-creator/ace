@@ -1,4 +1,4 @@
-/* Ace Is Back! True Tales — home, laid out like a music news site (dark, modern; the comic look stays inside the readers) */
+/* Star Man Studio True Tales — home, laid out like a music news site (dark, modern; the comic look stays inside the readers) */
 :root{--bg:#060608;--panel:#0e0e13;--line:#1f1f28;--yel:#ffd60a;--red:#e8262d;--text:#ececf2;--muted:#8b8b99;
   --hand:"Bangers",Impact,"Arial Black",sans-serif;--ui:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;--wrap:1180px}
 *{box-sizing:border-box}
@@ -14,7 +14,7 @@ a{color:inherit}
 .topbar{position:sticky;top:0;z-index:20;background:rgba(6,6,8,.86);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .topbar-in{max-width:var(--wrap);margin:0 auto;padding:10px 24px;display:flex;align-items:center;gap:28px}
 .mark{display:inline-flex;align-items:baseline;gap:8px;text-decoration:none;white-space:nowrap}
-.mark .m1{font:400 28px/1 var(--hand);letter-spacing:1px;color:var(--yel);-webkit-text-stroke:1px #000;text-shadow:2px 2px 0 var(--red)}
+.mark .m1{font:400 26px/1 var(--hand);letter-spacing:.5px;color:var(--yel);-webkit-text-stroke:1px #000;text-shadow:2px 2px 0 var(--red)}
 .mark .m2{font:600 11px/1 var(--ui);letter-spacing:.28em;text-transform:uppercase;color:#cfcfd8}
 .nav{display:flex;gap:22px;font:600 13px/1 var(--ui);letter-spacing:.06em;text-transform:uppercase}
 .nav a{text-decoration:none;color:#b9b9c6;padding:8px 0;border-bottom:2px solid transparent;white-space:nowrap}
@@ -100,7 +100,7 @@ a{color:inherit}
 @media (max-width:700px){
   .topbar-in{flex-wrap:wrap;gap:6px 18px;padding:10px 16px}
   .nav{gap:16px;font-size:12px;overflow-x:auto;width:100%}
-  .mark .m1{font-size:24px}
+  .mark .m1{font-size:21px;letter-spacing:.4px}
   .slot-leader{display:none}
   .slot-mobile{display:block;margin:0 0 40px}
   .page{padding:22px 16px 0}
