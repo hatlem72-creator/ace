@@ -146,9 +146,9 @@ window.VINYL_ADS = {
       alt: "Vintage magazine ad headed JBL — The new Lancer 66. A woman in a mustard dress leans on a stack of components beside a JBL Lancer 66 loudspeaker. The headline at the bottom reads Feel the Music."
     },
     "orbit-reel": {
-      color: "#2f6f6f", img: "ad-orbit-reel", width: 784, height: 1168,
+      color: "#c45c26", img: "ad-orbit-reel", width: 784, height: 1168, v: 1,
       label: "Vintage Orbit Reel Co. magazine advertisement",
-      alt: "Vintage magazine ad headed ORBIT / Both reels. A woman in a teal wrap blouse and rust trousers stands with a walnut open-reel tape machine. The page is signed Orbit Reel Co."
+      alt: "Vintage magazine ad headed ORBIT / Both reels. A woman in a metallic copper jumpsuit presents a walnut open-reel tape machine that floats in mid-air with tape curling around it like rings, against a gold starburst and a colourful cosmic backdrop. The page is signed Orbit Reel Co."
     },
     "fisher-434b": {
       color: "#5a7a4a", img: "ad-fisher-434b", width: 784, height: 1168,
