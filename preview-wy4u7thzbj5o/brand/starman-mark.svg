@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 325.51 299.73" fill="none" role="img" aria-label="Star Man Studio">
+  <title>Star Man Studio</title>
+  <defs>
+    <linearGradient id="mkgold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F6E08A"/>
+      <stop offset="45%" stop-color="#D4A017"/>
+      <stop offset="100%" stop-color="#8A640C"/>
+    </linearGradient>
+    <mask id="mkstarcut">
+      <rect width="100%" height="100%" fill="white"/>
+      <rect x="14.00" y="127.50" width="297.51" height="73.00" fill="black"/>
+    </mask>
+  </defs>
+  <path d="M 162.76,16.00 L 195.99,118.26 L 303.51,118.27 L 216.53,181.47 L 249.75,283.73 L 162.76,220.54 L 75.76,283.73 L 108.99,181.47 L 22.00,118.27 L 129.53,118.26 Z" fill="url(#mkgold)" mask="url(#mkstarcut)"/>
+  <rect x="16.00" y="128.00" width="293.51" height="12.00" fill="url(#mkgold)"/>
+    <rect x="16.00" y="158.00" width="293.51" height="12.00" fill="url(#mkgold)"/>
+    <rect x="16.00" y="188.00" width="293.51" height="12.00" fill="url(#mkgold)"/>
+</svg>
