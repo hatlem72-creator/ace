@@ -77,9 +77,9 @@ a{color:inherit}
 .div-card p{margin:0;color:var(--ink-soft);font-size:16px}
 
 /* people */
-.people{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 32px;margin:0 0 48px}
+.people{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px 26px;margin:0 0 48px}
 .person{margin:0}
-.person img{display:block;width:100%;height:auto;background:#1a1208;margin:0 0 14px}
+.person img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;object-position:50% 12%;background:#1a1208;margin:0 0 14px;box-shadow:0 14px 32px -24px rgba(26,18,8,.7)}
 .person h3{margin:0 0 2px;font:600 22px/1.1 var(--display);letter-spacing:.04em;text-transform:uppercase}
 .person .role{margin:0 0 8px;font:500 11px/1.3 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep)}
 .person p{margin:0;color:var(--ink-soft);font-size:16px}
@@ -162,13 +162,15 @@ a{color:inherit}
   .quotes,.divs,.contact-block{grid-template-columns:1fr}
   .page{grid-template-columns:minmax(0,1fr) !important}
   .side{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:28px}
+  .people{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 24px}
 }
 @media (max-width:700px){
   .mast{padding:16px 16px 0}
   .nav{gap:2px 0;padding:8px 0 12px;justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto}
   .page{padding:24px 16px 0}
   .lobby{padding:28px 0 10px}
-  .grid,.coll,.people{grid-template-columns:minmax(0,1fr);gap:32px}
+  .people{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 24px}
+  .grid,.coll{grid-template-columns:minmax(0,1fr);gap:32px}
   .card-wide a{grid-template-columns:minmax(0,1fr);gap:0}
   .card-wide .card-pic{margin:0 0 14px}
   .adman{grid-template-columns:1fr;gap:20px}
@@ -206,4 +208,8 @@ a{color:inherit}
 .case-pic.follow{margin-top:28px}
 @media (max-width:700px){
   .case-pair,.hifi{grid-template-columns:1fr}
+}
+
+@media (max-width:620px){
+  .people{grid-template-columns:minmax(0,1fr);gap:32px}
 }
