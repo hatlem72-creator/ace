@@ -161,6 +161,54 @@ def slugify(name: str) -> str:
     return text or "hire"
 
 
+# Always-on fallback: Miek van Tiffany can never be fired, even if the
+# protected list in staff.json is missing or stale.
+ALWAYS_PROTECTED = frozenset({
+    "miek-van-tiffany",
+    "miek van tiffany",
+})
+
+
+def _protected_keys(staff: dict | None) -> set[str]:
+    keys = set(ALWAYS_PROTECTED)
+    if not staff:
+        return keys
+    for item in staff.get("protected") or []:
+        raw_id = raw_name = ""
+        if isinstance(item, str):
+            raw_name = item
+        elif isinstance(item, dict):
+            raw_id = str(item.get("id") or "").strip()
+            raw_name = str(item.get("name") or "").strip()
+        for raw in (raw_id, raw_name):
+            if not raw:
+                continue
+            keys.add(raw.lower())
+            keys.add(slugify(raw))
+    keys.discard("")
+    keys.discard("hire")
+    return keys
+
+
+def is_protected(hire: dict | None, staff: dict | None = None) -> bool:
+    """True if this hire must never be fired or moved to former.json."""
+    if not hire:
+        return False
+    keys = _protected_keys(staff)
+    candidates: set[str] = set()
+    for raw in (hire.get("id"), hire.get("name")):
+        if not raw:
+            continue
+        raw = str(raw).strip()
+        if not raw:
+            continue
+        candidates.add(raw.lower())
+        slug = slugify(raw)
+        if slug != "hire":
+            candidates.add(slug)
+    return bool(candidates & keys)
+
+
 def tweak_surname(surname: str) -> str:
     if not surname:
         return surname

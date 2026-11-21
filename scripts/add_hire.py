@@ -13,7 +13,9 @@ Usage:
     [--fire-reason 'custom reason if a desk must be freed']
 
 If all junior desks (staff.json maxFriendDesks, default 5) are occupied, the
-longest-serving friend hire is moved to former.json before the new one is seated.
+longest-serving non-protected friend hire is moved to former.json before the new
+one is seated. Protected staff (see staff.json and is_protected()) are never
+fired; if every seated junior is protected, the script exits without seating.
 The filled opening is removed from openings.json. If that would leave none open,
 a new unused title from the pool is posted, so one to three desks stay advertised.
 """
@@ -27,6 +29,7 @@ from sms_hiring import (
     DATA,
     FIRE_REASONS,
     HIRES_DIR,
+    is_protected,
     load_json,
     save_json,
     slugify,
@@ -57,7 +60,16 @@ def main():
 
     fired = None
     if len(hires) >= cap:
-        oldest = min(hires, key=lambda h: h.get("hiredAt") or "9999")
+        candidates = [h for h in hires if not is_protected(h, staff)]
+        if not candidates:
+            sys.exit(
+                "Junior desks are full, and every seated hire is protected "
+                "(unfireable). Refusing to fire a protected member of staff, "
+                "including Miek van Tiffany."
+            )
+        oldest = min(candidates, key=lambda h: h.get("hiredAt") or "9999")
+        if is_protected(oldest, staff):
+            sys.exit("Refusing to fire a protected member of staff, including Miek van Tiffany.")
         hires.remove(oldest)
         reason = args.fire_reason.strip() or FIRE_REASONS[len(former.get("employees") or []) % len(FIRE_REASONS)]
         record = {

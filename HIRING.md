@@ -8,14 +8,22 @@ The fourteen permanent staff on The Team are not managed here. They live in `pre
 
 - **Letterhead:** 14 permanent staff (plus Frank the company cat).
 - **Junior desks:** 5 friend hires, listed in `preview-wy4u7thzbj5o/data/staff.json` (`maxFriendDesks`).
-- When all five junior desks are occupied, the **longest-serving friend hire** (earliest `hiredAt`) is moved to `preview-wy4u7thzbj5o/data/former.json` with a deadpan reason, and the new hire takes the desk.
+- When all five junior desks are occupied, the **longest-serving non-protected friend hire** (earliest `hiredAt`) is moved to `preview-wy4u7thzbj5o/data/former.json` with a deadpan reason, and the new hire takes the desk. If every seated junior is protected, `add_hire.py` refuses rather than firing them or writing them to `former.json`.
+
+## Protected / unfireable staff
+
+Miek van Tiffany is unfireable. She is listed in `staff.json` under `protected` (`id`: `miek-van-tiffany`). `scripts/sms_hiring.py` exposes `is_protected()`, and `scripts/add_hire.py` will only fire the oldest hire who is not protected. Miek is also hard-coded as a fallback in `ALWAYS_PROTECTED`, so she stays protected even if the JSON key is missing or stale.
+
+She sits on the letterhead (`team/index.html`), so she is already outside the junior firing rotation. The protection still applies if she is ever re-added to `hires`. She must never be moved to `former.json`, auto-refilled, or rotated out of a desk. No hiring script may invent a firing reason for her.
+
+Do not show her smoking in any image.
 
 ## Data
 
 | File | Role |
 |---|---|
 | `preview-wy4u7thzbj5o/data/openings.json` | `pool` of titles, `reserved` titles already held on the letterhead, and `open` (the 1–3 jobs currently advertised). |
-| `preview-wy4u7thzbj5o/data/staff.json` | Friend hires only. |
+| `preview-wy4u7thzbj5o/data/staff.json` | Friend hires only, plus the `protected` list of unfireable staff. |
 | `preview-wy4u7thzbj5o/data/former.json` | Former friend hires, with the reason they left. |
 | `data/processed-applications.json` | Gmail message IDs already handled. The daily routine skips these. |
 
@@ -117,7 +125,7 @@ Run this once a day, in this order. Low compute: no need to re-generate portrait
      --email bob@example.com
    ```
 
-   This script: exports `864×1152` `.jpg` + `.webp` into `team/img/hires/`; appends the hire to `staff.json`; if the five junior desks are full, moves the longest-serving friend hire to `former.json` with a deadpan reason (override with `--fire-reason`); removes the filled title from `openings.json`; and, if that would leave none open, posts a new unused title from the pool so that **1–3 jobs stay advertised**.
+   This script: exports `864×1152` `.jpg` + `.webp` into `team/img/hires/`; appends the hire to `staff.json`; if the five junior desks are full, moves the longest-serving non-protected friend hire to `former.json` with a deadpan reason (override with `--fire-reason`); refuses if every seated junior is protected; removes the filled title from `openings.json`; and, if that would leave none open, posts a new unused title from the pool so that **1–3 jobs stay advertised**.
 
 8. **Commit and push**, as `hatlem72-creator`, only the preview data, portraits, and (if touched) openings. Do not change the public root `index.html` (it stays “Coming soon”). A suitable message: `Preview: seat {name} at the {position} desk.`
 
@@ -145,7 +153,7 @@ All commands are run from the repo root (`/workspace/ace-site` in this workspace
 |---|---|
 | `scripts/choose_winner.py <file> [--pretty]` | Read a batch of applicants and print the winner plus the score table. Exit 2 if nobody qualifies. |
 | `scripts/invent_name.py --name NAME [--position TITLE] [--hobbies …] [--interests …]` | Print a funny desk name. |
-| `scripts/add_hire.py --name NAME --position TITLE --bio TEXT --image PATH [--real-name NAME] [--email EMAIL] [--hired-at YYYY-MM-DD] [--fire-reason TEXT]` | Seat the hire, export portraits, rotate openings, and fire the longest-serving friend hire if the junior desks are full. |
+| `scripts/add_hire.py --name NAME --position TITLE --bio TEXT --image PATH [--real-name NAME] [--email EMAIL] [--hired-at YYYY-MM-DD] [--fire-reason TEXT]` | Seat the hire, export portraits, rotate openings, and fire the longest-serving non-protected friend hire if the junior desks are full. Never fires protected staff (including Miek van Tiffany). |
 | `scripts/sms_hiring.py` | Library used by the three commands above. Not a CLI. |
 
 The routine should call these rather than editing the JSON by hand.
