@@ -24,6 +24,14 @@
       "applicant": "gaute olsen",
       "position": "Jingle Writer",
       "outcome": "hired as Gaute \"The Jingle\" Olssen"
+    },
+    {
+      "id": "1a1fc4fae7ccc743",
+      "threadId": "1a1fc4fae7ccc743",
+      "handledAt": "2026-11-21T05:17:16+01:00",
+      "applicant": "Anne Cecilie Hatlem",
+      "position": "Tea Lady",
+      "outcome": "hired as Annie \"The Kettle\" Hatlem"
     }
   ]
 }

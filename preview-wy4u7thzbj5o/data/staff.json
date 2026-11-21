@@ -12,6 +12,16 @@
       "portraitWebp": "team/img/hires/gaute-the-jingle-olssen.webp",
       "hiredAt": "2026-11-21",
       "email": "gautehatlem72@gmail.com"
+    },
+    {
+      "id": "annie-the-kettle-hatlem",
+      "name": "Annie \"The Kettle\" Hatlem",
+      "realName": "Anne Cecilie Hatlem",
+      "position": "Tea Lady",
+      "bio": "The hobby is teas and the drink is tea. Tiffany lamps are the interest. She lives to serve it to the working man.",
+      "portrait": "team/img/hires/annie-the-kettle-hatlem.jpg",
+      "portraitWebp": "team/img/hires/annie-the-kettle-hatlem.webp",
+      "hiredAt": "2026-11-21"
     }
   ]
 }

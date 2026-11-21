@@ -101,7 +101,9 @@ Run this once a day, in this order. Low compute: no need to re-generate portrait
 
 5. **Write a dry bio** from the answers, in the studio’s voice: two or three short sentences, no exclamation marks, no praise for enthusiasm alone. Mention a hobby, a drink, or a typing habit if it is funny. Do not invent a second career.
 
-6. **Generate one 1974 cheesy studio portrait** from the winner’s photograph, in exactly the same style as the letterhead staff on The Team: tight head-and-shoulders 3:4 crop, mottled painted studio backdrop (not an office), soft analogue lighting, warm faded colour, fine film grain, a slightly cheesy pose that suits the desk. Use their photo as the likeness reference and one existing team portrait (for example Gaute or Whit) as the style reference. Do not copy another staff member’s face. Save the result to a file.
+6. **Generate one 1974 cheesy studio portrait** from the winner’s photograph, in exactly the same style as the letterhead staff on The Team: tight head-and-shoulders 3:4 crop, mottled painted studio backdrop (not an office), soft analogue lighting, warm faded colour, fine film grain, a slightly cheesy pose that suits the desk. Use one existing team portrait (for example Gaute or Whit) as the *style* reference only. Do not copy another staff member’s face. Save the result to a file.
+
+   **Likeness rule (always):** use the uploaded photograph as the portrait reference — whoever is in it, even if it is a famous person, a painting, or an advertisement — as long as there is a clear face. Do not substitute a different reference, a staff portrait, or another photo of the applicant. Only if there is no usable face at all, stop and report that instead of guessing or inventing a face. Phone-screenshot chrome may be cropped off, but the person in the upload must remain the likeness.
 
 7. **Seat them and rotate the board:**
 
