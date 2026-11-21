@@ -17,6 +17,7 @@ The thirteen permanent staff on The Team are not managed here. They live in `pre
 | `preview-wy4u7thzbj5o/data/openings.json` | `pool` of titles, `reserved` titles already held on the letterhead, and `open` (the 1–3 jobs currently advertised). |
 | `preview-wy4u7thzbj5o/data/staff.json` | Friend hires only. |
 | `preview-wy4u7thzbj5o/data/former.json` | Former friend hires, with the reason they left. |
+| `data/processed-applications.json` | Gmail message IDs already handled. The daily routine skips these. |
 
 Portraits for friend hires go in `preview-wy4u7thzbj5o/team/img/hires/` as `.jpg` + `.webp`. Paths in the JSON are relative to `preview-wy4u7thzbj5o/` (for example `team/img/hires/bobby-the-typewriter-hanssen.jpg`).
 
@@ -76,6 +77,8 @@ Run this once a day, in this order. Low compute: no need to re-generate portrait
    ```
 
    `submitted_at` should be the email’s Date header, as ISO-8601 with a timezone. Skip mail that is clearly a FormSubmit activation notice, not an application.
+
+   **Skip any message whose Gmail id already appears in `data/processed-applications.json`.** After a round is seated (or a batch is held or disqualified), append every message id that was considered — including duplicates of the same applicant — so the next run never reprocesses them. Do not mark or modify the Gmail messages themselves unless asked.
 
 2. **Only fill currently open positions.** Read `openings.json`. If a batch is for a desk that is no longer open, hold it for the next time that title (or “The next desk that comes free”) is posted.
 

@@ -1,0 +1,29 @@
+{
+  "note": "Gmail message IDs already handled by a hiring round. The daily routine must skip these, including duplicates of the same application, so they are never reprocessed.",
+  "messages": [
+    {
+      "id": "1a1fc34664c90dc8",
+      "threadId": "1a1fc34664c90dc8",
+      "handledAt": "2026-11-21T04:49:43+01:00",
+      "applicant": "gaute olsen",
+      "position": "Jingle Writer",
+      "note": "Duplicate FormSubmit of 1a1fc35aade3927d; same applicant. Not seated from this copy."
+    },
+    {
+      "id": "1a1fc3466d1abb07",
+      "threadId": "1a1fc34664c90dc8",
+      "handledAt": "2026-11-21T04:49:43+01:00",
+      "applicant": "gaute olsen",
+      "position": "Jingle Writer",
+      "note": "Duplicate FormSubmit of 1a1fc35aade3927d; same applicant. Not seated from this copy."
+    },
+    {
+      "id": "1a1fc35aade3927d",
+      "threadId": "1a1fc34664c90dc8",
+      "handledAt": "2026-11-21T04:49:43+01:00",
+      "applicant": "gaute olsen",
+      "position": "Jingle Writer",
+      "outcome": "hired as Gaute \"The Jingle\" Olssen"
+    }
+  ]
+}
