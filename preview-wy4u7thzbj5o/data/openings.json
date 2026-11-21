@@ -20,6 +20,7 @@
     "Typist",
     "Mailroom Boy",
     "Tea Lady",
+    "Master Stylist",
     "Company Clown"
   ],
   "reserved": [
@@ -27,7 +28,8 @@
     "Art Director",
     "Copywriter",
     "Film Director",
-    "Company Clown"
+    "Company Clown",
+    "Master Stylist"
   ],
   "open": [
     {
@@ -39,6 +41,11 @@
       "id": "mailroom-boy",
       "title": "Mailroom Boy",
       "blurb": "The chute, the stairs, and the one envelope that is always late. Whistling is permitted on even-numbered floors."
+    },
+    {
+      "id": "tea-lady",
+      "title": "Tea Lady",
+      "blurb": "The kettle is a department. Biscuits are a philosophy. Dotty will not be drawn on the difference."
     }
   ],
   "reservedOpenings": [

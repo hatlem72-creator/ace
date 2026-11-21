@@ -2,11 +2,11 @@
 
 A low-compute, deadpan system for seating friends at junior desks on the preview site. The public pages are static (GitHub Pages). Applications arrive by email. A daily routine reads the in-tray, chooses a winner, makes a 1974 portrait, and commits the result.
 
-The thirteen permanent staff on The Team are not managed here. They live in `preview-wy4u7thzbj5o/team/index.html`.
+The fourteen permanent staff on The Team are not managed here. They live in `preview-wy4u7thzbj5o/team/index.html`.
 
 ## Desks
 
-- **Letterhead:** 13 permanent staff.
+- **Letterhead:** 14 permanent staff (plus Frank the company cat).
 - **Junior desks:** 5 friend hires, listed in `preview-wy4u7thzbj5o/data/staff.json` (`maxFriendDesks`).
 - When all five junior desks are occupied, the **longest-serving friend hire** (earliest `hiredAt`) is moved to `preview-wy4u7thzbj5o/data/former.json` with a deadpan reason, and the new hire takes the desk.
 
@@ -21,7 +21,7 @@ The thirteen permanent staff on The Team are not managed here. They live in `pre
 
 Portraits for friend hires go in `preview-wy4u7thzbj5o/team/img/hires/` as `.jpg` + `.webp`. Paths in the JSON are relative to `preview-wy4u7thzbj5o/` (for example `team/img/hires/bobby-the-typewriter-hanssen.jpg`).
 
-Reserved titles (not re-advertised while the letterhead holds them): Creative Director, Art Director, Copywriter, Film Director.
+Reserved titles (not re-advertised while the letterhead holds them): Creative Director, Art Director, Copywriter, Film Director, Company Clown, Master Stylist.
 
 ## What visitors see
 
