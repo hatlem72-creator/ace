@@ -32,6 +32,10 @@
     return (data && data.open) || [];
   }
 
+  function reservedOpenings(data) {
+    return (data && data.reservedOpenings) || [];
+  }
+
   function renderBanner(openings) {
     var root = document.getElementById("hiring-sign");
     if (!root) return;
@@ -80,7 +84,11 @@
       h.className = "piece-h";
       h.textContent = o.title;
       var b = document.createElement("p");
-      b.textContent = o.blurb || "";
+      var blurb = o.blurb || "";
+      if (o.reserved && !/^reserved\b/i.test(blurb)) {
+        blurb = "Reserved. " + blurb;
+      }
+      b.textContent = blurb;
       list.appendChild(h);
       list.appendChild(b);
     });
@@ -288,7 +296,7 @@
     tasks.push(load("openings").then(function (data) {
       var openings = openList(data);
       renderBanner(openings);
-      fillOpeningsList(openings);
+      fillOpeningsList(openings.concat(reservedOpenings(data)));
       fillApplyForm(openings);
     }).catch(function () {
       var line = document.querySelector("#hiring-sign .hiring-line");

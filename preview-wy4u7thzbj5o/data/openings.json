@@ -19,13 +19,15 @@
     "Receptionist",
     "Typist",
     "Mailroom Boy",
-    "Tea Lady"
+    "Tea Lady",
+    "Company Clown"
   ],
   "reserved": [
     "Creative Director",
     "Art Director",
     "Copywriter",
-    "Film Director"
+    "Film Director",
+    "Company Clown"
   ],
   "open": [
     {
@@ -37,6 +39,14 @@
       "id": "mailroom-boy",
       "title": "Mailroom Boy",
       "blurb": "The chute, the stairs, and the one envelope that is always late. Whistling is permitted on even-numbered floors."
+    }
+  ],
+  "reservedOpenings": [
+    {
+      "id": "company-clown",
+      "title": "Company Clown",
+      "blurb": "Duties: board meetings and parties.",
+      "reserved": true
     }
   ]
 }

@@ -326,6 +326,13 @@ a{color:inherit}
 .press-short{margin:36px 0 10px;padding:28px 0 8px}
 .press-short .as-seen{padding:0 0 8px}
 
+
+.news-wide{margin:0 0 40px}
+.news-wide a{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:28px 32px;align-items:center;text-decoration:none}
+.news-wide .hook + .hook{margin-top:8px}
+@media (max-width:700px){
+  .news-wide a{grid-template-columns:1fr;gap:16px}
+}
 @media (max-width:700px){
   .front-staff{grid-template-columns:1fr;gap:32px}
   .front-staff .eotm{max-width:240px}
