@@ -23,6 +23,7 @@ a{color:inherit}
 .logo{display:block;text-decoration:none;line-height:0}
 .logo img{display:block;width:min(420px,86vw);height:auto;margin:0 auto}
 .tag{margin:10px 0 0;font:500 11px/1 var(--display);letter-spacing:.28em;text-transform:uppercase;color:var(--gold-deep)}
+.motto{margin:14px 0 0;font:600 clamp(28px,5.5vw,64px)/1.05 var(--display);letter-spacing:.04em;text-transform:uppercase;color:var(--ink)}
 .nav{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 0;width:100%;margin:18px 0 0;padding:12px 0 14px;border-top:1px solid var(--rule);
   font:500 12px/1 var(--display);letter-spacing:.14em;text-transform:uppercase}
 .nav a{text-decoration:none;color:var(--ink-soft);padding:6px 11px;white-space:nowrap}
