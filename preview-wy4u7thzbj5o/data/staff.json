@@ -3,24 +3,13 @@
   "note": "The loft already seats 13 on the letterhead (the permanent staff, rendered in team/index.html). Five junior desks are reserved for friend hires listed here. When all five are occupied, the longest-serving friend hire is moved to former.json to make a desk free.",
   "hires": [
     {
-      "id": "gaute-the-jingle-olssen",
-      "name": "Gaute \"The Jingle\" Olssen",
-      "realName": "gaute olsen",
-      "position": "Jingle Writer",
-      "bio": "Bird watching, stamps, and a glass of milk. He wrote that he needed work. A pencil has been provided.",
-      "portrait": "team/img/hires/gaute-the-jingle-olssen.jpg",
-      "portraitWebp": "team/img/hires/gaute-the-jingle-olssen.webp",
-      "hiredAt": "2026-11-21",
-      "email": "gautehatlem72@gmail.com"
-    },
-    {
-      "id": "annie-the-kettle-hatlem",
-      "name": "Annie \"The Kettle\" Hatlem",
+      "id": "miek-van-tiffany",
+      "name": "Miek van Tiffany",
       "realName": "Anne Cecilie Hatlem",
       "position": "Tea Lady",
       "bio": "The hobby is teas and the drink is tea. Tiffany lamps are the interest. She lives to serve it to the working man.",
-      "portrait": "team/img/hires/annie-the-kettle-hatlem.jpg",
-      "portraitWebp": "team/img/hires/annie-the-kettle-hatlem.webp",
+      "portrait": "team/img/hires/miek-van-tiffany.jpg",
+      "portraitWebp": "team/img/hires/miek-van-tiffany.webp",
       "hiredAt": "2026-11-21"
     }
   ]

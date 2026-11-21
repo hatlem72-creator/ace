@@ -7,7 +7,7 @@
       "handledAt": "2026-11-21T04:49:43+01:00",
       "applicant": "gaute olsen",
       "position": "Jingle Writer",
-      "note": "Duplicate FormSubmit of 1a1fc35aade3927d; same applicant. Not seated from this copy."
+      "note": "Duplicate FormSubmit of 1a1fc35aade3927d; same applicant. Not seated from this copy. Message id kept so this applicant is not re-hired."
     },
     {
       "id": "1a1fc3466d1abb07",
@@ -15,7 +15,7 @@
       "handledAt": "2026-11-21T04:49:43+01:00",
       "applicant": "gaute olsen",
       "position": "Jingle Writer",
-      "note": "Duplicate FormSubmit of 1a1fc35aade3927d; same applicant. Not seated from this copy."
+      "note": "Duplicate FormSubmit of 1a1fc35aade3927d; same applicant. Not seated from this copy. Message id kept so this applicant is not re-hired."
     },
     {
       "id": "1a1fc35aade3927d",
@@ -23,7 +23,8 @@
       "handledAt": "2026-11-21T04:49:43+01:00",
       "applicant": "gaute olsen",
       "position": "Jingle Writer",
-      "outcome": "hired as Gaute \"The Jingle\" Olssen"
+      "outcome": "hired as Gaute \"The Jingle\" Olssen",
+      "note": "Later removed from the site. Message id kept so this applicant is not re-hired."
     },
     {
       "id": "1a1fc4fae7ccc743",
@@ -31,7 +32,8 @@
       "handledAt": "2026-11-21T05:17:16+01:00",
       "applicant": "Anne Cecilie Hatlem",
       "position": "Tea Lady",
-      "outcome": "hired as Annie \"The Kettle\" Hatlem"
+      "outcome": "hired as Annie \"The Kettle\" Hatlem",
+      "note": "Desk name later changed to Miek van Tiffany."
     }
   ]
 }
