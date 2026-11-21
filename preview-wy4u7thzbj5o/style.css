@@ -145,13 +145,11 @@ a{color:inherit}
 
 /* footer */
 .foot{position:relative;z-index:1;margin-top:64px;border-top:3px double var(--gold-deep);background:var(--paper)}
-.foot-in{max-width:var(--wrap);margin:0 auto;padding:36px 24px 10px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
-.foot p{margin:12px 0 0;color:var(--muted);font-size:14px;line-height:1.6;max-width:520px}
-.foot nav{display:flex;flex-direction:column;gap:8px;font-size:14px}
-.foot nav a{color:var(--ink-soft);text-decoration:none}.foot nav a:hover{color:var(--ink)}
-.foot h2{margin:0 0 6px;font:500 11px/1 var(--display);letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
-.foot-note{max-width:var(--wrap);margin:0 auto!important;padding:16px 24px 30px;font-size:12px!important;color:var(--muted)!important}
-.foot .logo img{width:220px}
+.foot-in{max-width:var(--wrap);margin:0 auto;padding:16px 24px 20px;display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 28px}
+.foot-copy{margin:0;color:var(--muted);font-size:13px;letter-spacing:.02em}
+.foot nav{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.foot nav a{color:var(--ink-soft);text-decoration:none}
+.foot nav a:hover{color:var(--ink)}
 
 /* hide leftover news-site decorations if present */
 .sky{display:none}
@@ -174,7 +172,7 @@ a{color:inherit}
   .card-wide a{grid-template-columns:minmax(0,1fr);gap:0}
   .card-wide .card-pic{margin:0 0 14px}
   .adman{grid-template-columns:1fr;gap:20px}
-  .foot-in{grid-template-columns:1fr;gap:24px;padding:30px 16px 6px}
+  .foot-in{padding:14px 16px 18px}
   .lobby-dek{font-size:17px}
 }
 @media (prefers-reduced-motion:reduce){.feature-pic img,.card-pic img{transition:none}.feature a:hover img,.card a:hover img{transform:none}}
