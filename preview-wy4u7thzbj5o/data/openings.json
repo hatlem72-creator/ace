@@ -14,7 +14,6 @@
     "Film Director",
     "Media Buyer",
     "Traffic Manager",
-    "Studio Photographer",
     "Executive Secretary",
     "Receptionist",
     "Typist",
@@ -29,7 +28,8 @@
     "Copywriter",
     "Film Director",
     "Company Clown",
-    "Master Stylist"
+    "Master Stylist",
+    "Studio Photographer"
   ],
   "open": [
     {
