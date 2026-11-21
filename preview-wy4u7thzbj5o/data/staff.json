@@ -1,0 +1,5 @@
+{
+  "maxFriendDesks": 5,
+  "note": "The loft already seats 13 on the letterhead (the permanent staff, rendered in team/index.html). Five junior desks are reserved for friend hires listed here. When all five are occupied, the longest-serving friend hire is moved to former.json to make a desk free.",
+  "hires": []
+}

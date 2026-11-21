@@ -1,0 +1,47 @@
+{
+  "pool": [
+    "President",
+    "Creative Director",
+    "Treasurer",
+    "Account Supervisor",
+    "Account Executive",
+    "Copy Chief",
+    "Copywriter",
+    "Art Director",
+    "Illustrator",
+    "Jingle Writer",
+    "TV Producer",
+    "Film Director",
+    "Media Buyer",
+    "Traffic Manager",
+    "Studio Photographer",
+    "Executive Secretary",
+    "Receptionist",
+    "Typist",
+    "Mailroom Boy",
+    "Tea Lady"
+  ],
+  "reserved": [
+    "Creative Director",
+    "Art Director",
+    "Copywriter",
+    "Film Director"
+  ],
+  "open": [
+    {
+      "id": "jingle-writer",
+      "title": "Jingle Writer",
+      "blurb": "Must hum on demand and leave the Ace stories unsung. A piano is not provided. A pencil is."
+    },
+    {
+      "id": "mailroom-boy",
+      "title": "Mailroom Boy",
+      "blurb": "The chute, the stairs, and the one envelope that is always late. Whistling is permitted on even-numbered floors."
+    },
+    {
+      "id": "tea-lady",
+      "title": "Tea Lady",
+      "blurb": "The kettle is a department. Biscuits are a philosophy. Dotty will not be drawn on the difference."
+    }
+  ]
+}

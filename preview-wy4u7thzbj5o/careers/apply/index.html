@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Application for Employment — Star Man Studio</title>
+<meta name="description" content="Fill in an application for a desk at Star Man Studio. A portrait will be required. The in-tray is reviewed daily, between drinks.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Star Man Studio">
+<meta property="og:title" content="Application for Employment — Star Man Studio">
+<meta property="og:description" content="Fill in an application for a desk at Star Man Studio. A portrait will be required. The in-tray is reviewed daily, between drinks.">
+<meta property="og:image" content="https://hatlem72-creator.github.io/ace/preview-wy4u7thzbj5o/img/issue5-share.jpg">
+<meta name="theme-color" content="#f3ead8">
+<link rel="icon" href="../../favicon.svg?v=2" type="image/svg+xml">
+<link rel="icon" href="../../favicon-32.png?v=2" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../../brand/favicon-180.png?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@500;600;700&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+<script src="../../hiring.js?v=1" defer data-base="../.."></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the application</a>
+<header class="mast">
+  <div class="mast-in">
+    <a class="logo" href="../../"><img src="../../brand/starman-logo.svg?v=2" width="420" height="253" alt="Star Man Studio, established 1971"></a>
+    <p class="tag">World-renowned for the Ace stories</p>
+    <nav class="nav" aria-label="The agency">
+      <a href="../../stories/">Ace Stories</a>
+      <a href="../../collection/">Portfolio</a>
+      <a href="../../team/">The Team</a>
+      <a href="../../team-building/">Team Building</a>
+      <a href="../../clients/">Clients</a>
+      <a href="../../behind-the-scenes/">The Process</a>
+      <a href="../../memos/">Memos</a>
+      <a href="../../careers/" aria-current="page">Careers</a>
+      <a href="../../contact/">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="page" id="main">
+  <header class="art-head">
+    <p class="kicker">Personnel · Please type or print</p>
+    <h1 class="art-h">Application for Employment</h1>
+    <p class="dek">A desk, when it is free, is not awarded for enthusiasm alone. Answer the questions. Attach a portrait. Waiting is part of the job.</p>
+  </header>
+
+  <!--
+    TODO: After Gaute clicks the FormSubmit activation email (sent on the first real submission)
+    and FormSubmit issues a random alias string, replace the form action below with
+    https://formsubmit.co/<ALIAS> to hide the address. Do not submit a test application
+    from this workspace; the first submission is what triggers that activation mail.
+  -->
+  <form class="apply-sheet" id="apply-form" method="POST" enctype="multipart/form-data" action="https://formsubmit.co/gautehatlem72@gmail.com">
+    <p class="form-kicker">Star Man Studio · Est. 1971 · New York</p>
+    <p class="form-title">Application for a desk</p>
+    <p class="form-note">Use a typewriter if you have one. If you do not, a clear hand will be tolerated.</p>
+
+    <input type="hidden" name="_subject" value="Star Man Studio application: an open desk">
+    <input type="hidden" name="_captcha" value="true">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" value="https://hatlem72-creator.github.io/ace/preview-wy4u7thzbj5o/careers/thanks/">
+    <input type="hidden" name="_replyto" value="">
+
+    <div class="apply-row">
+      <label for="apply-name">Real name</label>
+      <input type="text" id="apply-name" name="name" required autocomplete="name" maxlength="120">
+    </div>
+    <div class="apply-row">
+      <label for="apply-email">Email <span class="hint" style="display:inline;text-transform:none;letter-spacing:0;font-family:var(--serif);color:var(--muted)">(optional, for a reply)</span></label>
+      <input type="email" id="apply-email" name="email" autocomplete="email" maxlength="200">
+    </div>
+    <div class="apply-row">
+      <label for="apply-position">Position</label>
+      <select id="apply-position" name="position" required>
+        <option value="">The openings are being typed up.</option>
+      </select>
+    </div>
+    <div class="apply-row">
+      <label for="apply-portrait">Portrait photograph</label>
+      <input type="file" id="apply-portrait" name="portrait" accept="image/*" required>
+      <span class="hint">A clear picture of the applicant. An image file, no larger than five megabytes. It may be turned into a 1974 studio portrait.</span>
+      <img class="apply-preview" id="apply-preview" alt="Portrait preview">
+      <p class="apply-error" id="apply-file-error" role="alert"></p>
+    </div>
+    <div class="apply-row">
+      <label for="apply-hobbies">Hobbies</label>
+      <textarea id="apply-hobbies" name="hobbies" required maxlength="500" rows="3"></textarea>
+    </div>
+    <div class="apply-row">
+      <label for="apply-interests">Interests</label>
+      <textarea id="apply-interests" name="interests" required maxlength="500" rows="3"></textarea>
+    </div>
+    <div class="apply-row">
+      <label for="apply-drink">Favourite drink</label>
+      <input type="text" id="apply-drink" name="favourite_drink" required maxlength="120">
+    </div>
+    <div class="apply-row">
+      <label for="apply-why">In one sentence, why you deserve the desk</label>
+      <textarea id="apply-why" name="why_the_desk" required maxlength="400" rows="3"></textarea>
+    </div>
+    <div class="apply-row">
+      <p style="margin:0 0 4px;font:400 13px/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase">Can you type?</p>
+      <div class="type-row">
+        <label><input type="radio" name="can_you_type" value="Yes" required> Yes</label>
+        <label><input type="radio" name="can_you_type" value="No"> No</label>
+        <label><input type="radio" name="can_you_type" value="Somewhat"> Somewhat</label>
+      </div>
+    </div>
+    <label class="apply-consent">
+      <input type="checkbox" name="consent" value="yes" required>
+      <span>I agree that my photograph may be turned into a 1970s studio portrait and shown on the Star Man Studio site.</span>
+    </label>
+    <button type="submit">Place in the in-tray</button>
+  </form>
+  <a class="back" href="../">Careers</a>
+</main>
+<footer class="foot">
+  <div class="foot-in">
+    <div>
+      <a class="logo" href="../../"><img src="../../brand/starman-logo.svg?v=2" width="220" height="133" alt="Star Man Studio, established 1971"></a>
+      <p>Est. 1971. New York. World-renowned for the Ace stories. The comics are the masterpiece. The advertisements pay the rent.</p>
+    </div>
+    <nav aria-label="The agency">
+      <h2>The agency</h2>
+      <a href="../../stories/">The Ace Stories</a>
+      <a href="../../collection/">Portfolio</a>
+      <a href="../../team/">The Team</a>
+      <a href="../../team-building/">Team Building</a>
+      <a href="../../clients/">Clients</a>
+      <a href="../../behind-the-scenes/">The Creative Process</a>
+    </nav>
+    <nav aria-label="The office">
+      <h2>The office</h2>
+      <a href="../../memos/">Memos</a>
+      <a href="../../careers/">Careers</a>
+      <a href="../../contact/">Contact</a>
+    </nav>
+  </div>
+  <p class="foot-note">A period-style parody of a 1970s advertising agency. Invented brands and characters. We show no likeness of Ace Frehley or other members of KISS; the masked rocker is a stand-in. Not affiliated with KISS, the Frehley estate or any label. The ads are fake. The records are real.</p>
+</footer>
+</body>
+</html>
