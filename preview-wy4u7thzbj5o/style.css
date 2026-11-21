@@ -213,3 +213,19 @@ a{color:inherit}
 @media (max-width:620px){
   .people{grid-template-columns:minmax(0,1fr);gap:32px}
 }
+
+/* team building photo story */
+.story-pic{margin:0 0 52px}
+.story-pic picture,.story-pic img{display:block;width:100%;height:auto;background:#1a1208;box-shadow:0 18px 40px -28px rgba(26,18,8,.7)}
+.story-pic figcaption{margin:12px 2px 0;font:italic 16px/1.5 var(--serif);color:var(--muted)}
+.retreat-tease{margin:56px 0 12px;padding-top:28px;border-top:1px solid var(--rule)}
+.retreat-tease a{display:block;text-decoration:none;color:inherit}
+.retreat-tease .story-pic{margin:0 0 16px}
+.retreat-tease .story-pic img{box-shadow:0 18px 40px -28px rgba(26,18,8,.7)}
+.retreat-tease .more{display:inline-block;margin-top:4px}
+@media (max-width:700px){
+  .story-pic{margin:0 -16px 44px}
+  .story-pic figcaption{margin:10px 16px 0}
+  .retreat-tease .story-pic{margin:0 -16px 16px}
+  .retreat-tease .story-pic figcaption{margin:10px 16px 0}
+}
