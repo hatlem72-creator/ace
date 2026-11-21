@@ -5,12 +5,12 @@
 <meta name="robots" content="noindex,nofollow">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Star Man Studio — Advertising the future!</title>
-<meta name="description" content="Advertising the future! A 1970s advertising agency in New York. The comics are the masterpiece. The advertisements pay the rent.">
+<meta name="description" content="Advertising the future! Star Man Studio lands BOLD, an invented American muscle car company. The loft, West 26th Street, 1972.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Star Man Studio">
 <meta property="og:title" content="Star Man Studio — Advertising the future!">
-<meta property="og:description" content="Advertising the future! A 1970s advertising agency in New York. The comics are the masterpiece. The advertisements pay the rent.">
-<meta property="og:image" content="https://hatlem72-creator.github.io/ace/preview-wy4u7thzbj5o/img/issue1-share.jpg">
+<meta property="og:description" content="Advertising the future! Star Man Studio lands BOLD, an invented American muscle car company.">
+<meta property="og:image" content="https://hatlem72-creator.github.io/ace/preview-wy4u7thzbj5o/img/bold-hero.jpg?v=1">
 <meta name="theme-color" content="#f3ead8">
 <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png?v=2" sizes="32x32" type="image/png">
@@ -18,13 +18,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@500;600;700&family=Special+Elite&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=4">
 <style>
-  /* Trial: Gaute’s 3D Starman mark, front page only. */
   header.mast .logo img{width:min(460px,88vw);height:auto}
 </style>
 <script src="hiring.js?v=1" defer data-base="."></script>
-
 </head>
 <body>
 <a class="skip" href="#main">Skip to the lobby</a>
@@ -46,12 +44,37 @@
     </nav>
   </div>
 </header>
-<main class="page" id="main">
-  <section class="lobby" aria-label="Reception">
-    <p class="kicker">Est. 1971 · New York</p>
-    <p class="lobby-dek">The comics are the masterpiece.<br>The advertisements pay the rent.</p>
-    <p class="lobby-note">Please have a seat. The ashtray is for clients.</p>
-  </section>
+<main class="page front" id="main">
+  <p class="gazette">The Lobby · 18 September 1972 · West 26th Street</p>
+
+  <article class="hero-bold">
+    <p class="kicker">A new account · Muscle</p>
+    <h2 class="hero-h">Star Man Studio lands BOLD</h2>
+    <figure class="hero-pic">
+      <picture>
+        <source srcset="img/bold-hero.webp?v=1" type="image/webp">
+        <img src="img/bold-hero.jpg?v=1" width="1280" height="720" alt="A 1972 magazine advertisement: a plum invented BOLD muscle car on a desert highway at dusk, a woman in a gold jumpsuit walking past without looking at the camera, and a gold wordmark reading BOLD, No apology" fetchpriority="high">
+      </picture>
+    </figure>
+    <p class="hero-tag">“No apology.”</p>
+    <p class="dek">An American muscle company, invented this morning. The invoice is already warm.</p>
+  </article>
+
+  <div class="front-staff">
+    <section class="junior-desks" id="junior-desks" hidden>
+      <h2 class="sec-h">New to the letterhead</h2>
+      <div class="people" id="friend-hires"></div>
+    </section>
+    <section class="eotm" id="eotm" hidden>
+      <p class="kicker">The frame in the lobby</p>
+      <div class="eotm-frame">
+        <img id="eotm-img" width="864" height="1152" alt="">
+      </div>
+      <h2 class="eotm-name"></h2>
+      <p class="eotm-role"></p>
+      <p class="eotm-label">Employee of the Month</p>
+    </section>
+  </div>
 
   <aside class="hiring-sign" id="hiring-sign" aria-live="polite">
     <a href="careers/apply/">
@@ -62,35 +85,93 @@
     </a>
   </aside>
 
-  <section class="eotm" id="eotm" hidden>
-    <p class="kicker">The frame in the lobby</p>
-    <div class="eotm-frame">
-      <img id="eotm-img" width="864" height="1152" alt="">
-    </div>
-    <h2 class="eotm-name"></h2>
-    <p class="eotm-role"></p>
-    <p class="eotm-label">Employee of the Month</p>
-  </section>
-
   <article class="feature">
     <a href="issue-1/">
       <figure class="feature-pic">
-        <picture><source srcset="issue-1/img/cover.webp" type="image/webp"><img src="issue-1/img/cover.jpg" style="object-position:50% 40%" width="1280" height="720" alt="Cover art: the masked rocker is caught mid-electrocution on a metal staircase above the stage, one hand clamped to the handrail, lightning crackling through him and his guitar, as screaming fans look on" fetchpriority="high"></picture>
+        <picture><source srcset="issue-1/img/cover.webp" type="image/webp"><img src="issue-1/img/cover.jpg" style="object-position:50% 40%" width="1280" height="720" alt="Cover art: the masked rocker is caught mid-electrocution on a metal staircase above the stage, one hand clamped to the handrail, lightning crackling through him and his guitar, as screaming fans look on"></picture>
+        <span class="flag">The Ace Stories · Issue #1</span>
       </figure>
-      <p class="kicker">The Ace Stories · Issue #1</p>
+      <p class="kicker">Still hanging in reception</p>
       <h2 class="feature-h">Shock Me!</h2>
       <p class="dek">An ungrounded handrail, a plugged-in Les Paul and 10,000 fans.</p>
       <span class="more">Read the comic →</span>
     </a>
   </article>
 
-  <section class="press" aria-labelledby="press-h">
-    <h2 class="sec-h" id="press-h">As seen in</h2>
-    <div class="quotes">
-      <blockquote>“The Ace stories alone would have been enough.”<cite>The Meridian, 1974</cite></blockquote>
-      <blockquote>“They advertise at length, and with a straight face.”<cite>Paste-Up Monthly</cite></blockquote>
-      <blockquote>“World-renowned, at least on this floor.”<cite>Unsigned studio memo</cite></blockquote>
+  <section class="front-news" aria-labelledby="news-h">
+    <h2 class="sec-h" id="news-h">News from the loft</h2>
+    <div class="news-grid">
+      <article class="news">
+        <a href="premises/">
+          <figure class="card-pic">
+            <picture><source srcset="premises/img/meeting-room.webp?v=1" type="image/webp"><img src="premises/img/meeting-room.jpg?v=1" width="1280" height="720" alt="A long walnut conference table at Star Man Studio, twentieth floor: Marlene Quinn, Patty DiMarco and Whit Gant discussing a brown Oyama beer bottle and label sketches" loading="lazy"></picture>
+          </figure>
+          <p class="kicker">Accounts · Oyama</p>
+          <h3 class="card-h">The label is being settled</h3>
+          <p class="hook">The view is complimentary. The conclusions are not.</p>
+        </a>
+      </article>
+      <article class="news">
+        <a href="premises/">
+          <figure class="card-pic">
+            <picture><source srcset="premises/img/reception.webp?v=1" type="image/webp"><img src="premises/img/reception.jpg?v=1" width="1280" height="720" alt="The Star Man Studio lobby: a long leather sofa, Bonnie Sills at the desk under brass Starman lettering, two clients waiting" loading="lazy"></picture>
+          </figure>
+          <p class="kicker">The office</p>
+          <h3 class="card-h">A tour of the premises</h3>
+          <p class="hook">Now hanging in reception. Please do not touch the plants.</p>
+        </a>
+      </article>
+      <article class="news">
+        <a href="clients/">
+          <figure class="card-pic">
+            <picture><source srcset="clients/img/starman-racing-car.webp" type="image/webp"><img src="clients/img/starman-racing-car.jpg" width="1280" height="720" alt="A 1970s Formula 1 car in chocolate, cream and gold Star Man Racing livery, a gold star on the nose, on a sunlit racetrack" loading="lazy"></picture>
+          </figure>
+          <p class="kicker">Sponsorship · Star Man Racing</p>
+          <h3 class="card-h">We have entered a car</h3>
+          <p class="hook">We have never finished a race. We have finished several lunches.</p>
+        </a>
+      </article>
+      <article class="news">
+        <a href="#events-h">
+          <figure class="card-pic">
+            <picture><source srcset="img/christmas-party.webp?v=1" type="image/webp"><img src="img/christmas-party.jpg?v=1" width="1280" height="720" alt="The Star Man Studio Christmas party in the loft: a line of staff in 1970s party clothes, a disco ball and a tree, the last hire asleep on the sofa in a Santa hat" loading="lazy"></picture>
+          </figure>
+          <p class="kicker">The loft</p>
+          <h3 class="card-h">The Christmas party is being typed up</h3>
+          <p class="hook">Attendance will be mandatory. The itinerary will not.</p>
+        </a>
+      </article>
     </div>
+  </section>
+
+  <section class="front-events" aria-labelledby="events-h">
+    <h2 class="sec-h" id="events-h">Upcoming</h2>
+    <ol class="events">
+      <li>
+        <time datetime="1972-10-06">6 October 1972</time>
+        <h3>The BOLD launch</h3>
+        <p>The dealership, Tenth Avenue. Doors at seven. The hood will already be warm.</p>
+      </li>
+      <li>
+        <time datetime="1972-10-08">8 October 1972</time>
+        <h3>Watkins Glen</h3>
+        <p>Star Man Racing attempts a race weekend. The lunch is more reliable than the finishing position.</p>
+      </li>
+      <li>
+        <time datetime="1972-11-16">16 November 1972</time>
+        <h3>The Award Shelf ceremony</h3>
+        <p>Orbit is expected to take a Golden Starburst. We have already written the telegram.</p>
+      </li>
+      <li>
+        <time datetime="1972-12-22">22 December 1972</time>
+        <h3>The Christmas party</h3>
+        <p>The loft. Attendance is mandatory. The itinerary is not.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="press press-short" aria-labelledby="press-h">
+    <h2 class="sec-h" id="press-h">As seen in</h2>
     <div class="as-seen" aria-label="Invented trade papers">
       <span>The Meridian</span>
       <span>Stereo Gazette</span>
@@ -98,19 +179,6 @@
       <span>Agency Week</span>
       <span>Radio Row</span>
     </div>
-  </section>
-
-  <section class="divs" aria-label="Divisions">
-    <a class="div-card" href="stories/">
-      <p class="kicker">The masterpiece</p>
-      <h2>The Ace Stories</h2>
-      <p>Five issues, one short, and the Vinyl desk.</p>
-    </a>
-    <a class="div-card" href="collection/">
-      <p class="kicker">The work that pays the rent</p>
-      <h2>The Award Shelf</h2>
-      <p>Including Orbit. Golden Starburst, 1974.</p>
-    </a>
   </section>
 </main>
 <footer class="foot">

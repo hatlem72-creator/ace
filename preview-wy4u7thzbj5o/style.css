@@ -299,3 +299,36 @@ a{color:inherit}
 @media (prefers-reduced-motion:reduce){
   .story-pic a.lb:hover img{filter:none}
 }
+
+/* front page gazette */
+.gazette{margin:0 0 28px;text-align:center;font:500 12px/1 var(--display);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.hero-bold{margin:0 0 56px}
+.hero-h{margin:0 0 18px;font:600 clamp(36px,6.5vw,72px)/1.02 var(--display);letter-spacing:.02em;text-transform:uppercase;color:var(--ink)}
+.hero-pic{margin:0 0 16px;overflow:hidden;background:#1a1208;box-shadow:0 18px 40px -28px rgba(26,18,8,.7)}
+.hero-pic img{display:block;width:100%;height:auto}
+.hero-tag{margin:0 0 8px;font:italic 400 22px/1.3 var(--serif);color:var(--ink)}
+.front-staff{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:36px 40px;align-items:start;margin:0 0 48px}
+.front-staff .junior-desks{margin:0}
+.front-staff .people{grid-template-columns:repeat(auto-fill,minmax(200px,240px));margin:0}
+.front-staff .eotm{margin:0;max-width:220px;width:100%}
+.front .hiring-sign{margin:0 auto 56px}
+.front .feature{margin:0 0 56px}
+.news-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 28px}
+.news a{display:block;text-decoration:none}
+.news .hook{margin:0}
+.front-news{margin:0 0 56px}
+.front-events{margin:0 0 36px}
+.events{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.events li{display:grid;grid-template-columns:minmax(140px,0.3fr) minmax(0,1fr);gap:8px 24px;margin:0;padding:16px 0;border-bottom:1px solid var(--rule)}
+.events time{font:500 13px/1.3 var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);padding-top:4px}
+.events h3{margin:0 0 4px;font:600 20px/1.15 var(--display);letter-spacing:.04em;text-transform:uppercase}
+.events p{margin:0;color:var(--ink-soft)}
+.press-short{margin:36px 0 10px;padding:28px 0 8px}
+.press-short .as-seen{padding:0 0 8px}
+
+@media (max-width:700px){
+  .front-staff{grid-template-columns:1fr;gap:32px}
+  .front-staff .eotm{max-width:240px}
+  .news-grid{grid-template-columns:1fr;gap:32px}
+  .events li{grid-template-columns:1fr;gap:6px}
+}
