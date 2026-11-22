@@ -10,22 +10,26 @@
     "Art Director",
     "Illustrator",
     "Jingle Writer",
+    "Paste-up Artist",
+    "Retoucher",
     "TV Producer",
     "Film Director",
     "Media Buyer",
     "Traffic Manager",
+    "Switchboard Operator",
+    "Chauffeur",
     "Executive Secretary",
     "Receptionist",
     "Typist",
     "Mailroom Boy",
     "Tea Lady",
     "Master Stylist",
-    "Company Clown"
+    "Company Clown",
+    "Studio Photographer"
   ],
   "reserved": [
     "Creative Director",
     "Art Director",
-    "Copywriter",
     "Film Director",
     "Company Clown",
     "Master Stylist",
@@ -33,19 +37,54 @@
   ],
   "open": [
     {
+      "id": "copywriter",
+      "title": "Copywriter",
+      "blurb": "Twelve words, if you have them. Eleven, if you do not."
+    },
+    {
       "id": "jingle-writer",
       "title": "Jingle Writer",
-      "blurb": "Must hum on demand and leave the Ace stories unsung. A piano is not provided. A pencil is."
+      "blurb": "Must hum on demand. A piano is not provided."
+    },
+    {
+      "id": "paste-up-artist",
+      "title": "Paste-up Artist",
+      "blurb": "A steel rule, a sharp blade, and no patience for a crooked margin."
+    },
+    {
+      "id": "retoucher",
+      "title": "Retoucher",
+      "blurb": "The face is already good. You will make it printable."
+    },
+    {
+      "id": "media-buyer",
+      "title": "Media Buyer",
+      "blurb": "Knows which hour of the afternoon a spot can still afford."
+    },
+    {
+      "id": "tv-producer",
+      "title": "TV Producer",
+      "blurb": "Says “that’s a wrap” at four, and means lunch."
+    },
+    {
+      "id": "switchboard-operator",
+      "title": "Switchboard Operator",
+      "blurb": "The first hello and the last goodbye, and never a crossed line."
+    },
+    {
+      "id": "chauffeur",
+      "title": "Chauffeur",
+      "blurb": "The car is black. The route is a matter of opinion."
     },
     {
       "id": "mailroom-boy",
       "title": "Mailroom Boy",
-      "blurb": "The chute, the stairs, and the one envelope that is always late. Whistling is permitted on even-numbered floors."
+      "blurb": "The chute, the stairs, and the one envelope that is always late."
     },
     {
       "id": "tea-lady",
       "title": "Tea Lady",
-      "blurb": "The kettle is a department. Biscuits are a philosophy. Dotty will not be drawn on the difference."
+      "blurb": "The kettle is a department. Biscuits are a philosophy."
     }
   ],
   "reservedOpenings": [

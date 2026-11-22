@@ -3,7 +3,7 @@
 
 Usage:
   python3 scripts/add_hire.py \\
-    --name 'Bobby "The Typewriter" Hanssen' \\
+    --name 'Bob van Ribbon' \\
     --real-name 'Bob Hansen' \\
     --position 'Typist' \\
     --bio 'Keeps a ribbon in his pocket and a joke in reserve.' \\
@@ -12,7 +12,7 @@ Usage:
     [--hired-at 1974-11-21] \\
     [--fire-reason 'custom reason if a desk must be freed']
 
-If all junior desks (staff.json maxFriendDesks, default 5) are occupied, the
+If all junior desks (staff.json maxFriendDesks, default 10) are occupied, the
 longest-serving non-protected friend hire is moved to former.json before the new
 one is seated. Protected staff (see staff.json and is_protected()) are never
 fired; if every seated junior is protected, the script exits without seating.
@@ -29,9 +29,13 @@ from sms_hiring import (
     DATA,
     FIRE_REASONS,
     HIRES_DIR,
+    desk_name_leaks_surname,
+    format_approval_summary,
     is_protected,
     load_json,
+    real_first_name,
     save_json,
+    save_reference_photo,
     slugify,
     refill_openings,
     write_portrait,
@@ -46,17 +50,25 @@ def main():
     p.add_argument("--bio", required=True)
     p.add_argument("--image", required=True, type=Path, help="Final 1974-style portrait to publish")
     p.add_argument("--email", default="")
+    p.add_argument("--image-side", type=Path, default=None, help="Optional side/profile photograph, saved as an Identity Lock reference")
     p.add_argument("--hired-at", default="", help="ISO date; defaults to today")
     p.add_argument("--fire-reason", default="", help="If a junior desk must be freed, use this reason")
     args = p.parse_args()
     if not args.image.exists():
         sys.exit(f"Image not found: {args.image}")
+    if args.image_side and not args.image_side.exists():
+        sys.exit(f"Side image not found: {args.image_side}")
+    if args.real_name and desk_name_leaks_surname(args.name, args.real_name):
+        sys.exit(
+            "Refusing to publish a desk name that contains the applicant's real surname. "
+            "Use invent_name.py: real first name plus a brand-new funny surname only."
+        )
 
     staff = load_json(DATA / "staff.json")
     former = load_json(DATA / "former.json")
     openings = load_json(DATA / "openings.json")
     hires = staff.setdefault("hires", [])
-    cap = int(staff.get("maxFriendDesks") or 5)
+    cap = int(staff.get("maxFriendDesks") or 10)
 
     fired = None
     if len(hires) >= cap:
@@ -95,13 +107,19 @@ def main():
     hire = {
         "id": ident,
         "name": args.name,
-        "realName": args.real_name,
         "position": args.position,
         "bio": args.bio,
         "portrait": portrait,
         "portraitWebp": portrait_webp,
         "hiredAt": hired_at,
     }
+    # Public file: never store the real surname. First name only, if provided.
+    first = real_first_name(args.real_name)
+    if first:
+        hire["realFirst"] = first
+    if args.image_side:
+        side_dest = dest.parent / f"{ident}-side.jpg"
+        hire["portraitSide"] = save_reference_photo(args.image_side, side_dest)
     if args.email:
         hire["email"] = args.email
     hires.append(hire)
@@ -114,8 +132,17 @@ def main():
     save_json(DATA / "former.json", former)
     save_json(DATA / "openings.json", openings)
 
+    print(format_approval_summary(
+        args.name,
+        position=args.position,
+        real_name=args.real_name,
+        email=args.email,
+        has_side_photo=bool(args.image_side),
+    ))
     print(f"Hired {args.name} as {args.position}.")
     print(f"Portrait: {portrait}")
+    if hire.get("portraitSide"):
+        print(f"Side reference: {hire['portraitSide']}")
     if fired:
         print(f"Moved {fired['name']} to Former Employees: {fired['reason']}")
     if added:

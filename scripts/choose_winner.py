@@ -6,8 +6,10 @@ Usage:
   python3 scripts/choose_winner.py applicants.json --pretty
 
 The JSON may be either a list of applicants, or {"position": "...", "applicants": [...]}.
-Each applicant should include: name, consent, hobbies, interests, favourite_drink,
-why_the_desk, can_you_type, photo (a file path), submitted_at (ISO-8601), and position.
+Each applicant should include: name, consent, what_makes_you_a_starman_worker
+(or legacy hobbies), interests, favourite_drink, why_the_desk, funny_about_yourself
+(or legacy can_you_type), photo (front, a file path), optional photo_side, submitted_at
+(ISO-8601), and position.
 Prints the winner (and the score table) as JSON. Exit 2 if nobody qualifies.
 """
 import argparse
@@ -46,11 +48,22 @@ def main():
         ],
     }
     if result["winner"]:
+        app = result["winner"]["applicant"]
+        from sms_hiring import funny_about_text, starman_worker_text
         out["winner"]["applicant"] = {
-            k: result["winner"]["applicant"].get(k)
-            for k in ("name", "email", "position", "hobbies", "interests", "favourite_drink",
-                      "why_the_desk", "can_you_type", "photo", "submitted_at")
+            k: app.get(k)
+            for k in (
+                "name", "email", "position",
+                "what_makes_you_a_starman_worker", "hobbies",
+                "interests", "favourite_drink", "why_the_desk",
+                "funny_about_yourself", "can_you_type",
+                "photo", "photo_side", "submitted_at",
+            )
         }
+        if not (out["winner"]["applicant"].get("what_makes_you_a_starman_worker") or "").strip():
+            out["winner"]["applicant"]["what_makes_you_a_starman_worker"] = starman_worker_text(app)
+        if not (out["winner"]["applicant"].get("funny_about_yourself") or "").strip():
+            out["winner"]["applicant"]["funny_about_yourself"] = funny_about_text(app)
     print(json.dumps(out, indent=2 if args.pretty else None, ensure_ascii=False))
     if not result["winner"]:
         sys.exit(2)

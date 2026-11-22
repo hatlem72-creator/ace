@@ -132,57 +132,76 @@
       });
     }
 
-    var file = form.querySelector("[name=portrait]");
-    var preview = document.getElementById("apply-preview");
-    var err = document.getElementById("apply-file-error");
     var submit = form.querySelector("[type=submit]");
     var max = 5 * 1024 * 1024;
-    function setError(msg) {
-      if (!err) return;
-      if (msg) {
-        err.style.display = "block";
-        err.textContent = msg;
-      } else {
-        err.style.display = "none";
-        err.textContent = "";
+    function bindPhoto(input, preview, errBox) {
+      function setError(msg) {
+        if (!errBox) return;
+        if (msg) {
+          errBox.style.display = "block";
+          errBox.textContent = msg;
+        } else {
+          errBox.style.display = "none";
+          errBox.textContent = "";
+        }
       }
+      if (input) {
+        input.addEventListener("change", function () {
+          var f = input.files && input.files[0];
+          if (preview) {
+            preview.style.display = "none";
+            preview.removeAttribute("src");
+          }
+          setError("");
+          if (!f) return;
+          if (!f.type || f.type.indexOf("image/") !== 0) {
+            setError("The photograph must be an image.");
+            input.value = "";
+            return;
+          }
+          if (f.size > max) {
+            setError("The photograph must be five megabytes or smaller. The telex is not a warehouse.");
+            input.value = "";
+            return;
+          }
+          if (preview) {
+            preview.src = URL.createObjectURL(f);
+            preview.style.display = "block";
+          }
+        });
+      }
+      return { input: input, setError: setError };
     }
-    if (file) {
-      file.addEventListener("change", function () {
-        var f = file.files && file.files[0];
-        if (preview) {
-          preview.style.display = "none";
-          preview.removeAttribute("src");
-        }
-        setError("");
-        if (!f) return;
-        if (!f.type || f.type.indexOf("image/") !== 0) {
-          setError("The portrait must be an image.");
-          file.value = "";
-          return;
-        }
-        if (f.size > max) {
-          setError("The portrait must be five megabytes or smaller. The telex is not a warehouse.");
-          file.value = "";
-          return;
-        }
-        if (preview) {
-          preview.src = URL.createObjectURL(f);
-          preview.style.display = "block";
-        }
-      });
+    var front = bindPhoto(
+      form.querySelector("[name=portrait]"),
+      document.getElementById("apply-preview"),
+      document.getElementById("apply-file-error")
+    );
+    var side = bindPhoto(
+      form.querySelector("[name=portrait_side]"),
+      document.getElementById("apply-preview-side"),
+      document.getElementById("apply-file-error-side")
+    );
+    function photoOk(f) {
+      return f && f.type && f.type.indexOf("image/") === 0 && f.size <= max;
     }
     form.addEventListener("submit", function (e) {
-      var f = file && file.files && file.files[0];
-      if (!f) {
+      var frontFile = front.input && front.input.files && front.input.files[0];
+      var sideFile = side.input && side.input.files && side.input.files[0];
+      if (!frontFile) {
         e.preventDefault();
-        setError("A portrait is required. The desk comes with a picture frame.");
+        front.setError("A front photograph is required. The desk comes with a picture frame.");
         if (submit) submit.disabled = false;
         return;
       }
-      if (f.size > max || (f.type && f.type.indexOf("image/") !== 0)) {
+      if (!photoOk(frontFile)) {
         e.preventDefault();
-        setError("The portrait must be an image, and no larger than five megabytes.");
+        front.setError("The front photograph must be an image, and no larger than five megabytes.");
+        return;
+      }
+      if (sideFile && !photoOk(sideFile)) {
+        e.preventDefault();
+        side.setError("The side photograph must be an image, and no larger than five megabytes.");
         return;
       }
       syncSubject();
@@ -296,7 +315,7 @@
     tasks.push(load("openings").then(function (data) {
       var openings = openList(data);
       renderBanner(openings);
-      fillOpeningsList(openings.concat(reservedOpenings(data)));
+      fillOpeningsList(openings);
       fillApplyForm(openings);
     }).catch(function () {
       var line = document.querySelector("#hiring-sign .hiring-line");

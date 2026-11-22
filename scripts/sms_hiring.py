@@ -104,6 +104,10 @@ POSITION_MONIKERS = {
     "Typist": "The Typewriter",
     "Mailroom Boy": "Special Delivery",
     "Tea Lady": "The Kettle",
+    "Paste-up Artist": "The Rule",
+    "Retoucher": "The Airbrush",
+    "Switchboard Operator": "The Switchboard",
+    "Chauffeur": "The Motor",
 }
 
 FIRE_REASONS = [
@@ -136,8 +140,13 @@ GENERIC_BLURBS = {
     "Executive Secretary": "Keeps a book that is better than the book.",
     "Receptionist": "The first face, the last ashtray, and the telephone that never rings once.",
     "Typist": "A clean hand on the keys and no patience for carbon paper wasted.",
-    "Mailroom Boy": "The chute, the stairs, and the one envelope that is always late. Whistling is permitted on even-numbered floors.",
-    "Tea Lady": "The kettle is a department. Biscuits are a philosophy. Dotty will not be drawn on the difference.",
+    "Mailroom Boy": "The chute, the stairs, and the one envelope that is always late.",
+    "Tea Lady": "The kettle is a department. Biscuits are a philosophy.",
+    "Paste-up Artist": "A steel rule, a sharp blade, and no patience for a crooked margin.",
+    "Retoucher": "The face is already good. You will make it printable.",
+    "Switchboard Operator": "The first hello and the last goodbye, and never a crossed line.",
+    "Chauffeur": "The car is black. The route is a matter of opinion.",
+    "Copywriter": "Twelve words, if you have them. Eleven, if you do not.",
 }
 
 
@@ -210,15 +219,16 @@ def is_protected(hire: dict | None, staff: dict | None = None) -> bool:
 
 
 def tweak_surname(surname: str) -> str:
+    """Kept only to recognise obvious variants of a real surname so they are never published."""
     if not surname:
         return surname
-    # A light period flourish, as in the brief: Hansen -> Hanssen.
     if re.search(r"[sz]en$", surname, re.I) and not re.search(r"ssen$", surname, re.I):
         return re.sub(r"([sz])en$", r"\1sen", surname, flags=re.I)
     return surname
 
 
 def nickname(first: str) -> str:
+    """Legacy helper. Public desk names now keep the real first name, not a nickname."""
     key = re.sub(r"[^a-z]", "", first.lower())
     if key in NICKNAMES:
         return NICKNAMES[key]
@@ -231,7 +241,142 @@ def nickname(first: str) -> str:
     return first + "y" if len(first) < 8 else first
 
 
+def _clean_token(text: str) -> str:
+    return re.sub(r"[^a-z]", "", (text or "").lower())
+
+
+def real_first_name(real_name: str) -> str:
+    parts = [p for p in re.split(r"\s+", (real_name or "").strip()) if p]
+    if not parts:
+        return ""
+    first = parts[0]
+    if first.isupper() or first.islower() or (len(first) > 1 and first[1:].isupper()):
+        pieces = []
+        for part in first.split("-"):
+            if not part:
+                pieces.append(part)
+            else:
+                pieces.append(part[0].upper() + part[1:].lower())
+        return "-".join(pieces)
+    return first
+
+
+def real_surname_tokens(real_name: str) -> set[str]:
+    """Every part of the real name after the first name, plus obvious flourishes."""
+    parts = [p for p in re.split(r"\s+", (real_name or "").strip()) if p]
+    tokens: set[str] = set()
+    for part in parts[1:]:
+        for variant in (part, tweak_surname(part)):
+            token = _clean_token(variant)
+            if len(token) >= 3:
+                tokens.add(token)
+    return tokens
+
+
+def desk_name_leaks_surname(desk_name: str, real_name: str) -> bool:
+    """True if a public desk name contains the applicant's real surname (or a tweak of it)."""
+    forbidden = real_surname_tokens(real_name)
+    if not forbidden:
+        return False
+    first = _clean_token(real_first_name(real_name))
+    for word in re.findall(r"[A-Za-z]+", desk_name or ""):
+        token = _clean_token(word)
+        if token and token != first and token in forbidden:
+            return True
+    return False
+
+
+def first_filled(app: dict | None, *keys: str) -> str:
+    if not app:
+        return ""
+    for key in keys:
+        val = app.get(key)
+        if val and not is_blank(str(val)):
+            return str(val)
+    return ""
+
+
+def starman_worker_text(app: dict | None = None, hobbies: str = "", starman_worker: str = "") -> str:
+    """Canonical 'What makes you a Starman worker?' answer, falling back to legacy hobbies."""
+    if app is not None:
+        return first_filled(app, "what_makes_you_a_starman_worker", "hobbies")
+    return (starman_worker or hobbies or "").strip()
+
+
+def funny_about_text(app: dict | None = None, can_you_type: str = "", funny_about_yourself: str = "") -> str:
+    """Canonical 'Say something funny about yourself' answer, falling back to legacy can_you_type."""
+    if app is not None:
+        return first_filled(app, "funny_about_yourself", "can_you_type")
+    return (funny_about_yourself or can_you_type or "").strip()
+
+
+POSITION_SURNAMES = {
+    "Copywriter": ["van Headline", "McTwelve", "de Copy"],
+    "Jingle Writer": ["de Jingle", "von Hum", "McTune"],
+    "Paste-up Artist": ["van Rule", "McStencil", "Pastepot"],
+    "Retoucher": ["van Airbrush", "McSpot", "de Repair"],
+    "Media Buyer": ["van Spot", "McSchedule", "de Airtime"],
+    "TV Producer": ["van Wrap", "McClapper", "de Lunch"],
+    "Switchboard Operator": ["van Switch", "McHello", "de Exchange"],
+    "Chauffeur": ["van Motor", "McCoach", "de Drive"],
+    "Mailroom Boy": ["van Chute", "McParcel", "de Envelope"],
+    "Tea Lady": ["van Kettle", "de Biscuit", "McPot"],
+    "Typist": ["van Ribbon", "Carboncopy", "McKeys"],
+    "Studio Photographer": ["van Flash", "McLens"],
+    "Receptionist": ["de Lobby", "McAshtray"],
+    "Illustrator": ["van Ink", "McBrush"],
+    "Art Director": ["van Board", "McLayout"],
+    "TV Producer": ["van Wrap", "McClapper", "de Lunch"],
+}
+
+FUNNY_SURNAMES = [
+    "van Velvet", "McPasteup", "de Loft", "von Telex", "Featherbin",
+    "Afterhours", "Goldnib", "McStencil", "Littlecarbon", "van Proof",
+    "de Cyan", "McGalley", "von Grommet", "Pastepot", "van Trim",
+    "de Rule", "McLeading", "van Dummy", "de Overlay", "McCrop",
+    "van Velvet", "Shorebreak", "de Kettle", "McRibbon", "van Flash",
+]
+
+
+def invent_surname(
+    real_name: str,
+    position: str = "",
+    starman_worker: str = "",
+    interests: str = "",
+    funny_about_yourself: str = "",
+) -> str:
+    forbidden = real_surname_tokens(real_name)
+    skip = {
+        "that", "this", "with", "from", "have", "love", "like", "just", "about",
+        "playing", "watching", "being", "very", "really", "would", "could",
+        "should", "make", "made", "starman", "studio", "worker", "myself",
+        "something", "funny", "because", "their", "there", "where", "when",
+        "your", "ours", "them", "they", "what", "which",
+    }
+    candidates: list[str] = []
+    blob = " ".join([starman_worker or "", interests or "", funny_about_yourself or ""])
+    for word in re.findall(r"[A-Za-z]{4,}", blob):
+        token = _clean_token(word)
+        if token in skip or token in forbidden:
+            continue
+        candidates.append("van " + word.capitalize())
+        candidates.append("Mc" + word.capitalize())
+        if len(candidates) >= 8:
+            break
+    candidates.extend(POSITION_SURNAMES.get(position, []))
+    candidates.extend(FUNNY_SURNAMES)
+    usable = [c for c in candidates if c and not desk_name_leaks_surname(c, real_name)]
+    if not usable:
+        usable = ["de Loft", "van Telex", "McPasteup"]
+        usable = [c for c in usable if not desk_name_leaks_surname(c, real_name)] or ["de Loft"]
+    first = real_first_name(real_name) or "Friend"
+    seed = " ".join([first, position or "", starman_worker or "", interests or "", funny_about_yourself or ""])
+    idx = sum(ord(ch) for ch in seed) % len(usable)
+    return usable[idx]
+
+
 def moniker_from(position: str, hobbies: str = "", interests: str = "") -> str:
+    """Legacy moniker helper. New desk names use invent_surname() instead."""
     if position in POSITION_MONIKERS:
         return POSITION_MONIKERS[position]
     blob = " ".join([hobbies or "", interests or ""])
@@ -243,18 +388,57 @@ def moniker_from(position: str, hobbies: str = "", interests: str = "") -> str:
     return "The Last Hire"
 
 
-def invent_name(real_name: str, position: str = "", hobbies: str = "", interests: str = "") -> str:
-    parts = [p for p in re.split(r"\s+", real_name.strip()) if p]
-    if not parts:
+def invent_name(
+    real_name: str,
+    position: str = "",
+    hobbies: str = "",
+    interests: str = "",
+    starman_worker: str = "",
+    funny_about_yourself: str = "",
+) -> str:
+    """Public desk name: real first name + a brand-new funny surname. Never the real surname."""
+    first = real_first_name(real_name)
+    if not first:
         return "A Friend of the Studio"
-    first = parts[0]
-    surname = parts[-1] if len(parts) > 1 else ""
-    nick = nickname(first)
-    moniker = moniker_from(position, hobbies, interests)
-    last = tweak_surname(surname)
-    if last:
-        return f'{nick} "{moniker}" {last}'
-    return f'{nick} "{moniker}"'
+    worker = starman_worker or hobbies
+    funny = funny_about_yourself
+    surname = invent_surname(real_name, position, worker, interests, funny)
+    published = f"{first} {surname}"
+    if desk_name_leaks_surname(published, real_name):
+        published = f"{first} de Loft"
+        if desk_name_leaks_surname(published, real_name):
+            published = f"{first} McTelex"
+    return published
+
+
+def format_approval_summary(
+    desk_name: str,
+    position: str = "",
+    real_name: str = "",
+    email: str = "",
+    starman_worker: str = "",
+    funny_about_yourself: str = "",
+    has_side_photo: bool = False,
+) -> str:
+    """A short approval note. Uses the real first name only; never prints the real surname."""
+    first = real_first_name(real_name) or "the applicant"
+    lines = [
+        f"Proposed desk name: {desk_name}",
+        "The public name keeps the real first name only. The surname is invented. Do not publish the applicant's real surname.",
+        f"Real first name: {first}",
+    ]
+    if position:
+        lines.append(f"Position: {position}")
+    if email:
+        lines.append(f"Email: {email}")
+    if starman_worker:
+        lines.append(f"What makes you a Starman worker?: {starman_worker}")
+    if funny_about_yourself:
+        lines.append(f"Say something funny about yourself.: {funny_about_yourself}")
+    lines.append("Side photograph: " + ("yes, use it as an extra Identity Lock reference." if has_side_photo else "no, front photograph only."))
+    if real_name and desk_name_leaks_surname(desk_name, real_name):
+        lines.append("WARNING: the proposed desk name appears to contain the real surname. Invent another.")
+    return "\n".join(lines)
 
 
 def word_count(text: str) -> int:
@@ -269,12 +453,14 @@ def score_application(app: dict, photo_path: str | Path | None = None) -> dict:
     """Transparent rubric. Returns a result dict with total, parts, and disqualified."""
     name = (app.get("name") or "").strip()
     consent = str(app.get("consent") or "").strip().lower()
+    worker = starman_worker_text(app)
+    funny = funny_about_text(app)
     fields = {
-        "hobbies": app.get("hobbies") or "",
+        "what_makes_you_a_starman_worker": worker,
         "interests": app.get("interests") or "",
         "favourite_drink": app.get("favourite_drink") or "",
         "why_the_desk": app.get("why_the_desk") or "",
-        "can_you_type": app.get("can_you_type") or "",
+        "funny_about_yourself": funny,
     }
     reasons = []
     dq = False
@@ -298,13 +484,21 @@ def score_application(app: dict, photo_path: str | Path | None = None) -> dict:
     if 6 <= wc <= 40:
         humour += 1
     position = (app.get("position") or "").strip()
-    blob = " ".join([fields["hobbies"], fields["interests"], why, position]).lower()
+    blob = " ".join([
+        fields["what_makes_you_a_starman_worker"],
+        fields["interests"],
+        fields["funny_about_yourself"],
+        why,
+        position,
+    ]).lower()
     tokens = [t for t in re.findall(r"[a-z]+", (position or "").lower()) if len(t) > 2]
     studio_words = ["studio", "ace", "desk", "gaute", "jingle", "telex", "typewriter", "loft"] + tokens
     if any(w in blob for w in studio_words):
         humour += 1
-    if (not is_blank(fields["hobbies"]) and len(fields["hobbies"].strip()) > 12) or (
-        not is_blank(fields["interests"]) and len(fields["interests"].strip()) > 12
+    if (
+        (not is_blank(fields["what_makes_you_a_starman_worker"]) and len(fields["what_makes_you_a_starman_worker"].strip()) > 12)
+        or (not is_blank(fields["interests"]) and len(fields["interests"].strip()) > 12)
+        or (not is_blank(fields["funny_about_yourself"]) and len(fields["funny_about_yourself"].strip()) > 12)
     ):
         humour += 1
     if not is_blank(fields["favourite_drink"]) and len(fields["favourite_drink"].strip()) >= 3:
@@ -427,3 +621,22 @@ def write_portrait(src: Path, dest_stem: Path) -> tuple[str, str]:
     def rel(p: Path) -> str:
         return p.relative_to(PREVIEW).as_posix()
     return rel(jpg), rel(webp)
+
+
+def save_reference_photo(src: Path, dest: Path, max_edge: int = 1600) -> str:
+    """Save a likeness reference (front or side) without a 3:4 studio crop. Returns a preview-root relative path."""
+    from PIL import Image
+    dest = Path(dest)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    im = Image.open(src)
+    if im.mode != "RGB":
+        im = im.convert("RGB")
+    w, h = im.size
+    longest = max(w, h)
+    if longest > max_edge:
+        scale = max_edge / longest
+        im = im.resize((max(1, int(w * scale)), max(1, int(h * scale))), Image.Resampling.LANCZOS)
+    if dest.suffix.lower() != ".jpg":
+        dest = dest.with_suffix(".jpg")
+    im.save(dest, "JPEG", quality=90, optimize=True, subsampling=0)
+    return dest.relative_to(PREVIEW).as_posix()
