@@ -294,6 +294,9 @@ a{color:inherit}
 
 /* front page gazette */
 .gazette{margin:0 0 28px;text-align:center;font:500 12px/1 var(--display);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.intro-pic{margin:0 0 36px;background:#1a1208;box-shadow:0 18px 40px -28px rgba(26,18,8,.7)}
+.intro-pic video{display:block;width:100%;height:auto;background:#1a1208}
+.intro-pic figcaption{margin:12px 2px 0;font:italic 16px/1.5 var(--serif);color:var(--muted)}
 .hero-bold{margin:0 0 56px}
 .hero-h{margin:0 0 18px;font:600 clamp(36px,6.5vw,72px)/1.02 var(--display);letter-spacing:.02em;text-transform:uppercase;color:var(--ink)}
 .hero-pic{margin:0 0 16px;overflow:hidden;background:#1a1208;box-shadow:0 18px 40px -28px rgba(26,18,8,.7)}
