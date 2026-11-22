@@ -318,12 +318,17 @@ a{color:inherit}
 .news-wide{margin:0 0 36px;padding:0 0 36px;border-bottom:1px solid var(--rule)}
 .news-wide a{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:28px 32px;align-items:center;text-decoration:none}
 .news-wide .hook + .hook{margin-top:8px}
-.news-wide.news-portrait a{grid-template-columns:minmax(160px,240px) minmax(0,1fr)}
-.news-wide.news-portrait .card-pic{aspect-ratio:3/4;margin:0}
+.news-fired{margin:0 0 36px;padding:0 0 36px;border-bottom:1px solid var(--rule)}
+.news-fired a{display:block}
+.news-fired .card-pic{aspect-ratio:3/4;max-width:520px;width:100%;margin:0 0 16px}
+.news-fired .kicker{white-space:nowrap}
 .news-grid .news:nth-child(n+3){border-top:1px solid var(--rule);padding-top:36px}
 @media (max-width:700px){
-  .news-wide a{grid-template-columns:1fr;gap:16px}
-  .news-wide.news-portrait .card-pic{max-width:240px}
+  .news-wide a,
+  .news-wide.news-portrait a{display:grid;grid-template-columns:1fr;gap:16px}
+  .news-wide .card-pic,
+  .news-wide.news-portrait .card-pic,
+  .news-fired .card-pic{max-width:none;width:100%}
   .front-staff{grid-template-columns:1fr;gap:32px}
   .front-staff .eotm{max-width:240px}
   .news-grid{grid-template-columns:1fr;gap:0}
