@@ -270,7 +270,17 @@
         img.width = 864;
         img.height = 1152;
         img.alt = p.name || "A former employee";
-        fig.appendChild(img);
+        if (p.portraitWebp) {
+          var pic = document.createElement("picture");
+          var src = document.createElement("source");
+          src.srcset = asset(p.portraitWebp);
+          src.type = "image/webp";
+          pic.appendChild(src);
+          pic.appendChild(img);
+          fig.appendChild(pic);
+        } else {
+          fig.appendChild(img);
+        }
       }
       var nm = document.createElement("h3");
       nm.textContent = p.name;
