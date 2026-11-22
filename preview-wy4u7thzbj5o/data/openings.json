@@ -30,7 +30,6 @@
   "reserved": [
     "Creative Director",
     "Art Director",
-    "Film Director",
     "Company Clown",
     "Master Stylist",
     "Studio Photographer"
@@ -65,6 +64,11 @@
       "id": "tv-producer",
       "title": "TV Producer",
       "blurb": "Says “that’s a wrap” at four, and means lunch."
+    },
+    {
+      "id": "film-director",
+      "title": "Film Director",
+      "blurb": "The megaphone is on the hook. The chair is free."
     },
     {
       "id": "switchboard-operator",

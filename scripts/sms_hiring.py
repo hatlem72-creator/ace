@@ -134,6 +134,7 @@ GENERIC_BLURBS = {
     "Illustrator": "Draws what is asked, provided it is not a toaster.",
     "Jingle Writer": "Must hum on demand and leave the Ace stories unsung. A piano is not provided. A pencil is.",
     "TV Producer": "Says ‘that’s a wrap’ at four, and means lunch.",
+    "Film Director": "The megaphone is on the hook. The chair is free.",
     "Media Buyer": "Knows which hour of the afternoon a spot can still afford.",
     "Traffic Manager": "The job is to say no, pleasantly, and then the same again.",
     "Studio Photographer": "Lights, a roll of film, and a firm opinion about chins.",

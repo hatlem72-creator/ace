@@ -2,13 +2,13 @@
 
 A low-compute, deadpan system for seating friends at junior desks on the preview site. The public pages are static (GitHub Pages). Applications arrive by email. A daily routine reads the in-tray, chooses a winner, makes a 1974 portrait, and commits the result.
 
-The fifteen permanent staff on The Team are not managed here. They live in `preview-wy4u7thzbj5o/team/index.html`.
+The fourteen permanent staff on The Team are not managed here. They live in `preview-wy4u7thzbj5o/team/index.html`.
 
 ## Desks
 
-- **Letterhead:** 15 permanent staff (plus Frank the company cat).
-- **Junior desks:** 10 friend hires, listed in `preview-wy4u7thzbj5o/data/staff.json` (`maxFriendDesks`).
-- When all ten junior desks are occupied, the **longest-serving non-protected friend hire** (earliest `hiredAt`) is moved to `preview-wy4u7thzbj5o/data/former.json` with a deadpan reason, and the new hire takes the desk. If every seated junior is protected, `add_hire.py` refuses rather than firing them or writing them to `former.json`.
+- **Letterhead:** 14 permanent staff (plus Frank the company cat). Rex Holbrook, formerly Film Director, is on the Former Employees wall.
+- **Junior desks:** 11 friend-hire seats, listed in `preview-wy4u7thzbj5o/data/staff.json` (`maxFriendDesks`). That is the original ten junior desks plus the Film Director desk now open.
+- When all eleven junior desks are occupied, the **longest-serving non-protected friend hire** (earliest `hiredAt`) is moved to `preview-wy4u7thzbj5o/data/former.json` with a deadpan reason, and the new hire takes the desk. If every seated junior is protected, `add_hire.py` refuses rather than firing them or writing them to `former.json`.
 
 ## Protected / unfireable staff
 
@@ -24,17 +24,17 @@ Do not show her smoking in any image.
 |---|---|
 | `preview-wy4u7thzbj5o/data/openings.json` | `pool` of titles, `reserved` titles already held on the letterhead, and `open` (the 1–3 jobs currently advertised). |
 | `preview-wy4u7thzbj5o/data/staff.json` | Friend hires only, plus the `protected` list of unfireable staff. |
-| `preview-wy4u7thzbj5o/data/former.json` | Former friend hires, with the reason they left. |
+| `preview-wy4u7thzbj5o/data/former.json` | Former employees, with the reason they left. |
 | `data/processed-applications.json` | Gmail message IDs already handled. The daily routine skips these. |
 
 Portraits for friend hires go in `preview-wy4u7thzbj5o/team/img/hires/` as `.jpg` + `.webp`. Paths in the JSON are relative to `preview-wy4u7thzbj5o/` (for example `team/img/hires/bobby-the-typewriter-hanssen.jpg`).
 
-Reserved titles (not re-advertised while the letterhead holds them): Creative Director, Art Director, Film Director, Company Clown, Master Stylist, Studio Photographer. Copywriter is open again as a junior desk, even though Whit Gant already holds that title on the letterhead.
+Reserved titles (not re-advertised while the letterhead holds them): Creative Director, Art Director, Company Clown, Master Stylist, Studio Photographer. Copywriter is open as a junior desk, even though Whit Gant already holds that title on the letterhead. Film Director is open again after Rex Holbrook left.
 
 ## What visitors see
 
 - **Home** (`preview-wy4u7thzbj5o/`): a “Now hiring” notice that reads `openings.json` and rotates a line such as “Star Man Studio is hiring: a Jingle Writer.” It links to the application. If nothing is open: “All desks are filled. Apply anyway.” If any friend hires exist, a framed Employee of the Month (chosen by the day of the year, so it stays put for the day) also appears in the lobby.
-- **Careers** and **Application** (`careers/`, `careers/apply/`): the openings (“10 desks. Now open.”), and a 1970s typed form. The current junior openings are Copywriter, Jingle Writer, Paste-up Artist, Retoucher, Media Buyer, TV Producer, Switchboard Operator, Chauffeur, Mailroom Boy, and Tea Lady.
+- **Careers** and **Application** (`careers/`, `careers/apply/`): the openings (“11 desks. Now open.”), and a 1970s typed form. The current openings are Copywriter, Jingle Writer, Paste-up Artist, Retoucher, Media Buyer, TV Producer, Film Director, Switchboard Operator, Chauffeur, Mailroom Boy, and Tea Lady.
 - **Thanks** (`careers/thanks/`): “Your application has been placed in the in-tray. The in-tray is reviewed daily, between drinks.”
 - **The Team**: friend hires render automatically under “Junior desks.” Former employees render on a small wall beneath the letterhead fine print.
 
@@ -131,7 +131,7 @@ Run this once a day, in this order. Low compute: no need to re-generate portrait
      --email bob@example.com
    ```
 
-   This script: exports `864×1152` `.jpg` + `.webp` into `team/img/hires/`; saves an optional side-photograph reference as `{id}-side.jpg` without cropping it to 3:4; appends the hire to `staff.json` (public name and, if known, `realFirst` only — never the real surname); if the ten junior desks are full, moves the longest-serving non-protected friend hire to `former.json` with a deadpan reason (override with `--fire-reason`); refuses if every seated junior is protected; removes the filled title from `openings.json`; and, if that would leave none open, posts a new unused title from the pool so that **1–3 jobs stay advertised**.
+   This script: exports `864×1152` `.jpg` + `.webp` into `team/img/hires/`; saves an optional side-photograph reference as `{id}-side.jpg` without cropping it to 3:4; appends the hire to `staff.json` (public name and, if known, `realFirst` only — never the real surname); if the eleven junior desks are full, moves the longest-serving non-protected friend hire to `former.json` with a deadpan reason (override with `--fire-reason`); refuses if every seated junior is protected; removes the filled title from `openings.json`; and, if that would leave none open, posts a new unused title from the pool so that **1–3 jobs stay advertised**.
 
 8. **Commit and push**, as `hatlem72-creator`, only the preview data, portraits, and (if touched) openings. Do not change the public root `index.html` (it stays “Coming soon”). A suitable message: `Preview: seat {name} at the {position} desk.`
 

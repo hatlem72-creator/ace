@@ -12,7 +12,7 @@ Usage:
     [--hired-at 1974-11-21] \\
     [--fire-reason 'custom reason if a desk must be freed']
 
-If all junior desks (staff.json maxFriendDesks, default 10) are occupied, the
+If all junior desks (staff.json maxFriendDesks, default 11) are occupied, the
 longest-serving non-protected friend hire is moved to former.json before the new
 one is seated. Protected staff (see staff.json and is_protected()) are never
 fired; if every seated junior is protected, the script exits without seating.
@@ -68,7 +68,7 @@ def main():
     former = load_json(DATA / "former.json")
     openings = load_json(DATA / "openings.json")
     hires = staff.setdefault("hires", [])
-    cap = int(staff.get("maxFriendDesks") or 10)
+    cap = int(staff.get("maxFriendDesks") or 11)
 
     fired = None
     if len(hires) >= cap:
