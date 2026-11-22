@@ -56,7 +56,8 @@ Fields (and the names the email will use):
 - `portrait` — required front/face photograph, max 5 MB (checked in the browser). Older applications may use this as the only photograph.
 - `portrait_side` — optional side/profile photograph, same size limit. Used as an extra Identity Lock reference when present.
 - `what_makes_you_a_starman_worker` — “What makes you a Starman worker?” Older applications may still have `hobbies` instead; treat that as the same answer.
-- `interests`, `favourite_drink`, `why_the_desk`
+- `interests`, `favourite_drink`
+- Older applications may still have `why_the_desk` (“In one sentence, why you deserve the desk”). Parse it if present; do not require or score it.
 - `funny_about_yourself` — “Say something funny about yourself.” Older applications may still have `can_you_type` (Yes / No / Somewhat); treat that as the same slot for scoring.
 - `consent` — they agree the photo may become a 1970s portrait and appear on the site
 
@@ -77,7 +78,6 @@ Run this once a day, in this order. Low compute: no need to re-generate portrait
          "what_makes_you_a_starman_worker": "…",
          "interests": "…",
          "favourite_drink": "…",
-         "why_the_desk": "…",
          "funny_about_yourself": "…",
          "consent": "yes",
          "photo": "/tmp/applications/bob-front.jpg",
@@ -88,7 +88,7 @@ Run this once a day, in this order. Low compute: no need to re-generate portrait
    }
    ```
 
-   `submitted_at` should be the email’s Date header, as ISO-8601 with a timezone. Skip mail that is clearly a FormSubmit activation notice, not an application. If an older email has `hobbies` instead of `what_makes_you_a_starman_worker`, or `can_you_type` instead of `funny_about_yourself`, copy those values into the new keys (the scripts also fall back on their own). If there is no side photograph, omit `photo_side` or leave it empty.
+   `submitted_at` should be the email’s Date header, as ISO-8601 with a timezone. Skip mail that is clearly a FormSubmit activation notice, not an application. If an older email has `hobbies` instead of `what_makes_you_a_starman_worker`, or `can_you_type` instead of `funny_about_yourself`, copy those values into the new keys (the scripts also fall back on their own). If it has `why_the_desk`, keep the value in the JSON so the record stays complete; do not require it of new applications, and do not score it. If there is no side photograph, omit `photo_side` or leave it empty.
 
    **Skip any message whose Gmail id already appears in `data/processed-applications.json`.** After a round is seated (or a batch is held or disqualified), append every message id that was considered — including duplicates of the same applicant — so the next run never reprocesses them. Do not mark or modify the Gmail messages themselves unless asked.
 
@@ -141,12 +141,12 @@ If several positions are open and have applicants the same day, fill them one at
 
 ## The rubric
 
-Each qualified applicant is scored out of **11**. The highest total wins. **Ties go to the earliest `submitted_at`.** An applicant is disqualified (score 0, cannot win) with no name, no consent, or no usable photograph.
+Each qualified applicant is scored out of **9**. The highest total wins. **Ties go to the earliest `submitted_at`.** An applicant is disqualified (score 0, cannot win) with no name, no consent, or no usable photograph.
 
 | Part | Points | How it is awarded |
 |---|---:|---|
-| Completeness | 0–5 | One point each for a non-empty Starman-worker answer (or legacy hobbies), interests, favourite drink, why-the-desk sentence, and “Say something funny about yourself” (or legacy “Can you type?”). “n/a”, “none”, or a dash does not count. |
-| Humour / fit | 0–4 | +1 if the why-the-desk sentence is 6–40 words; +1 if the answers mention the job, the studio, the Ace stories, the desk, or a kindred word; +1 if the Starman-worker answer, interests, or the funny line run longer than twelve characters; +1 if the favourite drink is a real answer (at least three characters). |
+| Completeness | 0–4 | One point each for a non-empty Starman-worker answer (or legacy hobbies), interests, favourite drink, and “Say something funny about yourself” (or legacy “Can you type?”). “n/a”, “none”, or a dash does not count. A leftover `why_the_desk` answer from an older application is not scored. |
+| Humour / fit | 0–3 | +1 if the answers mention the job, the studio, the Ace stories, the desk, or a kindred word; +1 if the Starman-worker answer, interests, or the funny line run longer than twelve characters; +1 if the favourite drink is a real answer (at least three characters). |
 | Photograph | 0–2 | The file must open as an image, or the applicant is disqualified. +2 if the shorter side is at least 400 pixels; +1 if it is at least 250; +0 if it is smaller than that but still opens. |
 
 `scripts/choose_winner.py` prints every score, so the choice can be explained later without re-running a model.

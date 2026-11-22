@@ -459,9 +459,9 @@ def score_application(app: dict, photo_path: str | Path | None = None) -> dict:
         "what_makes_you_a_starman_worker": worker,
         "interests": app.get("interests") or "",
         "favourite_drink": app.get("favourite_drink") or "",
-        "why_the_desk": app.get("why_the_desk") or "",
         "funny_about_yourself": funny,
     }
+    # why_the_desk is no longer asked or scored. Older mail may still include it; it is ignored here.
     reasons = []
     dq = False
     if not name:
@@ -471,24 +471,19 @@ def score_application(app: dict, photo_path: str | Path | None = None) -> dict:
         dq = True
         reasons.append("No consent.")
 
-    completeness = 0  # max 5
+    completeness = 0  # max 4
     for key, val in fields.items():
         if not is_blank(val):
             completeness += 1
         else:
             reasons.append(f"Missing {key.replace('_', ' ')}.")
 
-    humour = 0  # max 4
-    why = fields["why_the_desk"]
-    wc = word_count(why)
-    if 6 <= wc <= 40:
-        humour += 1
+    humour = 0  # max 3
     position = (app.get("position") or "").strip()
     blob = " ".join([
         fields["what_makes_you_a_starman_worker"],
         fields["interests"],
         fields["funny_about_yourself"],
-        why,
         position,
     ]).lower()
     tokens = [t for t in re.findall(r"[a-z]+", (position or "").lower()) if len(t) > 2]

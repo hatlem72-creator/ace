@@ -7,7 +7,7 @@ Usage:
 
 The JSON may be either a list of applicants, or {"position": "...", "applicants": [...]}.
 Each applicant should include: name, consent, what_makes_you_a_starman_worker
-(or legacy hobbies), interests, favourite_drink, why_the_desk, funny_about_yourself
+(or legacy hobbies), interests, favourite_drink, funny_about_yourself
 (or legacy can_you_type), photo (front, a file path), optional photo_side, submitted_at
 (ISO-8601), and position.
 Prints the winner (and the score table) as JSON. Exit 2 if nobody qualifies.
