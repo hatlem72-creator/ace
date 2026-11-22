@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@500;600;700&family=Special+Elite&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=9">
+<link rel="stylesheet" href="style.css?v=10">
 <style>
   header.mast .logo img{width:min(460px,88vw);height:auto}
 </style>
@@ -47,10 +47,9 @@
 </header>
 <main class="page front" id="main">
   <figure class="intro-pic">
-    <video poster="video/intro.jpg?v=1" width="856" height="464" autoplay muted playsinline controls preload="metadata" aria-label="A 48-second introduction to Star Man Studio">
-      <source src="video/intro.mp4?v=1" type="video/mp4">
+    <video id="intro-film" poster="video/intro.jpg?v=2" width="856" height="464" autoplay playsinline controls preload="metadata" aria-label="A 48-second introduction to Star Man Studio">
+      <source src="video/intro.mp4?v=2" type="video/mp4">
     </video>
-    <figcaption>The introduction.</figcaption>
   </figure>
   <p class="gazette">The Lobby · 18 September 1970 · West 26th Street</p>
 
@@ -224,5 +223,34 @@
     </nav>
   </div>
 </footer>
+<script>
+(function () {
+  var v = document.getElementById('intro-film');
+  if (!v) return;
+  function tryPlay() {
+    var p = v.play();
+    if (p && p.catch) p.catch(function () {});
+  }
+  function unlock() {
+    document.removeEventListener('pointerdown', unlock, true);
+    document.removeEventListener('keydown', unlock, true);
+    v.muted = false;
+    tryPlay();
+  }
+  function armUnlock() {
+    document.addEventListener('pointerdown', unlock, true);
+    document.addEventListener('keydown', unlock, true);
+  }
+  v.muted = false;
+  var play = v.play();
+  if (play && play.then) {
+    play.catch(function () {
+      v.muted = true;
+      tryPlay();
+      armUnlock();
+    });
+  }
+})();
+</script>
 </body>
 </html>
