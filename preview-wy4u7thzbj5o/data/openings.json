@@ -41,11 +41,6 @@
       "blurb": "Twelve words, if you have them. Eleven, if you do not."
     },
     {
-      "id": "jingle-writer",
-      "title": "Jingle Writer",
-      "blurb": "Must hum on demand. A piano is not provided."
-    },
-    {
       "id": "paste-up-artist",
       "title": "Paste-up Artist",
       "blurb": "A steel rule, a sharp blade, and no patience for a crooked margin."
@@ -84,11 +79,6 @@
       "id": "mailroom-boy",
       "title": "Mailroom Boy",
       "blurb": "The chute, the stairs, and the one envelope that is always late."
-    },
-    {
-      "id": "tea-lady",
-      "title": "Tea Lady",
-      "blurb": "The kettle is a department. Biscuits are a philosophy."
     }
   ],
   "reservedOpenings": [

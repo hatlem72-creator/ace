@@ -34,6 +34,22 @@
       "position": "Tea Lady",
       "outcome": "hired as Annie \"The Kettle\" Hatlem",
       "note": "Desk name later changed to Miek van Tiffany."
+    },
+    {
+      "id": "1a1feb505fc25659",
+      "threadId": "1a1fc34664c90dc8",
+      "handledAt": "2026-11-26T00:31:51+01:00",
+      "applicant": "Ken olsen",
+      "position": "Jingle Writer",
+      "outcome": "hired as Ken McTune"
+    },
+    {
+      "id": "1a209ed1f0814c98",
+      "threadId": "1a209ed1f0814c98",
+      "handledAt": "2026-11-26T00:31:51+01:00",
+      "applicant": "Iben Lulja",
+      "position": "Tea Lady",
+      "outcome": "hired as Iben de Biscuit"
     }
   ]
 }
