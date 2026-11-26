@@ -18,11 +18,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@500;600;700&family=Special+Elite&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=11">
+<link rel="stylesheet" href="style.css?v=12">
 <style>
   header.mast .logo img{width:min(460px,88vw);height:auto}
 </style>
-<script src="hiring.js?v=4" defer data-base="."></script>
+<script src="hiring.js?v=5" defer data-base="."></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to the lobby</a>
@@ -46,10 +46,13 @@
   </div>
 </header>
 <main class="page front" id="main">
-  <figure class="intro-pic">
-    <video id="intro-film" poster="video/intro.jpg?v=2" width="856" height="464" autoplay playsinline controls preload="metadata" aria-label="A 48-second introduction to Star Man Studio">
+  <figure class="intro-pic film-slot">
+    <video id="intro-film" poster="video/intro.jpg?v=2" width="856" height="464" autoplay muted playsinline webkit-playsinline controls preload="metadata" aria-label="A 48-second introduction to Star Man Studio">
       <source src="video/intro.mp4?v=2" type="video/mp4">
     </video>
+    <button type="button" class="film-sound" data-film="intro-film" aria-label="Sound" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+    </button>
   </figure>
   <p class="gazette">The Lobby · 18 September 1970 · West 26th Street</p>
 
@@ -84,11 +87,14 @@
 
 
   <article class="news news-film" id="tea-talk">
-    <figure class="card-pic">
-      <video id="tea-talk-film" width="1280" height="720" autoplay muted loop playsinline preload="metadata" poster="img/iben-tea-office.jpg?v=1" aria-label="Gautier van der Poppelen talking with Iben de Biscuit in her tea-lady office">
-        <source src="img/iben-tea-office.mp4?v=1" type="video/mp4">
-        <img src="img/iben-tea-office.gif?v=1" width="480" height="270" alt="Gautier van der Poppelen talking with Iben de Biscuit in her tea-lady office">
+    <figure class="card-pic film-slot">
+      <video id="tea-talk-film" width="960" height="540" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="img/iben-tea-office.jpg?v=1" aria-label="Gautier van der Poppelen talking with Iben de Biscuit in her tea-lady office">
+        <source src="img/iben-tea-office.mp4?v=2" type="video/mp4">
       </video>
+      <img class="film-gif" src="img/iben-tea-office.gif?v=1" width="480" height="270" alt="Gautier van der Poppelen talking with Iben de Biscuit in her tea-lady office" hidden>
+      <button type="button" class="film-sound" data-film="tea-talk-film" aria-label="Sound" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+      </button>
     </figure>
     <p class="kicker">New hire · Tea Lady</p>
     <h3 class="card-h">Gautier has come to talk tea</h3>
@@ -237,39 +243,82 @@
 </footer>
 <script>
 (function () {
-  var intro = document.getElementById('intro-film');
-  var tea = document.getElementById('tea-talk-film');
+  var films = [document.getElementById('intro-film'), document.getElementById('tea-talk-film')].filter(Boolean);
+
   function tryPlay(v) {
     if (!v) return;
     var p = v.play();
     if (p && p.catch) p.catch(function () {});
   }
-  function unlock() {
-    document.removeEventListener('pointerdown', unlock, true);
-    document.removeEventListener('keydown', unlock, true);
-    if (intro) { intro.muted = false; tryPlay(intro); }
-    if (tea) { tea.muted = false; tryPlay(tea); }
+
+  function primeMuted(v) {
+    v.muted = true;
+    v.defaultMuted = true;
+    v.setAttribute('muted', '');
+    v.playsInline = true;
+    v.setAttribute('playsinline', '');
+    v.setAttribute('webkit-playsinline', '');
+    tryPlay(v);
   }
+
+  function soundBtn(v) {
+    return document.querySelector('.film-sound[data-film="' + v.id + '"]');
+  }
+
+  function showSoundHint(v) {
+    var b = soundBtn(v);
+    if (b && v.muted && !v.paused) b.removeAttribute('hidden');
+  }
+
+  function hideSoundHint(v) {
+    var b = soundBtn(v);
+    if (b) b.setAttribute('hidden', '');
+  }
+
+  function revealGif(v) {
+    var slot = v.closest('.film-slot');
+    if (!slot) return;
+    var gif = slot.querySelector('.film-gif');
+    if (!gif) return;
+    slot.classList.add('is-still');
+    gif.removeAttribute('hidden');
+    hideSoundHint(v);
+  }
+
+  function unmuteAll() {
+    document.removeEventListener('pointerdown', unmuteAll, true);
+    document.removeEventListener('keydown', unmuteAll, true);
+    films.forEach(function (v) {
+      if (!v || (v.closest('.film-slot') && v.closest('.film-slot').classList.contains('is-still'))) return;
+      v.muted = false;
+      tryPlay(v);
+      hideSoundHint(v);
+    });
+  }
+
   function armUnlock() {
-    document.addEventListener('pointerdown', unlock, true);
-    document.addEventListener('keydown', unlock, true);
+    document.addEventListener('pointerdown', unmuteAll, true);
+    document.addEventListener('keydown', unmuteAll, true);
   }
-  if (intro) {
-    intro.muted = false;
-    var play = intro.play();
-    if (play && play.then) {
-      play.catch(function () {
-        intro.muted = true;
-        tryPlay(intro);
-        armUnlock();
-      });
-    }
-  }
-  if (tea) {
-    tea.muted = true;
-    tryPlay(tea);
-    armUnlock();
-  }
+
+  films.forEach(function (v) {
+    primeMuted(v);
+    v.addEventListener('playing', function () { showSoundHint(v); });
+    v.addEventListener('error', function () { revealGif(v); }, true);
+    var src = v.querySelector('source');
+    if (src) src.addEventListener('error', function () { revealGif(v); });
+    v.addEventListener('click', function () { unmuteAll(); });
+    var b = soundBtn(v);
+    if (b) b.addEventListener('click', function (e) { e.preventDefault(); unmuteAll(); });
+    setTimeout(function () {
+      if (!v.paused && v.currentTime > 0) { showSoundHint(v); return; }
+      primeMuted(v);
+      setTimeout(function () {
+        if (v.paused && v.currentTime === 0) revealGif(v);
+      }, 1600);
+    }, 1600);
+  });
+  armUnlock();
 })();
 </script>
 </body>

@@ -208,13 +208,47 @@
     });
   }
 
+
+  function frontOmitList(staff) {
+    return (staff && staff.frontOmit) || [];
+  }
+
+  function isOmittedFromFront(h, omit) {
+    if (!h) return true;
+    if (h.front === false) return true;
+    var id = h.id || "";
+    var i;
+    for (i = 0; i < omit.length; i++) {
+      if (id === omit[i] || (omit[i] && id.indexOf(omit[i]) === 0)) return true;
+    }
+    return false;
+  }
+
+  function frontHires(staff) {
+    var omit = frontOmitList(staff);
+    return ((staff && staff.hires) || []).filter(function (h) {
+      return !isOmittedFromFront(h, omit);
+    });
+  }
+
+  function syncFrontStaff() {
+    var box = document.querySelector(".front-staff");
+    if (!box) return;
+    var juniors = document.getElementById("junior-desks");
+    var eotm = document.getElementById("eotm");
+    var show = (juniors && !juniors.hidden) || (eotm && !eotm.hidden);
+    box.hidden = !show;
+  }
+
   function renderHires(staff) {
     var wrap = document.getElementById("junior-desks");
     var grid = document.getElementById("friend-hires");
     if (!wrap || !grid) return;
-    var hires = (staff && staff.hires) || [];
+    var onFront = !!document.querySelector(".page.front");
+    var hires = onFront ? frontHires(staff) : ((staff && staff.hires) || []);
     if (!hires.length) {
       wrap.hidden = true;
+      syncFrontStaff();
       return;
     }
     wrap.hidden = false;
@@ -248,6 +282,7 @@
       fig.appendChild(bio);
       grid.appendChild(fig);
     });
+    syncFrontStaff();
   }
 
   function renderFormer(former) {
@@ -299,9 +334,10 @@
   function renderEotm(staff) {
     var root = document.getElementById("eotm");
     if (!root) return;
-    var hires = (staff && staff.hires) || [];
+    var hires = frontHires(staff);
     if (!hires.length) {
       root.hidden = true;
+      syncFrontStaff();
       return;
     }
     var now = new Date();
@@ -318,6 +354,7 @@
     if (name) name.textContent = pick.name;
     if (role) role.textContent = pick.position || "";
     root.hidden = false;
+    syncFrontStaff();
   }
 
   var tasks = [];

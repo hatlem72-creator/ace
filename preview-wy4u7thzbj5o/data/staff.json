@@ -1,6 +1,6 @@
 {
   "maxFriendDesks": 11,
-  "note": "The loft already seats 14 on the letterhead (the permanent staff, rendered in team/index.html), plus Frank the company cat. Eleven desks may be filled by friend hires listed here (the ten junior desks, and the Film Director desk now open after Rex Holbrook left). When all eleven are occupied, the longest-serving non-protected friend hire is moved to former.json to make a desk free. Protected staff are never fired, auto-refilled, or rotated out. A hire\u2019s public name keeps only their real first name and an invented surname; the real surname is never published.",
+  "note": "The loft already seats 14 on the letterhead (the permanent staff, rendered in team/index.html), plus Frank the company cat. Eleven desks may be filled by friend hires listed here (the ten junior desks, and the Film Director desk now open after Rex Holbrook left). When all eleven are occupied, the longest-serving non-protected friend hire is moved to former.json to make a desk free. Protected staff are never fired, auto-refilled, or rotated out. A hire’s public name keeps only their real first name and an invented surname; the real surname is never published.",
   "protected": [
     {
       "id": "miek-van-tiffany",
@@ -17,7 +17,8 @@
       "portrait": "team/img/hires/ken-mctune.jpg?v=1",
       "portraitWebp": "team/img/hires/ken-mctune.webp?v=1",
       "hiredAt": "2026-11-26",
-      "realFirst": "Ken"
+      "realFirst": "Ken",
+      "front": false
     },
     {
       "id": "iben-de-biscuit",
@@ -28,7 +29,12 @@
       "portraitWebp": "team/img/hires/iben-de-biscuit.webp?v=1",
       "hiredAt": "2026-11-26",
       "realFirst": "Iben",
-      "portraitSide": "team/img/hires/iben-de-biscuit-side.jpg"
+      "portraitSide": "team/img/hires/iben-de-biscuit-side.jpg",
+      "front": false
     }
+  ],
+  "frontOmit": [
+    "ken-mctune",
+    "iben-de-biscuit"
   ]
 }

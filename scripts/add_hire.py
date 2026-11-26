@@ -18,6 +18,8 @@ one is seated. Protected staff (see staff.json and is_protected()) are never
 fired; if every seated junior is protected, the script exits without seating.
 The filled opening is removed from openings.json. If that would leave none open,
 a new unused title from the pool is posted, so one to three desks stay advertised.
+Ids listed in staff.json frontOmit are never shown on the home page (Team page only);
+if one of those people is seated again, front is set to false and the omit list is kept.
 """
 import argparse
 import sys
@@ -122,6 +124,9 @@ def main():
         hire["portraitSide"] = save_reference_photo(args.image_side, side_dest)
     if args.email:
         hire["email"] = args.email
+    omit = staff.get("frontOmit") or []
+    if any((hire["id"] == o or hire["id"].startswith(o)) for o in omit if o):
+        hire["front"] = False
     hires.append(hire)
 
     # Close the filled opening; refill so 1–3 remain posted.
