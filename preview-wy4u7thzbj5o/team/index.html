@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@500;600;700&family=Special+Elite&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css?v=3">
+<link rel="stylesheet" href="../style.css?v=14">
 <script src="../hiring.js?v=5" defer data-base=".."></script>
 
 </head>
@@ -121,8 +121,11 @@
       <p>The Hasselblad is his surfboard.</p>
     </figure>
 
-    <figure class="person">
-      <picture><source srcset="img/tess-lang.webp" type="image/webp"><img src="img/tess-lang.jpg" width="864" height="1152" alt="Studio portrait of Tess Lang, personal assistant: a dark bob and gold headband, a cream turtleneck, a long gold pendant, holding a leather appointment book"></picture>
+    <figure class="person film-slot" id="tess-lang">
+      <video id="tess-lang-film" width="720" height="960" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="img/tess-lang.jpg?v=1" aria-label="Studio portrait of Tess Lang, personal assistant: a dark bob and gold headband, a cream turtleneck, a long gold pendant, holding a leather appointment book">
+        <source src="img/tess-lang.mp4?v=1" type="video/mp4">
+      </video>
+      <img class="film-gif" src="img/tess-lang.gif?v=1" width="360" height="480" alt="Studio portrait of Tess Lang, personal assistant: a dark bob and gold headband, a cream turtleneck, a long gold pendant, holding a leather appointment book" hidden>
       <h3>Tess Lang</h3>
       <p class="role">Personal Assistant to the Creative Director</p>
       <p>Keeps his calendar, his cigarettes, and the plant.</p>
@@ -197,5 +200,41 @@
     </nav>
   </div>
 </footer>
+
+<script>
+(function () {
+  function tryPlay(v) {
+    v.muted = true;
+    v.defaultMuted = true;
+    v.setAttribute('muted', '');
+    v.playsInline = true;
+    v.setAttribute('playsinline', '');
+    v.setAttribute('webkit-playsinline', '');
+    var p = v.play();
+    if (p && p.catch) p.catch(function () {});
+  }
+  function revealGif(v) {
+    var slot = v.closest('.film-slot');
+    if (!slot) return;
+    var gif = slot.querySelector('.film-gif');
+    if (!gif) return;
+    slot.classList.add('is-still');
+    gif.removeAttribute('hidden');
+  }
+  document.querySelectorAll('.person.film-slot video').forEach(function (v) {
+    tryPlay(v);
+    v.addEventListener('error', function () { revealGif(v); }, true);
+    var src = v.querySelector('source');
+    if (src) src.addEventListener('error', function () { revealGif(v); });
+    setTimeout(function () {
+      if (!v.paused && v.currentTime > 0) return;
+      tryPlay(v);
+      setTimeout(function () {
+        if (v.paused && v.currentTime === 0) revealGif(v);
+      }, 1600);
+    }, 1600);
+  });
+})();
+</script>
 </body>
 </html>
