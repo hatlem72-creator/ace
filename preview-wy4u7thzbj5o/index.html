@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@500;600;700&family=Special+Elite&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=10">
+<link rel="stylesheet" href="style.css?v=11">
 <style>
   header.mast .logo img{width:min(460px,88vw);height:auto}
 </style>
@@ -81,6 +81,18 @@
       <p class="eotm-label">Employee of the Month</p>
     </section>
   </div>
+
+
+  <article class="news news-film" id="tea-talk">
+    <figure class="card-pic">
+      <video id="tea-talk-film" width="1280" height="720" autoplay muted loop playsinline preload="metadata" poster="img/iben-tea-office.jpg?v=1" aria-label="Gautier van der Poppelen talking with Iben de Biscuit in her tea-lady office">
+        <source src="img/iben-tea-office.mp4?v=1" type="video/mp4">
+        <img src="img/iben-tea-office.gif?v=1" width="480" height="270" alt="Gautier van der Poppelen talking with Iben de Biscuit in her tea-lady office">
+      </video>
+    </figure>
+    <p class="kicker">New hire · Tea Lady</p>
+    <h3 class="card-h">Gautier has come to talk tea</h3>
+  </article>
 
   <aside class="hiring-sign" id="hiring-sign" aria-live="polite">
     <a href="careers/apply/">
@@ -225,30 +237,38 @@
 </footer>
 <script>
 (function () {
-  var v = document.getElementById('intro-film');
-  if (!v) return;
-  function tryPlay() {
+  var intro = document.getElementById('intro-film');
+  var tea = document.getElementById('tea-talk-film');
+  function tryPlay(v) {
+    if (!v) return;
     var p = v.play();
     if (p && p.catch) p.catch(function () {});
   }
   function unlock() {
     document.removeEventListener('pointerdown', unlock, true);
     document.removeEventListener('keydown', unlock, true);
-    v.muted = false;
-    tryPlay();
+    if (intro) { intro.muted = false; tryPlay(intro); }
+    if (tea) { tea.muted = false; tryPlay(tea); }
   }
   function armUnlock() {
     document.addEventListener('pointerdown', unlock, true);
     document.addEventListener('keydown', unlock, true);
   }
-  v.muted = false;
-  var play = v.play();
-  if (play && play.then) {
-    play.catch(function () {
-      v.muted = true;
-      tryPlay();
-      armUnlock();
-    });
+  if (intro) {
+    intro.muted = false;
+    var play = intro.play();
+    if (play && play.then) {
+      play.catch(function () {
+        intro.muted = true;
+        tryPlay(intro);
+        armUnlock();
+      });
+    }
+  }
+  if (tea) {
+    tea.muted = true;
+    tryPlay(tea);
+    armUnlock();
   }
 })();
 </script>

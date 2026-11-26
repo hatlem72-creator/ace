@@ -324,6 +324,11 @@ a{color:inherit}
 .news-fired a{display:block}
 .news-fired .card-pic{aspect-ratio:3/4;max-width:520px;width:100%;margin:0 0 16px}
 .news-fired .kicker{white-space:nowrap}
+.news-film{margin:0 0 48px;padding:0 0 36px;border-bottom:1px solid var(--rule)}
+.news-film .card-pic{margin:0 0 16px}
+.news-film video{display:block;width:100%;height:auto;background:#1a1208}
+.news-film .kicker{margin:0 0 8px}
+.news-film .card-h{margin:0}
 .news-grid .news:nth-child(n+3){border-top:1px solid var(--rule);padding-top:36px}
 @media (max-width:700px){
   .news-wide a,
