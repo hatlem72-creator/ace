@@ -332,8 +332,9 @@ a{color:inherit}
 
 .page.front .front-staff:not(:has(> :not([hidden]))){display:none;margin:0;padding:0}
 .film-slot{position:relative}
-.film-slot .film-gif{display:block;width:100%;height:auto}
+.film-slot .film-gif{display:none;width:100%;height:auto}
 .film-slot.is-still video{display:none}
+.film-slot.is-still .film-gif{display:block}
 .film-sound{position:absolute;right:10px;bottom:10px;z-index:2;width:36px;height:36px;padding:0;border:0;border-radius:50%;background:rgba(26,18,8,.72);color:#f3ead8;cursor:pointer}
 .film-sound[hidden]{display:none}
 .film-sound svg{display:block;width:18px;height:18px;margin:9px auto;fill:currentColor}
