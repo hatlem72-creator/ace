@@ -331,6 +331,7 @@ a{color:inherit}
 .news-film video{display:block;width:100%;height:auto;background:#1a1208}
 .news-film .kicker{margin:0 0 8px}
 .news-film .card-h{margin:0}
+.news-film > a{display:block;text-decoration:none;color:inherit}
 
 .page.front .front-staff:not(:has(> :not([hidden]))){display:none;margin:0;padding:0}
 .film-slot{position:relative}

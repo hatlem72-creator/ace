@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@500;600;700&family=Special+Elite&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=13">
+<link rel="stylesheet" href="style.css?v=14">
 <style>
   header.mast .logo img{width:min(460px,88vw);height:auto}
 </style>
@@ -98,6 +98,19 @@
     </figure>
     <p class="kicker">New hire · Tea Lady</p>
     <h3 class="card-h">Iben, welcome to Starman!</h3>
+  </article>
+
+  <article class="news news-film" id="strategy-retreat">
+    <figure class="card-pic film-slot">
+      <video id="fairway-film" width="1152" height="864" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="team-building/img/fairway.jpg?v=1" aria-label="Gautier van der Poppelen and Gardon Mc.Hardon standing on a 1970s fairway in loud golf clothes, Gardon in a tartan kilt, beside a rolling chrome drinks trolley and a leather golf bag">
+        <source src="img/fairway-retreat.mp4?v=1" type="video/mp4">
+      </video>
+      <img class="film-gif" src="img/fairway-retreat.gif?v=1" width="480" height="360" alt="Gautier van der Poppelen and Gardon Mc.Hardon standing on a 1970s fairway in loud golf clothes, Gardon in a tartan kilt, beside a rolling chrome drinks trolley and a leather golf bag" hidden>
+    </figure>
+    <a href="team-building/">
+      <p class="kicker">Team Building · Hartwick Country Club · 1974</p>
+      <h3 class="card-h">The clubs have not yet been required.</h3>
+    </a>
   </article>
 
   <aside class="hiring-sign" id="hiring-sign" aria-live="polite">
@@ -243,7 +256,7 @@
 </footer>
 <script>
 (function () {
-  var films = [document.getElementById('intro-film'), document.getElementById('tea-talk-film')].filter(Boolean);
+  var films = [document.getElementById('intro-film'), document.getElementById('tea-talk-film'), document.getElementById('fairway-film')].filter(Boolean);
 
   function tryPlay(v) {
     if (!v) return;
