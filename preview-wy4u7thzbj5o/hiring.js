@@ -91,6 +91,12 @@
       b.textContent = blurb;
       list.appendChild(h);
       list.appendChild(b);
+      if (o.fit) {
+        var fit = document.createElement("p");
+        fit.className = "job-fit";
+        fit.textContent = o.fit;
+        list.appendChild(fit);
+      }
     });
   }
 

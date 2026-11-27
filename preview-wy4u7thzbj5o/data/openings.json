@@ -45,42 +45,50 @@
     {
       "id": "graphic-designer",
       "title": "Graphic Designer",
-      "blurb": "A layout with backbone, a mark you can see from the street, and no patience for a timid margin."
+      "blurb": "You design the advertisements we print: the layout, the lettering, the logo, and how the type sits with the picture. You prepare roughs and finished artwork, and you work with the copywriter and the art department until the page is ready for the typographer and the printer.",
+      "fit": "You'll be good at this if you can make a page clear from across the room, and still mind the last pica."
     },
     {
       "id": "copywriter",
       "title": "Copywriter",
-      "blurb": "Twelve words, if you have them. Eleven, if you do not."
+      "blurb": "You write the headlines, body copy and slogans for our advertisements, and the scripts when a job goes on the radio or the television. You work with the designers until the words and the picture pull in the same direction, then hand the finished copy to the account team for the client's approval.",
+      "fit": "You'll be good at this if you can say what is needed in a few words, and stand by every one of them."
     },
     {
       "id": "designer",
       "title": "Designer",
-      "blurb": "Makes the rough look finished, and the finished look inevitable."
+      "blurb": "You shape the look of a job from the first rough to the presentation the client sees: the format, the colour, the type, and how the work will appear in print or on a package. You work with the graphic designer, the stylist and the account team, and you see a campaign through until it is consistent and finished.",
+      "fit": "You'll be good at this if you can take a loose idea and leave it looking finished."
     },
     {
       "id": "stylist",
       "title": "Stylist",
-      "blurb": "A look you can smell from the lobby, and a pin for every last hem."
+      "blurb": "You dress the models and the set. You find the clothes, the props and the small objects a photograph needs, and you work with the photographer, the talent and the art department on studio days so that everything in the frame is right.",
+      "fit": "You'll be good at this if you notice a wrong sleeve from the back of the room."
     },
     {
       "id": "client-account-manager",
       "title": "Client Account Manager",
-      "blurb": "Keeps the client calm, the invoice moving, and lunch on the right side of the bill."
+      "blurb": "You are the client's daily contact at the studio. You take the brief, keep the schedule and the budget, and carry work between the client and the creative desks until it is approved and delivered. You also prepare status reports and see that presentations go out on time.",
+      "fit": "You'll be good at this if you can hold a deadline, a meeting and a difficult telephone call in the same afternoon."
     },
     {
       "id": "talent-manager",
       "title": "Talent Manager",
-      "blurb": "Books the face, soothes the ego, and gets them to the studio before the light goes."
+      "blurb": "You find and book the models, actors and voices we need for advertisements and studio sessions. You arrange the contracts and the call times, and you see that people arrive, are looked after, and finish when the work is done.",
+      "fit": "You'll be good at this if you can keep a name book, a timetable and a temperament in working order."
     },
     {
       "id": "mail-boy",
       "title": "Mail Boy",
-      "blurb": "The chute, the stairs, and the one envelope that is always late."
+      "blurb": "You collect, sort and deliver the studio's post, packages and proofs, and you take finished work to the client, the typographer and the printer. You keep the mailroom in order and make the rounds of the desks through the day.",
+      "fit": "You'll be good at this if you can tell which envelope is urgent before it is opened."
     },
     {
       "id": "bartender",
       "title": "Bartender",
-      "blurb": "The first pour is for the client. The second is for the house. The third is a rumour."
+      "blurb": "You stock and run the studio bar, and you serve drinks to staff, clients and guests at lunches, pitches and late work. You keep the glasses, the ice and the bar accounts in order, and you know when a meeting needs a tray and when it should be left alone.",
+      "fit": "You'll be good at this if you can pour a proper drink and step back until you are wanted."
     }
   ],
   "reservedOpenings": [
@@ -95,42 +103,50 @@
     {
       "id": "graphic-designer",
       "title": "Graphic Designer",
-      "blurb": "A layout with backbone, a mark you can see from the street, and no patience for a timid margin."
+      "blurb": "You design the advertisements we print: the layout, the lettering, the logo, and how the type sits with the picture. You prepare roughs and finished artwork, and you work with the copywriter and the art department until the page is ready for the typographer and the printer.",
+      "fit": "You'll be good at this if you can make a page clear from across the room, and still mind the last pica."
     },
     {
       "id": "copywriter",
       "title": "Copywriter",
-      "blurb": "Twelve words, if you have them. Eleven, if you do not."
+      "blurb": "You write the headlines, body copy and slogans for our advertisements, and the scripts when a job goes on the radio or the television. You work with the designers until the words and the picture pull in the same direction, then hand the finished copy to the account team for the client's approval.",
+      "fit": "You'll be good at this if you can say what is needed in a few words, and stand by every one of them."
     },
     {
       "id": "designer",
       "title": "Designer",
-      "blurb": "Makes the rough look finished, and the finished look inevitable."
+      "blurb": "You shape the look of a job from the first rough to the presentation the client sees: the format, the colour, the type, and how the work will appear in print or on a package. You work with the graphic designer, the stylist and the account team, and you see a campaign through until it is consistent and finished.",
+      "fit": "You'll be good at this if you can take a loose idea and leave it looking finished."
     },
     {
       "id": "stylist",
       "title": "Stylist",
-      "blurb": "A look you can smell from the lobby, and a pin for every last hem."
+      "blurb": "You dress the models and the set. You find the clothes, the props and the small objects a photograph needs, and you work with the photographer, the talent and the art department on studio days so that everything in the frame is right.",
+      "fit": "You'll be good at this if you notice a wrong sleeve from the back of the room."
     },
     {
       "id": "client-account-manager",
       "title": "Client Account Manager",
-      "blurb": "Keeps the client calm, the invoice moving, and lunch on the right side of the bill."
+      "blurb": "You are the client's daily contact at the studio. You take the brief, keep the schedule and the budget, and carry work between the client and the creative desks until it is approved and delivered. You also prepare status reports and see that presentations go out on time.",
+      "fit": "You'll be good at this if you can hold a deadline, a meeting and a difficult telephone call in the same afternoon."
     },
     {
       "id": "talent-manager",
       "title": "Talent Manager",
-      "blurb": "Books the face, soothes the ego, and gets them to the studio before the light goes."
+      "blurb": "You find and book the models, actors and voices we need for advertisements and studio sessions. You arrange the contracts and the call times, and you see that people arrive, are looked after, and finish when the work is done.",
+      "fit": "You'll be good at this if you can keep a name book, a timetable and a temperament in working order."
     },
     {
       "id": "mail-boy",
       "title": "Mail Boy",
-      "blurb": "The chute, the stairs, and the one envelope that is always late."
+      "blurb": "You collect, sort and deliver the studio's post, packages and proofs, and you take finished work to the client, the typographer and the printer. You keep the mailroom in order and make the rounds of the desks through the day.",
+      "fit": "You'll be good at this if you can tell which envelope is urgent before it is opened."
     },
     {
       "id": "bartender",
       "title": "Bartender",
-      "blurb": "The first pour is for the client. The second is for the house. The third is a rumour."
+      "blurb": "You stock and run the studio bar, and you serve drinks to staff, clients and guests at lunches, pitches and late work. You keep the glasses, the ice and the bar accounts in order, and you know when a meeting needs a tray and when it should be left alone.",
+      "fit": "You'll be good at this if you can pour a proper drink and step back until you are wanted."
     }
   ]
 }

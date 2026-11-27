@@ -148,14 +148,14 @@ GENERIC_BLURBS = {
     "Retoucher": "The face is already good. You will make it printable.",
     "Switchboard Operator": "The first hello and the last goodbye, and never a crossed line.",
     "Chauffeur": "The car is black. The route is a matter of opinion.",
-    "Copywriter": "Twelve words, if you have them. Eleven, if you do not.",
-    "Graphic Designer": "A layout with backbone, a mark you can see from the street, and no patience for a timid margin.",
-    "Designer": "Makes the rough look finished, and the finished look inevitable.",
-    "Stylist": "A look you can smell from the lobby, and a pin for every last hem.",
-    "Client Account Manager": "Keeps the client calm, the invoice moving, and lunch on the right side of the bill.",
-    "Talent Manager": "Books the face, soothes the ego, and gets them to the studio before the light goes.",
-    "Mail Boy": "The chute, the stairs, and the one envelope that is always late.",
-    "Bartender": "The first pour is for the client. The second is for the house. The third is a rumour.",
+    "Copywriter": "You write the headlines, body copy and slogans for our advertisements, and the scripts when a job goes on the radio or the television. You work with the designers until the words and the picture pull in the same direction, then hand the finished copy to the account team for the client's approval.",
+    "Graphic Designer": "You design the advertisements we print: the layout, the lettering, the logo, and how the type sits with the picture. You prepare roughs and finished artwork, and you work with the copywriter and the art department until the page is ready for the typographer and the printer.",
+    "Designer": "You shape the look of a job from the first rough to the presentation the client sees: the format, the colour, the type, and how the work will appear in print or on a package. You work with the graphic designer, the stylist and the account team, and you see a campaign through until it is consistent and finished.",
+    "Stylist": "You dress the models and the set. You find the clothes, the props and the small objects a photograph needs, and you work with the photographer, the talent and the art department on studio days so that everything in the frame is right.",
+    "Client Account Manager": "You are the client's daily contact at the studio. You take the brief, keep the schedule and the budget, and carry work between the client and the creative desks until it is approved and delivered. You also prepare status reports and see that presentations go out on time.",
+    "Talent Manager": "You find and book the models, actors and voices we need for advertisements and studio sessions. You arrange the contracts and the call times, and you see that people arrive, are looked after, and finish when the work is done.",
+    "Mail Boy": "You collect, sort and deliver the studio's post, packages and proofs, and you take finished work to the client, the typographer and the printer. You keep the mailroom in order and make the rounds of the desks through the day.",
+    "Bartender": "You stock and run the studio bar, and you serve drinks to staff, clients and guests at lunches, pitches and late work. You keep the glasses, the ice and the bar accounts in order, and you know when a meeting needs a tray and when it should be left alone."
 }
 
 
@@ -579,11 +579,14 @@ def refill_openings(openings: dict, staff: dict, target_min: int = 1, target_max
     taken = reserved | set(open_titles) | occupied_titles(staff)
     board = []
     board_blurbs = {}
+    board_fits = {}
     for item in openings.get("board") or []:
         if isinstance(item, dict) and item.get("title"):
             board.append(item["title"])
             if item.get("blurb"):
                 board_blurbs[item["title"]] = item["blurb"]
+            if item.get("fit"):
+                board_fits[item["title"]] = item["fit"]
         elif isinstance(item, str):
             board.append(item)
     preferred = [title for title in board if title not in taken]
@@ -594,11 +597,14 @@ def refill_openings(openings: dict, staff: dict, target_min: int = 1, target_max
     day = datetime.now().timetuple().tm_yday
     title = pool[day % len(pool)]
     slug = slugify(title)
-    openings.setdefault("open", []).append({
+    posted = {
         "id": slug,
         "title": title,
         "blurb": board_blurbs.get(title) or GENERIC_BLURBS.get(title, "A desk is free. The work will be explained, once, and not loudly."),
-    })
+    }
+    if board_fits.get(title):
+        posted["fit"] = board_fits[title]
+    openings.setdefault("open", []).append(posted)
     # Never exceed target_max (we only add one here).
     if len(openings["open"]) > target_max:
         openings["open"] = openings["open"][:target_max]

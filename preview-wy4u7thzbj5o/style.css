@@ -232,6 +232,8 @@ a{color:inherit}
 .hiring-sign .more{display:inline-block;margin-top:14px;color:var(--gold-deep)}
 .hiring-sign a:hover .more{color:var(--ink)}
 
+#openings-list .job-fit{margin:-4px 0 20px;font:italic 400 16px/1.55 var(--serif);color:var(--muted);max-width:640px}
+
 /* employee of the month — brass lobby frame */
 .eotm{margin:0 auto 56px;max-width:280px;text-align:center}
 .eotm .kicker{margin-bottom:10px}

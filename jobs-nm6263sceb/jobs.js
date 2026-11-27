@@ -68,6 +68,12 @@
       blurb.textContent = o.blurb || "";
       card.appendChild(top);
       card.appendChild(blurb);
+      if (o.fit) {
+        var fit = document.createElement("p");
+        fit.className = "job-fit";
+        fit.textContent = o.fit;
+        card.appendChild(fit);
+      }
       if (!who) {
         openN += 1;
         var btn = document.createElement("button");
