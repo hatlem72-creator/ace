@@ -6,6 +6,7 @@
     "Account Supervisor",
     "Account Executive",
     "Copy Chief",
+    "Graphic Designer",
     "Copywriter",
     "Art Director",
     "Illustrator",
@@ -25,7 +26,13 @@
     "Tea Lady",
     "Master Stylist",
     "Company Clown",
-    "Studio Photographer"
+    "Studio Photographer",
+    "Designer",
+    "Stylist",
+    "Client Account Manager",
+    "Talent Manager",
+    "Mail Boy",
+    "Bartender"
   ],
   "reserved": [
     "Creative Director",
@@ -36,49 +43,44 @@
   ],
   "open": [
     {
+      "id": "graphic-designer",
+      "title": "Graphic Designer",
+      "blurb": "A layout with backbone, a mark you can see from the street, and no patience for a timid margin."
+    },
+    {
       "id": "copywriter",
       "title": "Copywriter",
       "blurb": "Twelve words, if you have them. Eleven, if you do not."
     },
     {
-      "id": "paste-up-artist",
-      "title": "Paste-up Artist",
-      "blurb": "A steel rule, a sharp blade, and no patience for a crooked margin."
+      "id": "designer",
+      "title": "Designer",
+      "blurb": "Makes the rough look finished, and the finished look inevitable."
     },
     {
-      "id": "retoucher",
-      "title": "Retoucher",
-      "blurb": "The face is already good. You will make it printable."
+      "id": "stylist",
+      "title": "Stylist",
+      "blurb": "A look you can smell from the lobby, and a pin for every last hem."
     },
     {
-      "id": "media-buyer",
-      "title": "Media Buyer",
-      "blurb": "Knows which hour of the afternoon a spot can still afford."
+      "id": "client-account-manager",
+      "title": "Client Account Manager",
+      "blurb": "Keeps the client calm, the invoice moving, and lunch on the right side of the bill."
     },
     {
-      "id": "tv-producer",
-      "title": "TV Producer",
-      "blurb": "Says “that’s a wrap” at four, and means lunch."
+      "id": "talent-manager",
+      "title": "Talent Manager",
+      "blurb": "Books the face, soothes the ego, and gets them to the studio before the light goes."
     },
     {
-      "id": "film-director",
-      "title": "Film Director",
-      "blurb": "The megaphone is on the hook. The chair is free."
-    },
-    {
-      "id": "switchboard-operator",
-      "title": "Switchboard Operator",
-      "blurb": "The first hello and the last goodbye, and never a crossed line."
-    },
-    {
-      "id": "chauffeur",
-      "title": "Chauffeur",
-      "blurb": "The car is black. The route is a matter of opinion."
-    },
-    {
-      "id": "mailroom-boy",
-      "title": "Mailroom Boy",
+      "id": "mail-boy",
+      "title": "Mail Boy",
       "blurb": "The chute, the stairs, and the one envelope that is always late."
+    },
+    {
+      "id": "bartender",
+      "title": "Bartender",
+      "blurb": "The first pour is for the client. The second is for the house. The third is a rumour."
     }
   ],
   "reservedOpenings": [
@@ -87,6 +89,48 @@
       "title": "Company Clown",
       "blurb": "Duties: board meetings and parties.",
       "reserved": true
+    }
+  ],
+  "board": [
+    {
+      "id": "graphic-designer",
+      "title": "Graphic Designer",
+      "blurb": "A layout with backbone, a mark you can see from the street, and no patience for a timid margin."
+    },
+    {
+      "id": "copywriter",
+      "title": "Copywriter",
+      "blurb": "Twelve words, if you have them. Eleven, if you do not."
+    },
+    {
+      "id": "designer",
+      "title": "Designer",
+      "blurb": "Makes the rough look finished, and the finished look inevitable."
+    },
+    {
+      "id": "stylist",
+      "title": "Stylist",
+      "blurb": "A look you can smell from the lobby, and a pin for every last hem."
+    },
+    {
+      "id": "client-account-manager",
+      "title": "Client Account Manager",
+      "blurb": "Keeps the client calm, the invoice moving, and lunch on the right side of the bill."
+    },
+    {
+      "id": "talent-manager",
+      "title": "Talent Manager",
+      "blurb": "Books the face, soothes the ego, and gets them to the studio before the light goes."
+    },
+    {
+      "id": "mail-boy",
+      "title": "Mail Boy",
+      "blurb": "The chute, the stairs, and the one envelope that is always late."
+    },
+    {
+      "id": "bartender",
+      "title": "Bartender",
+      "blurb": "The first pour is for the client. The second is for the house. The third is a rumour."
     }
   ]
 }

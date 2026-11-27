@@ -1,0 +1,136 @@
+{
+  "pool": [
+    "President",
+    "Creative Director",
+    "Treasurer",
+    "Account Supervisor",
+    "Account Executive",
+    "Copy Chief",
+    "Graphic Designer",
+    "Copywriter",
+    "Art Director",
+    "Illustrator",
+    "Jingle Writer",
+    "Paste-up Artist",
+    "Retoucher",
+    "TV Producer",
+    "Film Director",
+    "Media Buyer",
+    "Traffic Manager",
+    "Switchboard Operator",
+    "Chauffeur",
+    "Executive Secretary",
+    "Receptionist",
+    "Typist",
+    "Mailroom Boy",
+    "Tea Lady",
+    "Master Stylist",
+    "Company Clown",
+    "Studio Photographer",
+    "Designer",
+    "Stylist",
+    "Client Account Manager",
+    "Talent Manager",
+    "Mail Boy",
+    "Bartender"
+  ],
+  "reserved": [
+    "Creative Director",
+    "Art Director",
+    "Company Clown",
+    "Master Stylist",
+    "Studio Photographer"
+  ],
+  "open": [
+    {
+      "id": "graphic-designer",
+      "title": "Graphic Designer",
+      "blurb": "A layout with backbone, a mark you can see from the street, and no patience for a timid margin."
+    },
+    {
+      "id": "copywriter",
+      "title": "Copywriter",
+      "blurb": "Twelve words, if you have them. Eleven, if you do not."
+    },
+    {
+      "id": "designer",
+      "title": "Designer",
+      "blurb": "Makes the rough look finished, and the finished look inevitable."
+    },
+    {
+      "id": "stylist",
+      "title": "Stylist",
+      "blurb": "A look you can smell from the lobby, and a pin for every last hem."
+    },
+    {
+      "id": "client-account-manager",
+      "title": "Client Account Manager",
+      "blurb": "Keeps the client calm, the invoice moving, and lunch on the right side of the bill."
+    },
+    {
+      "id": "talent-manager",
+      "title": "Talent Manager",
+      "blurb": "Books the face, soothes the ego, and gets them to the studio before the light goes."
+    },
+    {
+      "id": "mail-boy",
+      "title": "Mail Boy",
+      "blurb": "The chute, the stairs, and the one envelope that is always late."
+    },
+    {
+      "id": "bartender",
+      "title": "Bartender",
+      "blurb": "The first pour is for the client. The second is for the house. The third is a rumour."
+    }
+  ],
+  "reservedOpenings": [
+    {
+      "id": "company-clown",
+      "title": "Company Clown",
+      "blurb": "Duties: board meetings and parties.",
+      "reserved": true
+    }
+  ],
+  "board": [
+    {
+      "id": "graphic-designer",
+      "title": "Graphic Designer",
+      "blurb": "A layout with backbone, a mark you can see from the street, and no patience for a timid margin."
+    },
+    {
+      "id": "copywriter",
+      "title": "Copywriter",
+      "blurb": "Twelve words, if you have them. Eleven, if you do not."
+    },
+    {
+      "id": "designer",
+      "title": "Designer",
+      "blurb": "Makes the rough look finished, and the finished look inevitable."
+    },
+    {
+      "id": "stylist",
+      "title": "Stylist",
+      "blurb": "A look you can smell from the lobby, and a pin for every last hem."
+    },
+    {
+      "id": "client-account-manager",
+      "title": "Client Account Manager",
+      "blurb": "Keeps the client calm, the invoice moving, and lunch on the right side of the bill."
+    },
+    {
+      "id": "talent-manager",
+      "title": "Talent Manager",
+      "blurb": "Books the face, soothes the ego, and gets them to the studio before the light goes."
+    },
+    {
+      "id": "mail-boy",
+      "title": "Mail Boy",
+      "blurb": "The chute, the stairs, and the one envelope that is always late."
+    },
+    {
+      "id": "bartender",
+      "title": "Bartender",
+      "blurb": "The first pour is for the client. The second is for the house. The third is a rumour."
+    }
+  ]
+}

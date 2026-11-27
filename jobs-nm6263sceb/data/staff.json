@@ -1,0 +1,40 @@
+{
+  "maxFriendDesks": 11,
+  "note": "The loft already seats 14 on the letterhead (the permanent staff, rendered in team/index.html), plus Frank the company cat. Eleven desks may be filled by friend hires listed here (the ten junior desks, and the Film Director desk now open after Rex Holbrook left). When all eleven are occupied, the longest-serving non-protected friend hire is moved to former.json to make a desk free. Protected staff are never fired, auto-refilled, or rotated out. A hire’s public name keeps only their real first name and an invented surname; the real surname is never published.",
+  "protected": [
+    {
+      "id": "miek-van-tiffany",
+      "name": "Miek van Tiffany",
+      "reason": "Unfireable. Master Stylist. No firing flow, auto-refill, or junior-desk rotation may ever remove her, even if she is later listed among the friend hires."
+    }
+  ],
+  "hires": [
+    {
+      "id": "ken-mctune",
+      "name": "Ken McTune",
+      "position": "Jingle Writer",
+      "bio": "He writes with a runner's stride and a stamp collector's patience. Pepsi Max is the house pour. He types somewhat, and only after the miles.",
+      "portrait": "team/img/hires/ken-mctune.jpg?v=1",
+      "portraitWebp": "team/img/hires/ken-mctune.webp?v=1",
+      "hiredAt": "2026-11-26",
+      "realFirst": "Ken",
+      "front": false
+    },
+    {
+      "id": "iben-de-biscuit",
+      "name": "Iben de Biscuit",
+      "position": "Tea Lady",
+      "bio": "Boils the water until it is honest. The flute and the night sky wait until the cups are filled. Sparkling water with a twist of lime, and a bottle on her head for as long as a marathon requires.",
+      "portrait": "team/img/hires/iben-de-biscuit.jpg?v=1",
+      "portraitWebp": "team/img/hires/iben-de-biscuit.webp?v=1",
+      "hiredAt": "2026-11-26",
+      "realFirst": "Iben",
+      "portraitSide": "team/img/hires/iben-de-biscuit-side.jpg",
+      "front": false
+    }
+  ],
+  "frontOmit": [
+    "ken-mctune",
+    "iben-de-biscuit"
+  ]
+}

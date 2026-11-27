@@ -40,6 +40,7 @@ from sms_hiring import (
     save_reference_photo,
     slugify,
     refill_openings,
+    sync_jobs_board,
     write_portrait,
 )
 
@@ -136,6 +137,7 @@ def main():
     save_json(DATA / "staff.json", staff)
     save_json(DATA / "former.json", former)
     save_json(DATA / "openings.json", openings)
+    synced = sync_jobs_board()
 
     print(format_approval_summary(
         args.name,
@@ -154,6 +156,8 @@ def main():
         print(f"Posted a new opening: {added}")
     elif not openings.get("open"):
         print("No openings remain, and the pool is exhausted.")
+    for folder in synced:
+        print(f"Synced jobs board data: {folder.name}/data/")
 
 
 if __name__ == "__main__":

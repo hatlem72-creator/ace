@@ -7,7 +7,7 @@ The fourteen permanent staff on The Team are not managed here. They live in `pre
 ## Desks
 
 - **Letterhead:** 14 permanent staff (plus Frank the company cat). Rex Holbrook, formerly Film Director, is on the Former Employees wall.
-- **Junior desks:** 11 friend-hire seats, listed in `preview-wy4u7thzbj5o/data/staff.json` (`maxFriendDesks`). That is the original ten junior desks plus the Film Director desk now open.
+- **Junior desks:** 11 friend-hire seats, listed in `preview-wy4u7thzbj5o/data/staff.json` (`maxFriendDesks`). That cap is unchanged. Iben de Biscuit (Tea Lady) and Ken McTune (Jingle Writer) remain seated. The advertised board is the eight desks in `openings.json` `board`.
 - When all eleven junior desks are occupied, the **longest-serving non-protected friend hire** (earliest `hiredAt`) is moved to `preview-wy4u7thzbj5o/data/former.json` with a deadpan reason, and the new hire takes the desk. If every seated junior is protected, `add_hire.py` refuses rather than firing them or writing them to `former.json`.
 
 ## Protected / unfireable staff
@@ -22,19 +22,20 @@ Do not show her smoking in any image.
 
 | File | Role |
 |---|---|
-| `preview-wy4u7thzbj5o/data/openings.json` | `pool` of titles, `reserved` titles already held on the letterhead, and `open` (the 1–3 jobs currently advertised). |
+| `preview-wy4u7thzbj5o/data/openings.json` | `pool` of titles, `reserved` titles already held on the letterhead, `board` (the eight official desks on the public hiring page), and `open` (the jobs currently advertised). `add_hire.py` copies this file, and `staff.json`, into each standalone `jobs-*/data/` folder. |
 | `preview-wy4u7thzbj5o/data/staff.json` | Friend hires only, plus the `protected` list of unfireable staff. |
 | `preview-wy4u7thzbj5o/data/former.json` | Former employees, with the reason they left. |
 | `data/processed-applications.json` | Gmail message IDs already handled. The daily routine skips these. |
 
 Portraits for friend hires go in `preview-wy4u7thzbj5o/team/img/hires/` as `.jpg` + `.webp`. Paths in the JSON are relative to `preview-wy4u7thzbj5o/` (for example `team/img/hires/bobby-the-typewriter-hanssen.jpg`).
 
-Reserved titles (not re-advertised while the letterhead holds them): Creative Director, Art Director, Company Clown, Master Stylist, Studio Photographer. Copywriter is open as a junior desk, even though Whit Gant already holds that title on the letterhead. Film Director is open again after Rex Holbrook left.
+Reserved titles (not re-advertised while the letterhead holds them): Creative Director, Art Director, Company Clown, Master Stylist, Studio Photographer. The eight official junior desks on the board are Graphic Designer, Copywriter, Designer, Stylist, Client Account Manager, Talent Manager, Mail Boy, and Bartender. Copywriter is open as a junior desk, even though Whit Gant already holds that title on the letterhead. Tea Lady and Jingle Writer stay on The Team (Iben, Ken) but are no longer advertised. If an advertised desk is filled and later freed, `refill_openings` prefers an unused `board` title before the wider pool.
 
 ## What visitors see
 
 - **Home** (`preview-wy4u7thzbj5o/`): a “Now hiring” notice that reads `openings.json` and rotates a line such as “Star Man Studio is hiring: a Jingle Writer.” It links to the application. If nothing is open: “All desks are filled. Apply anyway.” Friend hires also appear under “New to the letterhead,” and a framed Employee of the Month (chosen by the day of the year, so it stays put for the day) appears in the lobby — except ids listed in `staff.json` `frontOmit` (currently Ken McTune and Iben de Biscuit), who stay on The Team only. If that leaves no one for the lobby or the frame, those blocks are hidden. `add_hire.py` keeps `frontOmit` and will not put those people back on the home page.
-- **Careers** and **Application** (`careers/`, `careers/apply/`): the openings (“11 desks. Now open.”), and a 1970s typed form. The current openings are Copywriter, Jingle Writer, Paste-up Artist, Retoucher, Media Buyer, TV Producer, Film Director, Switchboard Operator, Chauffeur, Mailroom Boy, and Tea Lady.
+- **Careers** and **Application** (`careers/`, `careers/apply/`): the openings (“8 desks. Now open.”), and a 1970s typed form. These pages still have the site navigation; they are not the link to send friends.
+- **Standalone hiring page** (`jobs-nm6263sceb/`): a self-contained board with no links to the unfinished preview site. Live URL: https://hatlem72-creator.github.io/ace/jobs-nm6263sceb/ . It lists the eight official desks, with OPEN / FILLED badges, and posts applications to the same FormSubmit in-tray. Job status is read from local copies of `openings.json` and `staff.json`, which `add_hire.py` keeps in step. Iben and Ken stay on staff pages; Tea Lady and Jingle Writer are not shown on this board.
 - **Thanks** (`careers/thanks/`): “Your application has been placed in the in-tray. The in-tray is reviewed daily, between drinks.”
 - **The Team**: friend hires render automatically under “Junior desks.” Former employees render on a small wall beneath the letterhead fine print.
 
@@ -131,7 +132,7 @@ Run this once a day, in this order. Low compute: no need to re-generate portrait
      --email bob@example.com
    ```
 
-   This script: exports `864×1152` `.jpg` + `.webp` into `team/img/hires/`; saves an optional side-photograph reference as `{id}-side.jpg` without cropping it to 3:4; appends the hire to `staff.json` (public name and, if known, `realFirst` only — never the real surname); if the eleven junior desks are full, moves the longest-serving non-protected friend hire to `former.json` with a deadpan reason (override with `--fire-reason`); refuses if every seated junior is protected; removes the filled title from `openings.json`; and, if that would leave none open, posts a new unused title from the pool so that **1–3 jobs stay advertised**.
+   This script: exports `864×1152` `.jpg` + `.webp` into `team/img/hires/`; saves an optional side-photograph reference as `{id}-side.jpg` without cropping it to 3:4; appends the hire to `staff.json` (public name and, if known, `realFirst` only — never the real surname); if the eleven junior desks are full, moves the longest-serving non-protected friend hire to `former.json` with a deadpan reason (override with `--fire-reason`); refuses if every seated junior is protected; removes the filled title from `openings.json`; if that would leave none open, posts a new unused title (preferring the official `board`, then the pool) so that **1–3 jobs stay advertised**; and copies `openings.json` and `staff.json` into each standalone `jobs-*/data/` folder.
 
 8. **Commit and push**, as `hatlem72-creator`, only the preview data, portraits, and (if touched) openings. Do not change the public root `index.html` (it stays “Coming soon”). A suitable message: `Preview: seat {name} at the {position} desk.`
 

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import shutil
 import re
 import unicodedata
 from datetime import datetime, timezone
@@ -148,6 +149,13 @@ GENERIC_BLURBS = {
     "Switchboard Operator": "The first hello and the last goodbye, and never a crossed line.",
     "Chauffeur": "The car is black. The route is a matter of opinion.",
     "Copywriter": "Twelve words, if you have them. Eleven, if you do not.",
+    "Graphic Designer": "A layout with backbone, a mark you can see from the street, and no patience for a timid margin.",
+    "Designer": "Makes the rough look finished, and the finished look inevitable.",
+    "Stylist": "A look you can smell from the lobby, and a pin for every last hem.",
+    "Client Account Manager": "Keeps the client calm, the invoice moving, and lunch on the right side of the bill.",
+    "Talent Manager": "Books the face, soothes the ego, and gets them to the studio before the light goes.",
+    "Mail Boy": "The chute, the stairs, and the one envelope that is always late.",
+    "Bartender": "The first pour is for the client. The second is for the house. The third is a rumour.",
 }
 
 
@@ -569,7 +577,17 @@ def refill_openings(openings: dict, staff: dict, target_min: int = 1, target_max
         return None
     reserved = set(openings.get("reserved") or [])
     taken = reserved | set(open_titles) | occupied_titles(staff)
-    pool = [t for t in (openings.get("pool") or []) if t not in taken]
+    board = []
+    board_blurbs = {}
+    for item in openings.get("board") or []:
+        if isinstance(item, dict) and item.get("title"):
+            board.append(item["title"])
+            if item.get("blurb"):
+                board_blurbs[item["title"]] = item["blurb"]
+        elif isinstance(item, str):
+            board.append(item)
+    preferred = [title for title in board if title not in taken]
+    pool = preferred or [title for title in (openings.get("pool") or []) if title not in taken]
     if not pool:
         return None
     # Stable daily pick, not true random: first unused after rotating by date.
@@ -579,12 +597,40 @@ def refill_openings(openings: dict, staff: dict, target_min: int = 1, target_max
     openings.setdefault("open", []).append({
         "id": slug,
         "title": title,
-        "blurb": GENERIC_BLURBS.get(title, "A desk is free. The work will be explained, once, and not loudly."),
+        "blurb": board_blurbs.get(title) or GENERIC_BLURBS.get(title, "A desk is free. The work will be explained, once, and not loudly."),
     })
     # Never exceed target_max (we only add one here).
     if len(openings["open"]) > target_max:
         openings["open"] = openings["open"][:target_max]
     return title
+
+
+
+def jobs_board_dirs() -> list[Path]:
+    """Standalone hiring pages live at repo-root jobs-<slug>/ so friends never see the preview site."""
+    return sorted(
+        p for p in ROOT.glob("jobs-*")
+        if p.is_dir() and (p / "index.html").is_file()
+    )
+
+
+def sync_jobs_board() -> list[Path]:
+    """Copy openings.json and staff.json into each jobs-* folder.
+
+    The public hiring page reads only these local copies, so a hire updates
+    both the preview site and the standalone board without leaking the
+    unfinished preview URL.
+    """
+    updated: list[Path] = []
+    for folder in jobs_board_dirs():
+        dest = folder / "data"
+        dest.mkdir(parents=True, exist_ok=True)
+        for name in ("openings.json", "staff.json"):
+            src = DATA / name
+            if src.exists():
+                shutil.copy2(src, dest / name)
+        updated.append(folder)
+    return updated
 
 
 def write_portrait(src: Path, dest_stem: Path) -> tuple[str, str]:
